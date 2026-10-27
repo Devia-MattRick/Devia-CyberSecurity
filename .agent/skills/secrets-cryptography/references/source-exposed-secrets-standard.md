@@ -13,7 +13,8 @@ Este documento formaliza el estándar heurístico de auditoría para la detecci�
 
 ### Antipatrones de Falso Negativo Erradicados:
 1. **"Está en una carpeta de pruebas (tests/ fixtures):"**  
-   Frecuentemente desarrolladores introducen claves reales de staging o producción en mocks o fixtures. La ubicación en `tests/` o `examples/` **NO** es contraevidencia válida por sí misma.
+   Frecuentemente desarrolladores introducen claves reales de staging o producción en mocks o fixtures. La ubicación en `tests/` o `examples/` **NO** es contraevidencia válida por sí misma ni autoriza la degradación de severidad.
+   - *Caso Forense Real (Cyber Neo):* En la auditoría de `cyber-neo-main` se descubrió que su motor `scan_secrets.py` reducía deliberadamente la severidad de `critical` a `medium` y de `high` a `low` ante cualquier ruta clasificada como test (`is_test_file`). Esto constituye un sesgo metodológico inaceptable que produce falsos negativos sistemáticos. En Devia-CyberSecurity, la severidad intrínseca de la credencial (`CRITICAL`/`HIGH`) permanece inmutable sin importar el archivo contenedor (`VULN-CRYP-001`).
 2. **"Es una función nunca invocada / código muerto:"**  
    Cualquier lector de código (humano, CI/CD, auditor o atacante que lea el repositorio) tiene acceso a la credencial independientemente de su invocación.
 3. **"No se sabe si la clave sigue activa en el proveedor:"**  

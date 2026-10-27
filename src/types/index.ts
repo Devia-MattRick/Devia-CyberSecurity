@@ -40,3 +40,76 @@ export type {
   CoverageSummary
 } from "../schemas/scan-contract.schema.js";
 
+export type {
+  MitreTechniqueId,
+  MitreTacticId,
+  NistCsfFunction,
+  NistCsfCategory,
+  OwaspTop10_2025,
+  NavigatorMetadataItem,
+  NavigatorTechniqueEntry,
+  AttackNavigatorLayer,
+  CrossFrameworkMappingEntry
+} from "../schemas/framework-mapping.schema.js";
+
+export type {
+  ArtifactKind,
+  ArtifactInputDigest,
+  ArtifactRef,
+  SastSourceLocation,
+  ScanSource,
+  Priority,
+  ReconciliationObservation,
+  ReconciliationTask
+} from "../schemas/reconciliation.schema.js";
+
+export type {
+  ScopeRuleKind,
+  ScopeRule,
+  TimeWindow,
+  MachineEnforcement,
+  Decision,
+  AuditChainRecord
+} from "../schemas/roe-enforcement.schema.js";
+
+export type {
+  HttpFramework,
+  HttpMethod,
+  RouteDeclaration,
+  VulnerabilitySinkClass,
+  VulnerabilitySink,
+  CorrelatedBridgeLead,
+  SourceToRuntimeBridgeScanResult
+} from "../schemas/source-to-runtime-bridge.schema.js";
+
+export type {
+  EpisodicGraphNodeLabel,
+  EpisodicGraphEdgeType,
+  EpisodicGraphNode,
+  EpisodicGraphEdge,
+  EpisodicKnowledgeGraph,
+  EpisodicGraphQuery
+} from "../schemas/episodic-knowledge-graph.schema.js";
+
+export type {
+  CryptographicUsage,
+  CryptographicCategory,
+  QuantumVulnerabilityStatus,
+  PqcMigrationPriority,
+  CryptographicInventoryEntry,
+  CryptographicInventoryReport
+} from "../schemas/cryptographic-inventory.schema.js";
+
+export type {
+  IncidentType,
+  AssetCriticality,
+  DataSensitivity,
+  ThreatStatus,
+  IncidentScope,
+  IncidentTriageRequest,
+  IncidentTriageEvaluation
+} from "../schemas/incident-triage.schema.js";
+
+
+
+
