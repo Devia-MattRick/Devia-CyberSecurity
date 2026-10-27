@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "test": "node --test"
+    "test": "node --test \"dist/**/*.test.js\""
   },
   "keywords": [
     "cybersecurity",
