@@ -1,0 +1,32 @@
+{
+  "name": "devia-cybersecurity",
+  "version": "0.1.0",
+  "description": "Agnostic, contract-driven cybersecurity auditing engine and agentic tools for offline & cloud applications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test"
+  },
+  "keywords": [
+    "cybersecurity",
+    "sast",
+    "threat-modeling",
+    "security-audit",
+    "agentic-security",
+    "zod",
+    "cwe",
+    "owasp"
+  ],
+  "author": "Devia-MattRick <devia.devolutioniagentic@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  }
+}
