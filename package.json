@@ -22,6 +22,7 @@
   ],
   "author": "Devia-MattRick <devia.devolutioniagentic@gmail.com>",
   "license": "Apache-2.0",
+  "packageManager": "pnpm@10.32.1",
   "dependencies": {
     "zod": "^4.6.7"
   },

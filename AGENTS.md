@@ -35,7 +35,7 @@ Para garantizar máxima robustez, tipado estricto y capacidades avanzadas de an�
 | Capa / Módulo | Tecnología / Herramienta | Rol y Responsabilidad |
 | :--- | :--- | :--- |
 | **Capa 1: Orquestación Agentica** | `.agent/skills/` (`SKILL.md`) | Metodologías de auditoría, checklists universales (OWASP, NIST, CWE) y heurísticas de razonamiento por dimensión. |
-| **Capa 2: Motor de Contratos & MCP** | **TypeScript + Zod** (Node 22+ ESM) | Definición autoritativa de esquemas (`src/schemas/`), validación de datos en tiempo de ejecución, orquestación y servidores MCP. |
+| **Capa 2: Motor de Contratos & MCP** | **TypeScript + Zod + pnpm** (Node 22+ ESM, pnpm v10+) | Definición autoritativa de esquemas (`src/schemas/`), validación de datos en tiempo de ejecución, orquestación y servidores MCP. |
 | **Capa 3: Utilidades de Análisis Profundo** | **Python 3.11+** (`src/scripts/`) | Scripts de cálculo de entropía de Shannon, escáneres de baja latencia, parsers de dependencias y análisis forense determinista. |
 | **Frontend UI** | *Excluido* | Este repositorio se enfoca puramente en motores backend, CLI, herramientas MCP y skills agenticas. No contiene frameworks frontend (e.g. Angular). |
 

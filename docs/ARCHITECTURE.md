@@ -18,7 +18,7 @@ El sistema opera bajo un modelo desacoplado que separa el razonamiento metodoló
                               |
                               v
 +-------------------------------------------------------------+
-|           CAPA 2: MOTOR DE CONTRATOS (TypeScript + Zod)     |
+|           CAPA 2: MOTOR DE CONTRATOS (TypeScript + Zod + pnpm)  |
 |  - Modelos autoritativos de datos (Findings, Reports, TM)   |
 |  - Validación de esquemas en tiempo de ejecución            |
 |  - Servidores MCP y CLI de orquestación                     |
