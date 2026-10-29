@@ -492,7 +492,7 @@ absorption_plan = {
             "destination": "SKILL_REFERENCE",
             "intent": "CREATE_NEW",
             "existingVulnerabilityId": "VULN-SAST-005",
-            "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/repository-confinement-anti-toctou.md",
+            "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/repository-confinement-anti-toctou.md",
             "architecturalRationale": "Capa 1: Heurística operativa y checklist de diseño seguro para auditar jaulas de ejecución, sistemas de archivos virtuales y lectores de repositorios.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -509,7 +509,7 @@ absorption_plan = {
             "destination": "SKILL_REFERENCE",
             "intent": "CREATE_NEW",
             "existingVulnerabilityId": "VULN-ARCH-004",
-            "targetPathInRepo": ".agent/skills/source-code-sast/references/finding-reconciliation-and-lineage.md",
+            "targetPathInRepo": ".agents/skills/source-code-sast/references/finding-reconciliation-and-lineage.md",
             "architecturalRationale": "Capa 1: Metodología para reconciliar análisis estático con evidencia dinámica y seguimiento estricto de procedencia.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -678,10 +678,10 @@ md_content = f"""# Auditoría Forense de Ingeniería Inversa y Plan de Absorció
 ## 📦 4. Plan de Absorción hacia Devia-CyberSecurity
 
 1. **`ABS-001` (Capa 1 - Skill Reference):**
-   - **Destino:** `.agent/skills/architecture-boundaries-zero-trust/references/repository-confinement-anti-toctou.md`
+   - **Destino:** `.agents/skills/architecture-boundaries-zero-trust/references/repository-confinement-anti-toctou.md`
    - **Propósito:** Documentar la jaula anti-TOCTOU con verificación `/proc/self/fd` y flags `O_NOFOLLOW`.
 2. **`ABS-002` (Capa 1 - Skill Reference):**
-   - **Destino:** `.agent/skills/source-code-sast/references/finding-reconciliation-and-lineage.md`
+   - **Destino:** `.agents/skills/source-code-sast/references/finding-reconciliation-and-lineage.md`
    - **Propósito:** Formalizar la metodología de reconciliación SAST/DAST y linaje de artefactos basado en hashes SHA-256.
 3. **`ABS-003` (Capa 3 - Python Utility):**
    - **Destino:** `src/scripts/url_validator.py`

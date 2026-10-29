@@ -552,7 +552,7 @@ plan = {
             "destination": "SKILL_REFERENCE",
             "intent": "ROBUSTIFY_HARDEN",
             "existingVulnerabilityId": "VULN-ARCH-009",
-            "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/docker-sandbox-daemon-isolation-and-opa-probe.md",
+            "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/docker-sandbox-daemon-isolation-and-opa-probe.md",
             "architecturalRationale": "Capa 1: Documentación autoritativa y heurísticas de seguridad para guiar la auditoría de agentes que ejecutan contenedores Docker.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -569,7 +569,7 @@ plan = {
             "destination": "SKILL_REFERENCE",
             "intent": "ABSORB_EXPAND",
             "existingVulnerabilityId": "VULN-CONF-003",
-            "targetPathInRepo": ".agent/skills/configuration-hardening/references/docker-container-hardening.md",
+            "targetPathInRepo": ".agents/skills/configuration-hardening/references/docker-container-hardening.md",
             "architecturalRationale": "Capa 1: Enriquecimiento de la guía de hardening de contenedores existente (Reuse Before Adding Machinery).",
             "priority": "HIGH",
             "implementationSteps": [
@@ -585,7 +585,7 @@ plan = {
             "destination": "SKILL_REFERENCE",
             "intent": "CREATE_NEW",
             "existingVulnerabilityId": "VULN-CONF-007",
-            "targetPathInRepo": ".agent/skills/configuration-hardening/references/postgresql-multitenant-searchpath-isolation.md",
+            "targetPathInRepo": ".agents/skills/configuration-hardening/references/postgresql-multitenant-searchpath-isolation.md",
             "architecturalRationale": "Capa 1: Heurística crítica para auditoría de aplicaciones SaaS multi-tenant con esquemas dinámicos en PostgreSQL.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -601,7 +601,7 @@ plan = {
             "destination": "SKILL_REFERENCE",
             "intent": "CREATE_NEW",
             "existingVulnerabilityId": "VULN-IAM-001",
-            "targetPathInRepo": ".agent/skills/identity-access-session/references/stateless-cookie-session-generation-revocation.md",
+            "targetPathInRepo": ".agents/skills/identity-access-session/references/stateless-cookie-session-generation-revocation.md",
             "architecturalRationale": "Capa 1: Referencia técnica para diseño seguro de sesiones web ligeras con revocación instantánea.",
             "priority": "MEDIUM",
             "implementationSteps": [
@@ -617,7 +617,7 @@ plan = {
             "destination": "SKILL_REFERENCE",
             "intent": "ABSORB_EXPAND",
             "existingVulnerabilityId": "VULN-CRYP-004",
-            "targetPathInRepo": ".agent/skills/secrets-cryptography/references/key-derivation-and-password-hashing-standards.md",
+            "targetPathInRepo": ".agents/skills/secrets-cryptography/references/key-derivation-and-password-hashing-standards.md",
             "architecturalRationale": "Capa 1: Estándares de criptografía aplicada y auditoría de funciones de derivación y hash de contraseñas.",
             "priority": "MEDIUM",
             "implementationSteps": [
@@ -633,7 +633,7 @@ plan = {
             "destination": "SKILL_REFERENCE",
             "intent": "ROBUSTIFY_HARDEN",
             "existingVulnerabilityId": "VULN-SAST-007",
-            "targetPathInRepo": ".agent/skills/source-code-sast/references/cross-platform-path-sanitization-and-zip-slip.md",
+            "targetPathInRepo": ".agents/skills/source-code-sast/references/cross-platform-path-sanitization-and-zip-slip.md",
             "architecturalRationale": "Capa 1: Refuerzo de las directivas SAST para descompresión de archivos y manejo de rutas en Windows.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -649,7 +649,7 @@ plan = {
             "destination": "SKILL_REFERENCE",
             "intent": "CREATE_NEW",
             "existingVulnerabilityId": "VULN-RESI-005",
-            "targetPathInRepo": ".agent/skills/resilience-logging-telemetry/references/llm-chain-ast-and-context-summarization.md",
+            "targetPathInRepo": ".agents/skills/resilience-logging-telemetry/references/llm-chain-ast-and-context-summarization.md",
             "architecturalRationale": "Capa 1: Heurística esencial para sistemas agenticos que ejecutan auditorías de seguridad autónomas.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -749,19 +749,19 @@ La inspección se ha ejecutado bajo las 7 Leyes Inmutables de Ingeniería Invers
 
 Se han derivado **8 Acciones de Absorción** contract-first:
 
-1. **`ABS-001` (Capa 1 - Skill Reference):** `.agent/skills/architecture-boundaries-zero-trust/references/docker-sandbox-daemon-isolation-and-opa-probe.md`
+1. **`ABS-001` (Capa 1 - Skill Reference):** `.agents/skills/architecture-boundaries-zero-trust/references/docker-sandbox-daemon-isolation-and-opa-probe.md`
    - *Intención:* `ROBUSTIFY_HARDEN` (vinculada a `VULN-ARCH-009`).
-2. **`ABS-002` (Capa 1 - Skill Reference):** `.agent/skills/configuration-hardening/references/docker-container-hardening.md`
+2. **`ABS-002` (Capa 1 - Skill Reference):** `.agents/skills/configuration-hardening/references/docker-container-hardening.md`
    - *Intención:* `ABSORB_EXPAND` (vinculada a `VULN-CONF-003`).
-3. **`ABS-003` (Capa 1 - Skill Reference):** `.agent/skills/configuration-hardening/references/postgresql-multitenant-searchpath-isolation.md`
+3. **`ABS-003` (Capa 1 - Skill Reference):** `.agents/skills/configuration-hardening/references/postgresql-multitenant-searchpath-isolation.md`
    - *Intención:* `CREATE_NEW` (vinculada a `VULN-CONF-007`).
-4. **`ABS-004` (Capa 1 - Skill Reference):** `.agent/skills/identity-access-session/references/stateless-cookie-session-generation-revocation.md`
+4. **`ABS-004` (Capa 1 - Skill Reference):** `.agents/skills/identity-access-session/references/stateless-cookie-session-generation-revocation.md`
    - *Intención:* `CREATE_NEW` (vinculada a `VULN-IAM-001`).
-5. **`ABS-005` (Capa 1 - Skill Reference):** `.agent/skills/secrets-cryptography/references/key-derivation-and-password-hashing-standards.md`
+5. **`ABS-005` (Capa 1 - Skill Reference):** `.agents/skills/secrets-cryptography/references/key-derivation-and-password-hashing-standards.md`
    - *Intención:* `ABSORB_EXPAND` (vinculada a `VULN-CRYP-004`).
-6. **`ABS-006` (Capa 1 - Skill Reference):** `.agent/skills/source-code-sast/references/cross-platform-path-sanitization-and-zip-slip.md`
+6. **`ABS-006` (Capa 1 - Skill Reference):** `.agents/skills/source-code-sast/references/cross-platform-path-sanitization-and-zip-slip.md`
    - *Intención:* `ROBUSTIFY_HARDEN` (vinculada a `VULN-SAST-007`).
-7. **`ABS-007` (Capa 1 - Skill Reference):** `.agent/skills/resilience-logging-telemetry/references/llm-chain-ast-and-context-summarization.md`
+7. **`ABS-007` (Capa 1 - Skill Reference):** `.agents/skills/resilience-logging-telemetry/references/llm-chain-ast-and-context-summarization.md`
    - *Intención:* `CREATE_NEW` (vinculada a `VULN-RESI-005`).
 8. **`ABS-008` (Capa 2 - Zod Schema):** `src/schemas/episodic-knowledge-graph.schema.ts`
    - *Intención:* `CREATE_NEW` (vinculada a `VULN-TM-003`).

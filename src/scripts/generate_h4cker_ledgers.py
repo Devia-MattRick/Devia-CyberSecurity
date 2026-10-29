@@ -612,11 +612,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "UPDATE_ENHANCE",
         "existingVulnerabilityId": "VULN-SAST-001",
-        "targetPathInRepo": ".agent/skills/source-code-sast/references/codeguard-secure-by-default-patterns.md",
+        "targetPathInRepo": ".agents/skills/source-code-sast/references/codeguard-secure-by-default-patterns.md",
         "architecturalRationale": "Capa 1: Referencia operativa para la Skill source-code-sast incorporando las 24 reglas de Project CodeGuard por lenguaje (C, Go, Java, Python, TypeScript) y directrices de validación de entradas.",
         "priority": "HIGH",
         "implementationSteps": [
-            "Crear .agent/skills/source-code-sast/references/codeguard-secure-by-default-patterns.md con tablas de reglas por lenguaje y contexto.",
+            "Crear .agents/skills/source-code-sast/references/codeguard-secure-by-default-patterns.md con tablas de reglas por lenguaje y contexto.",
             "Integrar patrones de parametrización SQL, manejo de archivos seguro y sanitización de funciones peligrosas en C.",
             "Vincular con VULN-SAST-001, VULN-SAST-002 y VULN-SAST-003."
         ]
@@ -628,11 +628,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "ROBUSTIFY_HARDEN",
         "existingVulnerabilityId": "VULN-ARCH-011",
-        "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/cosai-mcp-security-architecture.md",
+        "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/cosai-mcp-security-architecture.md",
         "architecturalRationale": "Capa 1: Documento de referencia fundamental en la Skill de arquitectura y Zero Trust que formaliza las directivas CoSAI para servidores, herramientas y hosts MCP.",
         "priority": "CRITICAL",
         "implementationSteps": [
-            "Redactar .agent/skills/architecture-boundaries-zero-trust/references/cosai-mcp-security-architecture.md.",
+            "Redactar .agents/skills/architecture-boundaries-zero-trust/references/cosai-mcp-security-architecture.md.",
             "Documentar la matriz comparativa de transporte (STDIO local vs HTTP/mTLS remoto).",
             "Establecer directivas de Workload Identity (SPIFFE/SPIRE), confirmación en dos etapas (2-stage commit) y sandboxing.",
             "Vincular con VULN-ARCH-011."
@@ -645,11 +645,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "ABSORB_EXPAND",
         "existingVulnerabilityId": "VULN-TM-003",
-        "targetPathInRepo": ".agent/skills/threat-modeling-attack-surface/references/csa-maestro-agentic-threat-modeling.md",
+        "targetPathInRepo": ".agents/skills/threat-modeling-attack-surface/references/csa-maestro-agentic-threat-modeling.md",
         "architecturalRationale": "Capa 1: Referencia técnica en la Skill threat-modeling-attack-surface para modelar sistemas de agentes autónomos a través de las 7 capas de MAESTRO.",
         "priority": "HIGH",
         "implementationSteps": [
-            "Crear .agent/skills/threat-modeling-attack-surface/references/csa-maestro-agentic-threat-modeling.md.",
+            "Crear .agents/skills/threat-modeling-attack-surface/references/csa-maestro-agentic-threat-modeling.md.",
             "Describir las 7 capas del modelo MAESTRO (Modelos base, Operaciones de datos, Orquestación, Herramientas, Infraestructura, Observabilidad, Ecosistema).",
             "Mapear vectores de ataque agénticos (memory poisoning, tool rug pull, prompt injection) a las 8 Dimensiones Canónicas."
         ]
@@ -661,11 +661,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "UPDATE_ENHANCE",
         "existingVulnerabilityId": "VULN-TM-001",
-        "targetPathInRepo": ".agent/skills/threat-modeling-attack-surface/references/cosai-risk-map-taxonomy.md",
+        "targetPathInRepo": ".agents/skills/threat-modeling-attack-surface/references/cosai-risk-map-taxonomy.md",
         "architecturalRationale": "Capa 1: Documentación de referencia para catalogación de superficies de ataque y activos en proyectos de inteligencia artificial.",
         "priority": "MEDIUM",
         "implementationSteps": [
-            "Redactar .agent/skills/threat-modeling-attack-surface/references/cosai-risk-map-taxonomy.md.",
+            "Redactar .agents/skills/threat-modeling-attack-surface/references/cosai-risk-map-taxonomy.md.",
             "Incorporar los 23 componentes de IA organizados en Data, Infrastructure, Model y Application.",
             "Integrar el mapeo formal hacia MITRE ATLAS, NIST AI RMF y STRIDE."
         ]
@@ -677,11 +677,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "ABSORB_EXPAND",
         "existingVulnerabilityId": "VULN-SCA-004",
-        "targetPathInRepo": ".agent/skills/supply-chain-sca/references/sbom-vex-ingestion-standards.md",
+        "targetPathInRepo": ".agents/skills/supply-chain-sca/references/sbom-vex-ingestion-standards.md",
         "architecturalRationale": "Capa 1: Referencia operativa para la Skill supply-chain-sca con especificaciones de CycloneDX, SPDX y CSAF 2.0 VEX.",
         "priority": "HIGH",
         "implementationSteps": [
-            "Crear .agent/skills/supply-chain-sca/references/sbom-vex-ingestion-standards.md.",
+            "Crear .agents/skills/supply-chain-sca/references/sbom-vex-ingestion-standards.md.",
             "Documentar la estructura de metadatos de dependencias, hashes de componentes y estados de explotabilidad VEX (not_affected, affected, fixed, under_investigation).",
             "Vincular con VULN-SCA-001 y VULN-SCA-004."
         ]
@@ -693,11 +693,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "ROBUSTIFY_HARDEN",
         "existingVulnerabilityId": "VULN-IAM-001",
-        "targetPathInRepo": ".agent/skills/identity-access-session/references/api-security-assessment-matrix.md",
+        "targetPathInRepo": ".agents/skills/identity-access-session/references/api-security-assessment-matrix.md",
         "architecturalRationale": "Capa 1: Referencia metodológica para auditorías de control de acceso e identidad en endpoints REST.",
         "priority": "HIGH",
         "implementationSteps": [
-            "Crear .agent/skills/identity-access-session/references/api-security-assessment-matrix.md.",
+            "Crear .agents/skills/identity-access-session/references/api-security-assessment-matrix.md.",
             "Detallar pruebas sistemáticas de IDOR, escalada de privilegios y validación de tokens JWT.",
             "Incorporar la mitigación contra omisión de metadatos IPv6 en preflights SSRF (VULN-CONF-005)."
         ]
@@ -709,11 +709,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "UPDATE_ENHANCE",
         "existingVulnerabilityId": "VULN-CONF-003",
-        "targetPathInRepo": ".agent/skills/configuration-hardening/references/linux-kernel-lsm-and-firewall-hardening.md",
+        "targetPathInRepo": ".agents/skills/configuration-hardening/references/linux-kernel-lsm-and-firewall-hardening.md",
         "architecturalRationale": "Capa 1: Referencia de configuración y bastionado de sistemas operativos Linux y contenedores.",
         "priority": "MEDIUM",
         "implementationSteps": [
-            "Crear .agent/skills/configuration-hardening/references/linux-kernel-lsm-and-firewall-hardening.md.",
+            "Crear .agents/skills/configuration-hardening/references/linux-kernel-lsm-and-firewall-hardening.md.",
             "Documentar perfiles de SELinux, AppArmor y reglas atómicas nftables.",
             "Incorporar directrices de hardening de CIS Benchmark v2.0."
         ]
@@ -725,11 +725,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "ROBUSTIFY_HARDEN",
         "existingVulnerabilityId": "VULN-ARCH-006",
-        "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/nested-agents-harness-engineering.md",
+        "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/nested-agents-harness-engineering.md",
         "architecturalRationale": "Capa 1: Referencia sobre ingeniería de arneses y particionamiento de límites de confianza para LLMs.",
         "priority": "HIGH",
         "implementationSteps": [
-            "Crear .agent/skills/architecture-boundaries-zero-trust/references/nested-agents-harness-engineering.md.",
+            "Crear .agents/skills/architecture-boundaries-zero-trust/references/nested-agents-harness-engineering.md.",
             "Detallar la semántica de resolución: el archivo AGENTS.md más cercano en el árbol sobreescribe directivas para su subárbol.",
             "Definir el modelo de políticas por carpeta (policies/, src/scanners/, reporting/, infra/)."
         ]
@@ -741,11 +741,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "ROBUSTIFY_HARDEN",
         "existingVulnerabilityId": "VULN-CRYP-002",
-        "targetPathInRepo": ".agent/skills/secrets-cryptography/references/codeguard-crypto-standards.md",
+        "targetPathInRepo": ".agents/skills/secrets-cryptography/references/codeguard-crypto-standards.md",
         "architecturalRationale": "Capa 1: Referencia de auditoría criptográfica con taxonomía de algoritmos prohibidos, obsoletos y recomendados PQC.",
         "priority": "HIGH",
         "implementationSteps": [
-            "Crear .agent/skills/secrets-cryptography/references/codeguard-crypto-standards.md.",
+            "Crear .agents/skills/secrets-cryptography/references/codeguard-crypto-standards.md.",
             "Incorporar la tabla de algoritmos prohibidos (MD5, DES, RC4) y recomendados (AES-GCM, X25519MLKEM768).",
             "Vincular con VULN-CRYP-002, VULN-CRYP-003 y VULN-CRYP-004."
         ]
@@ -757,11 +757,11 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "ROBUSTIFY_HARDEN",
         "existingVulnerabilityId": "VULN-RESI-002",
-        "targetPathInRepo": ".agent/skills/resilience-logging-telemetry/references/codeguard-logging-pii-scrubbing.md",
+        "targetPathInRepo": ".agents/skills/resilience-logging-telemetry/references/codeguard-logging-pii-scrubbing.md",
         "architecturalRationale": "Capa 1: Referencia de resiliencia y telemetría para diseño de registros sin exposición de secretos ni PII.",
         "priority": "HIGH",
         "implementationSteps": [
-            "Crear .agent/skills/resilience-logging-telemetry/references/codeguard-logging-pii-scrubbing.md.",
+            "Crear .agents/skills/resilience-logging-telemetry/references/codeguard-logging-pii-scrubbing.md.",
             "Documentar la estructura obligatoria de registros JSON y filtros de sanitización contra CRLF log injection.",
             "Vincular con VULN-RESI-002."
         ]
@@ -886,16 +886,16 @@ Se estructuran 10 acciones concretas de absorción que robustecen el ecosistema 
 
 | ID Acción | Conocimiento Asociado | Destino Canónico | Intención Evolutiva | Ruta de Destino en Repositorio |
 | :--- | :--- | :--- | :--- | :--- |
-| **`ABS-001`** | `KNOW-001` (CodeGuard SAST) | `SKILL_REFERENCE` | `UPDATE_ENHANCE` | `.agent/skills/source-code-sast/references/codeguard-secure-by-default-patterns.md` |
-| **`ABS-002`** | `KNOW-002` (CoSAI MCP Security) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agent/skills/architecture-boundaries-zero-trust/references/cosai-mcp-security-architecture.md` |
-| **`ABS-003`** | `KNOW-003` (CSA MAESTRO) | `SKILL_REFERENCE` | `ABSORB_EXPAND` | `.agent/skills/threat-modeling-attack-surface/references/csa-maestro-agentic-threat-modeling.md` |
-| **`ABS-004`** | `KNOW-004` (CoSAI AI Risk Map) | `SKILL_REFERENCE` | `UPDATE_ENHANCE` | `.agent/skills/threat-modeling-attack-surface/references/cosai-risk-map-taxonomy.md` |
-| **`ABS-005`** | `KNOW-005` (SBOM & CSAF VEX) | `SKILL_REFERENCE` | `ABSORB_EXPAND` | `.agent/skills/supply-chain-sca/references/sbom-vex-ingestion-standards.md` |
-| **`ABS-006`** | `KNOW-006` (API Security Testing) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agent/skills/identity-access-session/references/api-security-assessment-matrix.md` |
-| **`ABS-007`** | `KNOW-007` (Linux Kernel LSM & Firewalls) | `SKILL_REFERENCE` | `UPDATE_ENHANCE` | `.agent/skills/configuration-hardening/references/linux-kernel-lsm-and-firewall-hardening.md` |
-| **`ABS-008`** | `KNOW-008` (Nested AGENTS.md Harness) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agent/skills/architecture-boundaries-zero-trust/references/nested-agents-harness-engineering.md` |
-| **`ABS-009`** | `KNOW-009` (Crypto & PQC Readiness) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agent/skills/secrets-cryptography/references/codeguard-crypto-standards.md` |
-| **`ABS-010`** | `KNOW-010` (Logging & PII Scrubbing) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agent/skills/resilience-logging-telemetry/references/codeguard-logging-pii-scrubbing.md` |
+| **`ABS-001`** | `KNOW-001` (CodeGuard SAST) | `SKILL_REFERENCE` | `UPDATE_ENHANCE` | `.agents/skills/source-code-sast/references/codeguard-secure-by-default-patterns.md` |
+| **`ABS-002`** | `KNOW-002` (CoSAI MCP Security) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agents/skills/architecture-boundaries-zero-trust/references/cosai-mcp-security-architecture.md` |
+| **`ABS-003`** | `KNOW-003` (CSA MAESTRO) | `SKILL_REFERENCE` | `ABSORB_EXPAND` | `.agents/skills/threat-modeling-attack-surface/references/csa-maestro-agentic-threat-modeling.md` |
+| **`ABS-004`** | `KNOW-004` (CoSAI AI Risk Map) | `SKILL_REFERENCE` | `UPDATE_ENHANCE` | `.agents/skills/threat-modeling-attack-surface/references/cosai-risk-map-taxonomy.md` |
+| **`ABS-005`** | `KNOW-005` (SBOM & CSAF VEX) | `SKILL_REFERENCE` | `ABSORB_EXPAND` | `.agents/skills/supply-chain-sca/references/sbom-vex-ingestion-standards.md` |
+| **`ABS-006`** | `KNOW-006` (API Security Testing) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agents/skills/identity-access-session/references/api-security-assessment-matrix.md` |
+| **`ABS-007`** | `KNOW-007` (Linux Kernel LSM & Firewalls) | `SKILL_REFERENCE` | `UPDATE_ENHANCE` | `.agents/skills/configuration-hardening/references/linux-kernel-lsm-and-firewall-hardening.md` |
+| **`ABS-008`** | `KNOW-008` (Nested AGENTS.md Harness) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agents/skills/architecture-boundaries-zero-trust/references/nested-agents-harness-engineering.md` |
+| **`ABS-009`** | `KNOW-009` (Crypto & PQC Readiness) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agents/skills/secrets-cryptography/references/codeguard-crypto-standards.md` |
+| **`ABS-010`** | `KNOW-010` (Logging & PII Scrubbing) | `SKILL_REFERENCE` | `ROBUSTIFY_HARDEN` | `.agents/skills/resilience-logging-telemetry/references/codeguard-logging-pii-scrubbing.md` |
 
 ---
 

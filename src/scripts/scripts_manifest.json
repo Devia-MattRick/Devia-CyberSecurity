@@ -1,0 +1,268 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Devia-CyberSecurity Scripts Manifest (Capa 3)",
+  "version": "1.0.0",
+  "description": "Registro declarativo de herramientas y utilidades de Capa 3, su vinculación con las 8 Dimensiones Canónicas, Skills asignadas, contratos Zod de Capa 2 y suites de pruebas unitarias.",
+  "scripts": [
+    {
+      "name": "stack_detector_mapper.py",
+      "path": "src/scripts/stack_detector_mapper.py",
+      "dimension": "SECURITY_AUDIT_ORCHESTRATOR",
+      "skill": "security-audit-orchestrator",
+      "description": "Reconocimiento determinista del stack, dependencias, frameworks y arquitectura del objetivo; mapeo automático a las 8 dimensiones, skills, referencias y scripts.",
+      "schema": "src/schemas/report.schema.ts",
+      "test": "src/scripts/test_stack_detector_mapper.py",
+      "vulnerabilities": ["VULN-TM-001", "VULN-TM-003"]
+    },
+    {
+      "name": "forensic_inventory.py",
+      "path": "src/scripts/forensic_inventory.py",
+      "dimension": "SECURITY_REVERSE_ENGINEERING",
+      "skill": "security-reverse-engineering",
+      "description": "Traversal determinista sin ejecución de código; maneja reparse points / symlinks y calcula hashes SHA-256.",
+      "schema": "src/schemas/absorption-plan.schema.ts",
+      "test": "src/scripts/test_forensic_artifact_parser.py",
+      "vulnerabilities": []
+    },
+    {
+      "name": "absorption_planner.py",
+      "path": "src/scripts/absorption_planner.py",
+      "dimension": "SECURITY_REVERSE_ENGINEERING",
+      "skill": "security-reverse-engineering",
+      "description": "Mapea inventario forense contra las 8 dimensiones y genera el plan de adopción y dossier ejecutivo en formato Zod.",
+      "schema": "src/schemas/absorption-plan.schema.ts",
+      "test": "src/scripts/test_forensic_artifact_parser.py",
+      "vulnerabilities": []
+    },
+    {
+      "name": "forensic_artifact_parser.py",
+      "path": "src/scripts/forensic_artifact_parser.py",
+      "dimension": "SECURITY_REVERSE_ENGINEERING",
+      "skill": "security-reverse-engineering",
+      "description": "Parser estructurado de artefactos forenses, evidencias de código y generación de ledgers con digests SHA-256.",
+      "schema": "src/schemas/forensic-artifact.schema.ts",
+      "test": "src/scripts/test_forensic_artifact_parser.py",
+      "vulnerabilities": ["VULN-ARCH-004"]
+    },
+    {
+      "name": "target_snapshot.py",
+      "path": "src/scripts/target_snapshot.py",
+      "dimension": "THREAT_MODELING_ATTACK_SURFACE",
+      "skill": "threat-modeling-attack-surface",
+      "description": "Generación determinista de snapshots de repositorios con ordenación lexicográfica O(n log n) y huellas primarias O(1).",
+      "schema": "src/schemas/threat-model.schema.ts",
+      "test": "src/scripts/test_target_snapshot.py",
+      "vulnerabilities": ["VULN-TM-001", "VULN-ARCH-004"]
+    },
+    {
+      "name": "risk_assessment_engine.py",
+      "path": "src/scripts/risk_assessment_engine.py",
+      "dimension": "THREAT_MODELING_ATTACK_SURFACE",
+      "skill": "threat-modeling-attack-surface",
+      "description": "Motor cuantitativo de evaluación de riesgos cibernéticos basado en NIST SP 800-30 y matrices de criticidad.",
+      "schema": "src/schemas/cyber-risk-assessment.schema.ts",
+      "test": "src/scripts/test_risk_assessment_engine.py",
+      "vulnerabilities": ["VULN-TM-001"]
+    },
+    {
+      "name": "navigator_mapper.py",
+      "path": "src/scripts/navigator_mapper.py",
+      "dimension": "THREAT_MODELING_ATTACK_SURFACE",
+      "skill": "threat-modeling-attack-surface",
+      "description": "Mapeo y exportación determinista de capas de visualización táctica MITRE ATT&CK Navigator v4.x.",
+      "schema": "src/schemas/framework-mapping.schema.ts",
+      "test": "src/scripts/test_navigator_mapper.py",
+      "vulnerabilities": ["VULN-TM-003"]
+    },
+    {
+      "name": "incident_triage_scorer.py",
+      "path": "src/scripts/incident_triage_scorer.py",
+      "dimension": "THREAT_MODELING_ATTACK_SURFACE",
+      "skill": "threat-modeling-attack-surface",
+      "description": "Scoring cuantitativo ponderado y selección determinista de playbooks de respuesta a incidentes.",
+      "schema": "src/schemas/incident-triage.schema.ts",
+      "test": "src/scripts/test_incident_triage_scorer.py",
+      "vulnerabilities": ["VULN-RESI-003", "VULN-RESI-008"]
+    },
+    {
+      "name": "vulnerability_sla_analyzer.py",
+      "path": "src/scripts/vulnerability_sla_analyzer.py",
+      "dimension": "THREAT_MODELING_ATTACK_SURFACE",
+      "skill": "threat-modeling-attack-surface",
+      "description": "Seguimiento riguroso de SLAs de remediación por severidad y cálculo de métricas de aging buckets.",
+      "schema": "src/schemas/vulnerability-sla.schema.ts",
+      "test": "src/scripts/test_vulnerability_sla_analyzer.py",
+      "vulnerabilities": ["VULN-TM-001"]
+    },
+    {
+      "name": "prompt_injection_detector.py",
+      "path": "src/scripts/prompt_injection_detector.py",
+      "dimension": "THREAT_MODELING_ATTACK_SURFACE",
+      "skill": "threat-modeling-attack-surface",
+      "description": "Detección estática de vectores de inyección de prompt indirecta, fuga de instrucciones y evasión de guardrails.",
+      "schema": "src/schemas/threat-model.schema.ts",
+      "test": "src/scripts/test_prompt_injection_detector.py",
+      "vulnerabilities": ["VULN-TM-004", "VULN-ARCH-010"]
+    },
+    {
+      "name": "differential_exploit_verifier.py",
+      "path": "src/scripts/differential_exploit_verifier.py",
+      "dimension": "SOURCE_CODE_SAST",
+      "skill": "source-code-sast",
+      "description": "Verificación diferencial no destructiva de oráculos de inyección (SQLi, SSTI, Command Injection).",
+      "schema": "src/schemas/finding.schema.ts",
+      "test": "src/scripts/test_differential_exploit_verifier.py",
+      "vulnerabilities": ["VULN-SAST-001", "VULN-SAST-020"]
+    },
+    {
+      "name": "attack_vector_assessment_engine.py",
+      "path": "src/scripts/attack_vector_assessment_engine.py",
+      "dimension": "SOURCE_CODE_SAST",
+      "skill": "source-code-sast",
+      "description": "Evaluador estático de rutas de ataque, análisis de impacto y cálculo de severidad de sumideros de ejecución.",
+      "schema": "src/schemas/exploit-path-assessment.schema.ts",
+      "test": "src/scripts/test_attack_vector_assessment_engine.py",
+      "vulnerabilities": ["VULN-SAST-017", "VULN-SAST-018", "VULN-SAST-019", "VULN-SAST-021"]
+    },
+    {
+      "name": "poc_safety_linter.py",
+      "path": "src/scripts/poc_safety_linter.py",
+      "dimension": "SOURCE_CODE_SAST",
+      "skill": "source-code-sast",
+      "description": "Linter estricto de seguridad para scripts de auditoría; previene llamadas a shell=True, sockets sin timeout y payloads destructivos.",
+      "schema": "src/schemas/roe-enforcement.schema.ts",
+      "test": "src/scripts/test_poc_safety_linter.py",
+      "vulnerabilities": ["VULN-SAST-002", "VULN-ARCH-019"]
+    },
+    {
+      "name": "scan_secrets.py",
+      "path": "src/scripts/scan_secrets.py",
+      "dimension": "SECRETS_CRYPTOGRAPHY",
+      "skill": "secrets-cryptography",
+      "description": "Escáner determinista de secretos con cálculo de entropía de Shannon, firmas regex de proveedores y filtro de falsos positivos.",
+      "schema": "src/schemas/finding.schema.ts",
+      "test": "src/scripts/test_scan_secrets.py",
+      "vulnerabilities": ["VULN-CRYP-001"]
+    },
+    {
+      "name": "pqc_inventory_scanner.py",
+      "path": "src/scripts/pqc_inventory_scanner.py",
+      "dimension": "SECRETS_CRYPTOGRAPHY",
+      "skill": "secrets-cryptography",
+      "description": "Escaneo de inventario criptográfico y auditoría de preparación Post-Cuántica (PQC FIPS 203/204).",
+      "schema": "src/schemas/cryptographic-inventory.schema.ts",
+      "test": "src/scripts/test_pqc_inventory_scanner.py",
+      "vulnerabilities": ["VULN-CRYP-002", "VULN-CRYP-004"]
+    },
+    {
+      "name": "role_mining_analyzer.py",
+      "path": "src/scripts/role_mining_analyzer.py",
+      "dimension": "IDENTITY_ACCESS_SESSION",
+      "skill": "identity-access-session",
+      "description": "Análisis y minería de matrices de permisos RBAC/ABAC para detectar sobre-privilegios y roles huérfanos.",
+      "schema": "src/schemas/role-mining.schema.ts",
+      "test": "src/scripts/test_role_mining_analyzer.py",
+      "vulnerabilities": ["VULN-IAM-002", "VULN-IAM-003"]
+    },
+    {
+      "name": "check_lockfiles.py",
+      "path": "src/scripts/check_lockfiles.py",
+      "dimension": "SUPPLY_CHAIN_SCA",
+      "skill": "supply-chain-sca",
+      "description": "Verificación estática de integridad de lockfiles (npm, pnpm, yarn, poetry, cargo) y detección de lifecycle hooks maliciosos.",
+      "schema": "src/schemas/finding.schema.ts",
+      "test": "src/scripts/test_check_lockfiles.py",
+      "vulnerabilities": ["VULN-SCA-001", "VULN-SCA-006", "VULN-SCA-007"]
+    },
+    {
+      "name": "mcp_tool_poisoning_scanner.py",
+      "path": "src/scripts/mcp_tool_poisoning_scanner.py",
+      "dimension": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "skill": "architecture-boundaries-zero-trust",
+      "description": "Auditoría de esquemas de herramientas Model Context Protocol (MCP); detecta tool poisoning y rug pulls mediante digests inmutables.",
+      "schema": "src/schemas/mcp-audit.schema.ts",
+      "test": "src/scripts/test_mcp_tool_poisoning_scanner.py",
+      "vulnerabilities": ["VULN-ARCH-011"]
+    },
+    {
+      "name": "c2_beaconing_detector.py",
+      "path": "src/scripts/c2_beaconing_detector.py",
+      "dimension": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "skill": "architecture-boundaries-zero-trust",
+      "description": "Detección estadística de patrones de beaconing y canales encubiertos de Command and Control (C2).",
+      "schema": "src/schemas/threat-hunt.schema.ts",
+      "test": "src/scripts/test_c2_beaconing_detector.py",
+      "vulnerabilities": ["VULN-ARCH-023"]
+    },
+    {
+      "name": "deception_canary_auditor.py",
+      "path": "src/scripts/deception_canary_auditor.py",
+      "dimension": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "skill": "architecture-boundaries-zero-trust",
+      "description": "Auditoría de postura de tecnologías de engaño, canarios de credenciales y señuelos con regla Deny-All.",
+      "schema": "src/schemas/deception-posture.schema.ts",
+      "test": "src/scripts/test_deception_canary_auditor.py",
+      "vulnerabilities": ["VULN-ARCH-025"]
+    },
+    {
+      "name": "threat_detection_engine.py",
+      "path": "src/scripts/threat_detection_engine.py",
+      "dimension": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "skill": "architecture-boundaries-zero-trust",
+      "description": "Motor de correlación y detección de amenazas avanzadas en logs y telemetría de red.",
+      "schema": "src/schemas/threat-detection.schema.ts",
+      "test": "src/scripts/test_threat_detection_engine.py",
+      "vulnerabilities": ["VULN-ARCH-021", "VULN-ARCH-022"]
+    },
+    {
+      "name": "url_validator.py",
+      "path": "src/scripts/url_validator.py",
+      "dimension": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "skill": "architecture-boundaries-zero-trust",
+      "description": "Validador estricto anti-SSRF; realiza resolución preflight DNS, control de redirecciones manuales y bloqueo de rangos privados/link-local.",
+      "schema": "src/schemas/scan-contract.schema.ts",
+      "test": "src/scripts/test_url_validator.py",
+      "vulnerabilities": ["VULN-SAST-012", "VULN-SAST-014", "VULN-CONF-005", "VULN-CONF-006"]
+    },
+    {
+      "name": "hard_exclusions.py",
+      "path": "src/scripts/hard_exclusions.py",
+      "dimension": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "skill": "architecture-boundaries-zero-trust",
+      "description": "Módulo O(1) de filtrado y exclusión determinista de rutas no confiables, dependencias externas y archivos de compilación.",
+      "schema": "src/schemas/scan-contract.schema.ts",
+      "test": "src/scripts/test_hard_exclusions.py",
+      "vulnerabilities": ["VULN-ARCH-004"]
+    },
+    {
+      "name": "endpoint_hardening_auditor.py",
+      "path": "src/scripts/endpoint_hardening_auditor.py",
+      "dimension": "CONFIGURATION_HARDENING",
+      "skill": "configuration-hardening",
+      "description": "Auditoría de configuración de bastionado de endpoints (reglas ASR de Windows Defender, políticas de contraseñas y mitigaciones de kernel).",
+      "schema": "src/schemas/endpoint-hardening.schema.ts",
+      "test": "src/scripts/test_endpoint_hardening_auditor.py",
+      "vulnerabilities": ["VULN-CONF-001", "VULN-CONF-015"]
+    },
+    {
+      "name": "scan_covert_telemetry.py",
+      "path": "src/scripts/scan_covert_telemetry.py",
+      "dimension": "RESILIENCE_LOGGING_TELEMETRY",
+      "skill": "resilience-logging-telemetry",
+      "description": "Escaneo de telemetría clandestina, balizas SMS no autorizadas y exfiltración en cargas Base64.",
+      "schema": "src/schemas/report.schema.ts",
+      "test": "src/scripts/test_scan_covert_telemetry.py",
+      "vulnerabilities": ["VULN-CRYP-005", "VULN-RESI-006"]
+    },
+    {
+      "name": "sarif_toolkit.py",
+      "path": "src/scripts/sarif_toolkit.py",
+      "dimension": "RESILIENCE_LOGGING_TELEMETRY",
+      "skill": "resilience-logging-telemetry",
+      "description": "Parser, normalizador y deduplicador determinista de reportes en formato SARIF 2.1.0 (OASIS Standard).",
+      "schema": "src/schemas/report.schema.ts",
+      "test": "src/scripts/test_sarif_toolkit.py",
+      "vulnerabilities": ["VULN-ARCH-004", "VULN-RESI-004"]
+    }
+  ]
+}

@@ -6,8 +6,8 @@ import { SecurityDimensionSchema } from "./finding.schema.js";
  * dentro del stack híbrido Tri-Tier de Devia-CyberSecurity.
  */
 export const AbsorptionDestinationSchema = z.enum([
-  "NEW_SKILL",            // Capa 1: Nueva Skill autónoma en .agent/skills/<name>/SKILL.md
-  "SKILL_REFERENCE",     // Capa 1: Documento de referencia en .agent/skills/<skill>/references/
+  "NEW_SKILL",            // Capa 1: Nueva Skill autónoma en .agents/skills/<name>/SKILL.md
+  "SKILL_REFERENCE",     // Capa 1: Documento de referencia en .agents/skills/<skill>/references/
   "PYTHON_SCRIPT",       // Capa 3: Utilidad determinista en src/scripts/ (o dentro de una skill)
   "ZOD_SCHEMA",          // Capa 2: Esquema autoritativo en src/schemas/ y tipos en src/types/
   "MCP_TOOL_OR_ENGINE",  // Capa 2: Runner, CLI o herramienta MCP en src/engine/

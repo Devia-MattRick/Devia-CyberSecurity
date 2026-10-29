@@ -110,6 +110,103 @@ export type {
   IncidentTriageEvaluation
 } from "../schemas/incident-triage.schema.js";
 
+export type {
+  ForensicArtifactSource,
+  ForensicArtifactCategory,
+  ForensicArtifactEntry,
+  ForensicTimelineEvent,
+  ForensicInvestigationReport
+} from "../schemas/forensic-artifact.schema.js";
+
+export type {
+  McpPoisonFlag,
+  McpToolDefinition,
+  McpToolVerdict,
+  McpToolAuditFinding,
+  McpConfigAuditReport
+} from "../schemas/mcp-audit.schema.js";
+
+export type {
+  ThreatHuntSeverity,
+  C2BeaconMetrics,
+  ThreatHuntFinding,
+  ThreatHuntReport
+} from "../schemas/threat-hunt.schema.js";
+
+export type {
+  EntitlementAssignment,
+  MinedRole,
+  RoleMiningMetrics,
+  RoleMiningAnalysis
+} from "../schemas/role-mining.schema.js";
+
+export type {
+  SlaFramework,
+  AgingBucket,
+  SlaComplianceStatus,
+  TrackedVulnerability,
+  SlaMetricsSummary,
+  VulnerabilitySlaReport
+} from "../schemas/vulnerability-sla.schema.js";
+
+export type {
+  ThreatSourceType,
+  QualitativeLikelihood,
+  QualitativeImpact,
+  RiskLevel,
+  ThreatEvent,
+  RiskAssessmentReport
+} from "../schemas/cyber-risk-assessment.schema.js";
+
+export type {
+  DetectionVerdict,
+  RedTeamActivity,
+  DefendedTelemetry,
+  DetectionGapEntry,
+  DetectionGapReport
+} from "../schemas/detection-gap.schema.js";
+
+export type {
+  AsrRuleMode,
+  AsrRuleGuid,
+  AsrRuleStatus,
+  DefenderPreferences,
+  EndpointAuditVerdict,
+  EndpointHardeningReport
+} from "../schemas/endpoint-hardening.schema.js";
+
+export type {
+  DeceptionAssetType,
+  CanaryFileStatus,
+  CanaryFileAlert,
+  DeceptionAsset,
+  SpaPacketVerification,
+  MitreEngageMapping,
+  DeceptionPostureReport
+} from "../schemas/deception-posture.schema.js";
+
+export type {
+  DetectionEngineType,
+  DetectionSeverity,
+  CorrelationWindow,
+  DetectionRule,
+  DetectionAlert,
+  ThreatDetectionReport
+} from "../schemas/threat-detection.schema.js";
+
+export type {
+  CvssAttackVector,
+  CvssAttackComplexity,
+  CvssPrivilegesRequired,
+  CvssUserInteraction,
+  ExploitVectorStatus,
+  ExploitVectorAssessmentItem,
+  ExploitPostureGrade,
+  ExploitPathAssessment
+} from "../schemas/exploit-path-assessment.schema.js";
+
+
+
 
 
 

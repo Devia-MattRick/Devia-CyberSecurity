@@ -466,7 +466,7 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
         "existingVulnerabilityId": "VULN-IAM-001",
-        "targetPathInRepo": ".agent/skills/identity-access-session/references/passkey-webauthn-security-guide.md",
+        "targetPathInRepo": ".agents/skills/identity-access-session/references/passkey-webauthn-security-guide.md",
         "architecturalRationale": "Capa 1: Referencia operativa para la Skill identity-access-session, estableciendo directivas de auditoría para RP ID, ceremonias WebAuthn y verificación UP/UV.",
         "priority": "HIGH",
         "implementationSteps": [
@@ -483,7 +483,7 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
         "existingVulnerabilityId": "VULN-IAM-002",
-        "targetPathInRepo": ".agent/skills/identity-access-session/references/workload-identity-federation-oidc.md",
+        "targetPathInRepo": ".agents/skills/identity-access-session/references/workload-identity-federation-oidc.md",
         "architecturalRationale": "Capa 1: Referencia metodológica para auditar la transición de secretos permanentes a tokens OIDC en GitHub Actions, AWS, GCP y Azure.",
         "priority": "HIGH",
         "implementationSteps": [
@@ -500,7 +500,7 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
         "existingVulnerabilityId": "VULN-CRYP-001",
-        "targetPathInRepo": ".agent/skills/secrets-cryptography/references/post-quantum-cryptography-migration.md",
+        "targetPathInRepo": ".agents/skills/secrets-cryptography/references/post-quantum-cryptography-migration.md",
         "architecturalRationale": "Capa 1: Referencia técnica en secrets-cryptography que guía la auditoría de algoritmos vulnerables a computación cuántica y la adopción de FIPS 203/204.",
         "priority": "HIGH",
         "implementationSteps": [
@@ -551,7 +551,7 @@ absorption_actions = [
         "destination": "UPDATE_EXISTING",
         "intent": "ROBUSTIFY_HARDEN",
         "existingVulnerabilityId": "VULN-ARCH-011",
-        "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/agentic-system-security-mcp.md",
+        "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/agentic-system-security-mcp.md",
         "architecturalRationale": "Reutilizar antes de añadir maquinaria: Enriquecer la referencia existente con las directivas de MCP Security Cheat Sheet respecto a Tool Schema Integrity, rug pulls y Streamable HTTP.",
         "priority": "HIGH",
         "implementationSteps": [
@@ -719,12 +719,12 @@ La auditoría forense de ingeniería inversa ejecutada mediante `security-revers
 
 | ID | Conocimiento | Destino Canónico | Intención | Ruta en Repositorio | Prioridad |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ABS-001** | Guía de auditoría y verificación de Passkeys y WebAuthn | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/identity-access-session/references/passkey-webauthn-security-guide.md` | **HIGH** |
-| **ABS-002** | Guía de federación de identidad para cargas de trabajo (OIDC) | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/identity-access-session/references/workload-identity-federation-oidc.md` | **HIGH** |
-| **ABS-003** | Guía de preparación y migración a criptografía post-cuántica (PQC) | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/secrets-cryptography/references/post-quantum-cryptography-migration.md` | **HIGH** |
+| **ABS-001** | Guía de auditoría y verificación de Passkeys y WebAuthn | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/identity-access-session/references/passkey-webauthn-security-guide.md` | **HIGH** |
+| **ABS-002** | Guía de federación de identidad para cargas de trabajo (OIDC) | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/identity-access-session/references/workload-identity-federation-oidc.md` | **HIGH** |
+| **ABS-003** | Guía de preparación y migración a criptografía post-cuántica (PQC) | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/secrets-cryptography/references/post-quantum-cryptography-migration.md` | **HIGH** |
 | **ABS-004** | Contrato Zod para inventario criptográfico y evaluación PQC | `ZOD_SCHEMA` | `CREATE_NEW` | `src/schemas/cryptographic-inventory.schema.ts` | **HIGH** |
 | **ABS-005** | Escáner determinista de inventario criptográfico y detección PQC en Python | `PYTHON_SCRIPT` | `CREATE_NEW` | `src/scripts/pqc_inventory_scanner.py` | **HIGH** |
-| **ABS-006** | Robustecimiento de referencia de seguridad MCP con hashing completo de esquemas | `UPDATE_EXISTING` | `ROBUSTIFY_HARDEN` | `.agent/skills/architecture-boundaries-zero-trust/references/agentic-system-security-mcp.md` | **HIGH** |
+| **ABS-006** | Robustecimiento de referencia de seguridad MCP con hashing completo de esquemas | `UPDATE_EXISTING` | `ROBUSTIFY_HARDEN` | `.agents/skills/architecture-boundaries-zero-trust/references/agentic-system-security-mcp.md` | **HIGH** |
 | **ABS-007** | Actualización del catálogo de vulnerabilidades con VULN-SAST-014, VULN-SCA-005, VULN-CONF-011, VULN-RESI-007 | `UPDATE_EXISTING` | `ROBUSTIFY_HARDEN` | `docs/VULNERABILITIES.md` | **CRITICAL** |
 | **ABS-008** | Incorporación de lecciones de PQC, WebAuthn, MCP y Anti-Alucinaciones en memoria proactiva | `UPDATE_EXISTING` | `ABSORB_EXPAND` | `docs/PROACTIVE.md` | **HIGH** |
 """

@@ -500,11 +500,11 @@ absorption_actions = [
         "title": "Crear Guía de Referencia Canónica para Auditoría de Infraestructura de Correo Electrónico",
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
-        "targetPathInRepo": ".agent/skills/configuration-hardening/references/email-security-infrastructure-audit.md",
+        "targetPathInRepo": ".agents/skills/configuration-hardening/references/email-security-infrastructure-audit.md",
         "architecturalRationale": "Capa 1: Documenta los checklists y procedimientos deterministas para auditar SPF recursivo, selectores DKIM, longitud de clave RSA, MTA-STS y DANE TLSA en cualquier sistema auditado.",
         "priority": "HIGH",
         "implementationSteps": [
-            "Crear .agent/skills/configuration-hardening/references/email-security-infrastructure-audit.md.",
+            "Crear .agents/skills/configuration-hardening/references/email-security-infrastructure-audit.md.",
             "Detallar el algoritmo de conteo de lookups SPF y límites de recursión.",
             "Documentar la lista de 24 selectores DKIM comunes y verificación de longitud de clave RSA (>=2048 bits).",
             "Vincular con la dimensión CONFIGURATION_HARDENING y checklist de endurecimiento."
@@ -516,11 +516,11 @@ absorption_actions = [
         "title": "Crear Guía de Referencia sobre Subresource Integrity (SRI) y Contenido Mixto",
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
-        "targetPathInRepo": ".agent/skills/source-code-sast/references/subresource-integrity-and-mixed-content.md",
+        "targetPathInRepo": ".agents/skills/source-code-sast/references/subresource-integrity-and-mixed-content.md",
         "architecturalRationale": "Capa 1: Formaliza la técnica de análisis estático para detectar scripts de terceros sin SRI, falta de atributo crossorigin y degradación de seguridad por contenido mixto activo/pasivo.",
         "priority": "HIGH",
         "implementationSteps": [
-            "Crear .agent/skills/source-code-sast/references/subresource-integrity-and-mixed-content.md.",
+            "Crear .agents/skills/source-code-sast/references/subresource-integrity-and-mixed-content.md.",
             "Modelar patrones regex y AST para detección de scripts sin integrity.",
             "Incluir ejemplos de código vulnerable vs seguro y reglas de validación CSP upgrade-insecure-requests.",
             "Mapear contra CWE-353, CWE-829 y OWASP A08:2021."
@@ -532,11 +532,11 @@ absorption_actions = [
         "title": "Crear Guía de Blindaje Anti-SSRF para Motores de Escaneo y Navegadores Headless",
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
-        "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/headless-browser-and-scanner-ssrf-hardening.md",
+        "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/headless-browser-and-scanner-ssrf-hardening.md",
         "architecturalRationale": "Capa 1: Consolida las heurísticas críticas aprendidas de web-check para evitar que utilidades de reconocimiento se conviertan en vectores de pivot interno (SSRF, Port Scanning, Sandbox Disablement).",
         "priority": "CRITICAL",
         "implementationSteps": [
-            "Crear .agent/skills/architecture-boundaries-zero-trust/references/headless-browser-and-scanner-ssrf-hardening.md.",
+            "Crear .agents/skills/architecture-boundaries-zero-trust/references/headless-browser-and-scanner-ssrf-hardening.md.",
             "Documentar los 5 fallos estructurales de web-check (raw TCP sockets, no-sandbox as root, unvalidated redirects, DNS rebinding, CORS wildcard).",
             "Establecer la regla inmutable de resolución pre-flight y filtrado de loopback/intranet/cloud IMDS.",
             "Definir el patrón de Docker hardening para navegadores headless sin privilegios root."
@@ -692,9 +692,9 @@ La auditoría forense de ingeniería inversa de **Devia-CyberSecurity** deconstr
 
 | ID | Conocimiento | Destino Canónico | Intención | Ruta en Repositorio | Prioridad |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ABS-001** | Auditoría integral de infraestructura de correo (SPF, DKIM, DANE, MTA-STS) | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/configuration-hardening/references/email-security-infrastructure-audit.md` | **HIGH** |
-| **ABS-002** | Validación de Subresource Integrity (SRI) y contenido mixto | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/source-code-sast/references/subresource-integrity-and-mixed-content.md` | **HIGH** |
-| **ABS-003** | Blindaje anti-SSRF y hardening de navegadores headless en scanners | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/architecture-boundaries-zero-trust/references/headless-browser-and-scanner-ssrf-hardening.md` | **CRITICAL** |
+| **ABS-001** | Auditoría integral de infraestructura de correo (SPF, DKIM, DANE, MTA-STS) | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/configuration-hardening/references/email-security-infrastructure-audit.md` | **HIGH** |
+| **ABS-002** | Validación de Subresource Integrity (SRI) y contenido mixto | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/source-code-sast/references/subresource-integrity-and-mixed-content.md` | **HIGH** |
+| **ABS-003** | Blindaje anti-SSRF y hardening de navegadores headless en scanners | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/architecture-boundaries-zero-trust/references/headless-browser-and-scanner-ssrf-hardening.md` | **CRITICAL** |
 | **ABS-004** | Actualización del catálogo de vulnerabilidades (`VULN-SAST-012`, `VULN-SAST-013`, `VULN-ARCH-017`, `VULN-CONF-009`, `VULN-IAM-007`, `VULN-RESI-006`) | `UPDATE_EXISTING` | `ROBUSTIFY_HARDEN` | `docs/VULNERABILITIES.md` | **CRITICAL** |
 | **ABS-005** | Incorporación de lecciones de seguridad de scanners en memoria proactiva | `UPDATE_EXISTING` | `ABSORB_EXPAND` | `docs/PROACTIVE.md` | **HIGH** |
 """

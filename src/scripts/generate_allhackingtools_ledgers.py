@@ -493,7 +493,7 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
         "existingVulnerabilityId": "VULN-CRYP-005",
-        "targetPathInRepo": ".agent/skills/secrets-cryptography/references/covert-telemetry-and-exfiltration-beacons.md",
+        "targetPathInRepo": ".agents/skills/secrets-cryptography/references/covert-telemetry-and-exfiltration-beacons.md",
         "architecturalRationale": "Capa 1: Documentación metodológica para guiar a los agentes en la detección de beacons de notificación por SMS, webhooks no autorizados y ofuscación con homóglifos.",
         "priority": "HIGH",
         "implementationSteps": [
@@ -509,7 +509,7 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
         "existingVulnerabilityId": "VULN-SCA-008",
-        "targetPathInRepo": ".agent/skills/supply-chain-sca/references/meta-installer-supply-chain-risks.md",
+        "targetPathInRepo": ".agents/skills/supply-chain-sca/references/meta-installer-supply-chain-risks.md",
         "architecturalRationale": "Capa 1: Metodología especializada para evaluar riesgos de secuestro de cadena de suministro en herramientas que agregan código de terceros.",
         "priority": "HIGH",
         "implementationSteps": [
@@ -525,7 +525,7 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
         "existingVulnerabilityId": "VULN-SAST-010",
-        "targetPathInRepo": ".agent/skills/source-code-sast/references/legacy-python-eval-injection.md",
+        "targetPathInRepo": ".agents/skills/source-code-sast/references/legacy-python-eval-injection.md",
         "architecturalRationale": "Capa 1: Referencia técnica para análisis estático de código fuente centrado en fallas de evaluación dinámica en lenguajes interpretados heredados.",
         "priority": "HIGH",
         "implementationSteps": [
@@ -541,7 +541,7 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
         "existingVulnerabilityId": "VULN-CONF-008",
-        "targetPathInRepo": ".agent/skills/configuration-hardening/references/remote-killswitch-and-online-gating.md",
+        "targetPathInRepo": ".agents/skills/configuration-hardening/references/remote-killswitch-and-online-gating.md",
         "architecturalRationale": "Capa 1: Marco de evaluación de resiliencia y configuraciones de arranque para software que opera en entornos confinados o de auditoría.",
         "priority": "MEDIUM",
         "implementationSteps": [
@@ -746,10 +746,10 @@ La auditoría forense de ingeniería inversa de **Devia-CyberSecurity** ejecutó
 
 | ID | Conocimiento | Destino Canónico | Intención | Ruta en Repositorio | Prioridad |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ABS-001** | Auditoría de telemetría clandestina & beacons SMS | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/secrets-cryptography/references/covert-telemetry-and-exfiltration-beacons.md` | **HIGH** |
-| **ABS-002** | Criterios de seguridad en meta-instaladores & Git unpinned | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/supply-chain-sca/references/meta-installer-supply-chain-risks.md` | **HIGH** |
-| **ABS-003** | Patrón SAST de inyección eval en Python 2 input() | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/source-code-sast/references/legacy-python-eval-injection.md` | **HIGH** |
-| **ABS-004** | Auditoría de kill-switches remotos y compuertas online | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/configuration-hardening/references/remote-killswitch-and-online-gating.md` | **MEDIUM** |
+| **ABS-001** | Auditoría de telemetría clandestina & beacons SMS | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/secrets-cryptography/references/covert-telemetry-and-exfiltration-beacons.md` | **HIGH** |
+| **ABS-002** | Criterios de seguridad en meta-instaladores & Git unpinned | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/supply-chain-sca/references/meta-installer-supply-chain-risks.md` | **HIGH** |
+| **ABS-003** | Patrón SAST de inyección eval en Python 2 input() | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/source-code-sast/references/legacy-python-eval-injection.md` | **HIGH** |
+| **ABS-004** | Auditoría de kill-switches remotos y compuertas online | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/configuration-hardening/references/remote-killswitch-and-online-gating.md` | **MEDIUM** |
 | **ABS-005** | Scanner determinista de telemetría y tuberías ofuscadas | `PYTHON_SCRIPT` | `CREATE_NEW` | `src/scripts/scan_covert_telemetry.py` | **CRITICAL** |
 | **ABS-006** | Registro en catálogo canónico de vulnerabilidades | `UPDATE_EXISTING` | `CREATE_NEW` | `docs/VULNERABILITIES.md` (VULN-SAST-010, VULN-CRYP-005, VULN-SCA-008, VULN-CONF-008) | **HIGH** |
 | **ABS-007** | Lecciones forenses en memoria proactiva | `UPDATE_EXISTING` | `ROBUSTIFY_HARDEN` | `docs/PROACTIVE.md` | **HIGH** |

@@ -433,7 +433,7 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
         "existingVulnerabilityId": "VULN-ARCH-014",
-        "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/chat-template-special-token-injection.md",
+        "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/chat-template-special-token-injection.md",
         "architecturalRationale": "Capa 1: Documentación autoritativa en la Skill de fronteras de arquitectura y Zero Trust para instruir a los agentes sobre cómo neutralizar inyecciones estructurales en modelos locales.",
         "priority": "HIGH",
         "implementationSteps": [
@@ -449,7 +449,7 @@ absorption_actions = [
         "destination": "SKILL_REFERENCE",
         "intent": "CREATE_NEW",
         "existingVulnerabilityId": "VULN-IAM-005",
-        "targetPathInRepo": ".agent/skills/identity-access-session/references/dual-layer-roe-and-scope-guardrails.md",
+        "targetPathInRepo": ".agents/skills/identity-access-session/references/dual-layer-roe-and-scope-guardrails.md",
         "architecturalRationale": "Capa 1: Referencia operativa en la Skill de identidad y control de acceso detallando la arquitectura de contención en dos niveles y la mitigación de bypass FQDN trailing-dot.",
         "priority": "HIGH",
         "implementationSteps": [
@@ -626,8 +626,8 @@ El análisis forense estático y clean-room ejecutado sobre **Decepticon-main** 
 
 | Acción | Conocimiento | Destino Canónico | Intención | Ruta en Devia-CyberSecurity | Prioridad |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`ABS-001`** | `KNOW-001` | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/architecture-boundaries-zero-trust/references/chat-template-special-token-injection.md` | **HIGH** |
-| **`ABS-002`** | `KNOW-002` | `SKILL_REFERENCE` | `CREATE_NEW` | `.agent/skills/identity-access-session/references/dual-layer-roe-and-scope-guardrails.md` | **HIGH** |
+| **`ABS-001`** | `KNOW-001` | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/architecture-boundaries-zero-trust/references/chat-template-special-token-injection.md` | **HIGH** |
+| **`ABS-002`** | `KNOW-002` | `SKILL_REFERENCE` | `CREATE_NEW` | `.agents/skills/identity-access-session/references/dual-layer-roe-and-scope-guardrails.md` | **HIGH** |
 | **`ABS-003`** | `KNOW-002` | `ZOD_SCHEMA` | `CREATE_NEW` | `src/schemas/roe-enforcement.schema.ts` | **HIGH** |
 | **`ABS-004`** | `KNOW-001` | `PYTHON_SCRIPT` | `CREATE_NEW` | `src/scripts/prompt_injection_detector.py` | **CRITICAL** |
 | **`ABS-005`** | `KNOW-005` | `UPDATE_EXISTING` | `ABSORB_EXPAND` | `docs/VULNERABILITIES.md` (Registro de `VULN-IAM-005` y `VULN-ARCH-014`) | **HIGH** |

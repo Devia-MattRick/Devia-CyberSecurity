@@ -46,7 +46,7 @@ test("AbsorptionPlanSchema validates a valid plan correctly", () => {
         destination: "SKILL_REFERENCE",
         intent: "UPDATE_ENHANCE",
         existingVulnerabilityId: "VULN-SAST-001",
-        targetPathInRepo: ".agent/skills/security-reverse-engineering/references/security-dimensions-mapping.md",
+        targetPathInRepo: ".agents/skills/security-reverse-engineering/references/security-dimensions-mapping.md",
         architecturalRationale: "Capa 1: Referencias metodológicas para análisis estático.",
         priority: "MEDIUM",
         implementationSteps: ["Actualizar catálogo de sinks y flujos de taint."]
@@ -140,6 +140,209 @@ test("AbsorptionPlanSchema validates audits/security-extras-skills/absorption-pl
   }
   assert.equal(parsed.success, true);
 });
+
+test("AbsorptionPlanSchema validates audits/anthropic-analyzing-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/anthropic-analyzing-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/anthropic-auditing-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/anthropic-auditing-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/anthropic-security-informes/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/anthropic-security-informes/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/anthropic-hunting-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/anthropic-hunting-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/cybersecurity-anthropic-skills-building-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/cybersecurity-anthropic-skills-building-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/cybersecurity-anthropic-skills-conducting-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/cybersecurity-anthropic-skills-conducting-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/cybersecurity-anthropic-skills-configuring-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/cybersecurity-anthropic-skills-configuring-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/cybersecurity-anthropic-skills-deploying-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/cybersecurity-anthropic-skills-deploying-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/cybersecurity-anthropic-skills-detecting-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/cybersecurity-anthropic-skills-detecting-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/cybersecurity-anthropic-skills-exploiting-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/cybersecurity-anthropic-skills-exploiting-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+test("AbsorptionPlanSchema validates audits/cybersecurity-anthropic-skills-implementing-skills/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/cybersecurity-anthropic-skills-implementing-skills/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+
+
+
+
 
 
 

@@ -535,7 +535,7 @@ plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "ROBUSTIFY_HARDEN",
             "existingVulnerabilityId": "VULN-ARCH-005",
-            "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/openclaw-sentinel-agent-defense.md",
+            "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/openclaw-sentinel-agent-defense.md",
             "architecturalRationale": "Capa 1: Documenta los patrones de inspección CSS (CVE-2026-22708), Unicode y saltos de rol como referencia operativa para la Skill de arquitectura y fronteras Zero Trust.",
             "priority": "CRITICAL",
             "implementationSteps": [
@@ -567,7 +567,7 @@ plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "ABSORB_EXPAND",
             "existingVulnerabilityId": "VULN-SCA-003",
-            "targetPathInRepo": ".agent/skills/supply-chain-sca/references/agent-skill-supply-chain-vetting.md",
+            "targetPathInRepo": ".agents/skills/supply-chain-sca/references/agent-skill-supply-chain-vetting.md",
             "architecturalRationale": "Capa 1: Consolida las heurísticas de auditoría para paquetes de habilidades y extensiones de agentes (patrones AMOS, combos peligrosos exec+write+send).",
             "priority": "HIGH",
             "implementationSteps": [
@@ -598,7 +598,7 @@ plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "ABSORB_EXPAND",
             "existingVulnerabilityId": "VULN-TM-003",
-            "targetPathInRepo": ".agent/skills/threat-modeling-attack-surface/references/mitre-atlas-agent-evaluation.md",
+            "targetPathInRepo": ".agents/skills/threat-modeling-attack-surface/references/mitre-atlas-agent-evaluation.md",
             "architecturalRationale": "Capa 1: Proporciona a threat-modeling-attack-surface un marco concreto para auditar superficies de ataque en modelos de lenguaje y agentes autónomos.",
             "priority": "HIGH",
             "implementationSteps": [

@@ -10,7 +10,7 @@ El sistema opera bajo un modelo desacoplado que separa el razonamiento metodoló
 
 ```
 +-------------------------------------------------------------+
-|                     CAPA 1: SKILLS (.agent/skills)          |
+|                     CAPA 1: SKILLS (.agents/skills)          |
 |  - Razonamiento heurístico y metodológico por dimensión     |
 |  - Checklists universales (OWASP, NIST, CWE)                |
 |  - Orquestación de revisiones de código y arquitectura      |

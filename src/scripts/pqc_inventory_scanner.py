@@ -219,7 +219,7 @@ def main():
         print(f"    - Adequate Symmetric (AES-256):   {m['adequateSymmetricCount']}")
         if m["vulnerableClassicalCount"] > 0:
             print("\n[!] Alerta: Se detectaron primitivas vulnerables al algoritmo de Shor.")
-            print("    Consulte .agent/skills/secrets-cryptography/references/post-quantum-cryptography-migration.md para remediación.")
+            print("    Consulte .agents/skills/secrets-cryptography/references/post-quantum-cryptography-migration.md para remediación.")
 
 if __name__ == "__main__":
     main()

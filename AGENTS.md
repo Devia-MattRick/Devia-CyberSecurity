@@ -30,13 +30,15 @@ Construir un ecosistema unificado, agnóstico y sistemático de herramientas, me
 
 ## 🧠 Protocolo Obligatorio de Memoria Proactiva (`docs/PROACTIVE.md`)
 
-Para garantizar máxima velocidad resolutiva, cero deriva técnica y erradicación del sobregasto de tokens en deliberaciones ya superadas:
+Para garantizar máxima velocidad resolutiva, cero deriva técnica y erradicación del sobregasto de tokens:
 
-1. **Lectura y Contextualización Previa Obligatoria:**
-   Antes de emprender cualquier flujo de auditoría, desarrollo de esquemas, redacción de scripts o toma de decisiones arquitectónicas, el agente **DEBE leer y consultar exhaustivamente [`docs/PROACTIVE.md`](file:///docs/PROACTIVE.md)**. Esto asegura la aplicación inmediata de lecciones pasadas, heurísticas ya calibradas, patrones de compatibilidad y atajos validados.
-2. **Actualización Viva y Alineación Continua:**
-   Siempre que un nuevo flujo revele una técnica superior, subsane una incompatibilidad de plataforma, optimice la complejidad algorítmica ($O(1)$ / $O(n \log n)$) o resuelva un desafío técnico relevante, el agente **DEBE incorporar de manera proactiva y sintética dicho aprendizaje en [`docs/PROACTIVE.md`](file:///docs/PROACTIVE.md)**.
-3. **Erradicación de la Reinvención:**
+1. **Propósito y Alcance del Playbook:**
+   [`docs/PROACTIVE.md`](file:///docs/PROACTIVE.md) es el **Playbook Operativo de Invariantes de Ingeniería y Plataforma**. Condensa exclusivamente reglas de oro arquitectónicas (patrón del paquete sellado, fingerprints estables, 7 roles semánticos), directivas de rendimiento determinista en Python vs bucles ReAct, trampas críticas del sistema operativo Windows (inodos de 128 bits, paths en batch/Zip Slip, bypass de `ARG_MAX`) y los 4 ledgers de custodia.
+2. **Descentralización de Heurísticas Específicas hacia las Skills:**
+   Las técnicas y análisis detallados de vulnerabilidades (e.g. CSWSH, AD CS ESC1, Prototype Pollution, migración PQC) residen modularmente en los **112 documentos técnicos de referencia** dentro de sus respectivas Skills (`.agents/skills/*/references/*.md`). Queda prohibido inflar `docs/PROACTIVE.md` con catálogos específicos de ataques que pertenecen al dominio de una Skill.
+3. **Consulta Ágil y Actualización Continua:**
+   El agente debe consultar `docs/PROACTIVE.md` para respetar los invariantes de plataforma e ingeniería, y enriquecerlo de forma sintética únicamente cuando se descubra un nuevo invariante transversal de arquitectura, una optimización algorítmica ($O(1)$ / $O(n \log n)$) o una incompatibilidad crítica de entorno.
+4. **Erradicación de la Reinvención:**
    Queda estrictamente prohibido volver a plantear debates, soluciones frágiles o bucles conversacionales sobre problemas ya resueltos y documentados en la memoria proactiva.
 
 ---
@@ -47,7 +49,7 @@ Para garantizar máxima robustez, tipado estricto y capacidades avanzadas de an�
 
 | Capa / Módulo | Tecnología / Herramienta | Rol y Responsabilidad |
 | :--- | :--- | :--- |
-| **Capa 1: Orquestación Agentica** | `.agent/skills/` (`SKILL.md`) | Metodologías de auditoría, checklists universales (OWASP, NIST, CWE) y heurísticas de razonamiento por dimensión. |
+| **Capa 1: Orquestación Agentica** | `.agents/skills/` (`SKILL.md`) | Metodologías de auditoría, checklists universales (OWASP, NIST, CWE) y heurísticas de razonamiento por dimensión. |
 | **Capa 2: Motor de Contratos & MCP** | **TypeScript + Zod + pnpm** (Node 22+ ESM, pnpm v10+) | Definición autoritativa de esquemas (`src/schemas/`), validación de datos en tiempo de ejecución, orquestación y servidores MCP. |
 | **Capa 3: Utilidades de Análisis Profundo** | **Python 3.11+** (`src/scripts/`) | Scripts de cálculo de entropía de Shannon, escáneres de baja latencia, parsers de dependencias y análisis forense determinista. |
 | **Frontend UI** | *Excluido* | Este repositorio se enfoca puramente en motores backend, CLI, herramientas MCP y skills agenticas. No contiene frameworks frontend (e.g. Angular). |
@@ -85,34 +87,35 @@ Auto-limitarnos a 8 dimensiones garantiza:
 
 Toda evaluación exhaustiva debe clasificar sus hallazgos y conocimientos exclusivamente dentro de las siguientes dimensiones, gobernadas por su respectiva Skill operativa en Capa 1:
 
-| Dimensión Canónica (`SecurityDimensionSchema`) | Skill Asignada (`.agent/skills/`) | Enfoque y Responsabilidad Principal |
+| Dimensión Canónica (`SecurityDimensionSchema`) | Skill Asignada (`.agents/skills/`) | Enfoque y Responsabilidad Principal |
 | :--- | :--- | :--- |
-| **1. THREAT_MODELING_ATTACK_SURFACE** | [`threat-modeling-attack-surface`](file:///.agent/skills/threat-modeling-attack-surface/SKILL.md) | Identificación de activos, actores de amenaza, flujos de datos y puntos de entrada/salida. |
-| **2. SOURCE_CODE_SAST** | [`source-code-sast`](file:///.agent/skills/source-code-sast/SKILL.md) | Vulnerabilidades lógicas, inyecciones (SQL/Command/Code/Path), deserialización insegura y race conditions. |
-| **3. SECRETS_CRYPTOGRAPHY** | [`secrets-cryptography`](file:///.agent/skills/secrets-cryptography/SKILL.md) | Escaneo de credenciales hardcodeadas, manejo de entropía, algoritmos criptográficos débiles o mal implementados. |
-| **4. IDENTITY_ACCESS_SESSION** | [`identity-access-session`](file:///.agent/skills/identity-access-session/SKILL.md) | Autenticación, autorización (RBAC/ABAC), escalada de privilegios y gestión de sesiones / tokens. |
-| **5. SUPPLY_CHAIN_SCA** | [`supply-chain-sca`](file:///.agent/skills/supply-chain-sca/SKILL.md) | Vulnerabilidades conocidas (CVEs) en dependencias directas/transitivas, licencias y paquetes huérfanos/maliciosos. |
-| **6. ARCHITECTURE_BOUNDARIES_ZERO_TRUST** | [`architecture-boundaries-zero-trust`](file:///.agent/skills/architecture-boundaries-zero-trust/SKILL.md) | Aislamiento offline/cloud, comunicación inter-proceso (IPC), APIs, CORS/CSP y políticas de menor privilegio. |
-| **7. CONFIGURATION_HARDENING** | [`configuration-hardening`](file:///.agent/skills/configuration-hardening/SKILL.md) | Archivos de configuración, variables de entorno, permisos de archivo, flags de compilador y configuraciones por defecto. |
-| **8. RESILIENCE_LOGGING_TELEMETRY** | [`resilience-logging-telemetry`](file:///.agent/skills/resilience-logging-telemetry/SKILL.md) | Prevención de denegación de servicio (DoS), fugas de información en logs, manejo de excepciones y trazabilidad de eventos. |
+| **1. THREAT_MODELING_ATTACK_SURFACE** | [`threat-modeling-attack-surface`](file:///.agents/skills/threat-modeling-attack-surface/SKILL.md) | Identificación de activos, actores de amenaza, flujos de datos y puntos de entrada/salida. |
+| **2. SOURCE_CODE_SAST** | [`source-code-sast`](file:///.agents/skills/source-code-sast/SKILL.md) | Vulnerabilidades lógicas, inyecciones (SQL/Command/Code/Path), deserialización insegura y race conditions. |
+| **3. SECRETS_CRYPTOGRAPHY** | [`secrets-cryptography`](file:///.agents/skills/secrets-cryptography/SKILL.md) | Escaneo de credenciales hardcodeadas, manejo de entropía, algoritmos criptográficos débiles o mal implementados. |
+| **4. IDENTITY_ACCESS_SESSION** | [`identity-access-session`](file:///.agents/skills/identity-access-session/SKILL.md) | Autenticación, autorización (RBAC/ABAC), escalada de privilegios y gestión de sesiones / tokens. |
+| **5. SUPPLY_CHAIN_SCA** | [`supply-chain-sca`](file:///.agents/skills/supply-chain-sca/SKILL.md) | Vulnerabilidades conocidas (CVEs) en dependencias directas/transitivas, licencias y paquetes huérfanos/maliciosos. |
+| **6. ARCHITECTURE_BOUNDARIES_ZERO_TRUST** | [`architecture-boundaries-zero-trust`](file:///.agents/skills/architecture-boundaries-zero-trust/SKILL.md) | Aislamiento offline/cloud, comunicación inter-proceso (IPC), APIs, CORS/CSP y políticas de menor privilegio. |
+| **7. CONFIGURATION_HARDENING** | [`configuration-hardening`](file:///.agents/skills/configuration-hardening/SKILL.md) | Archivos de configuración, variables de entorno, permisos de archivo, flags de compilador y configuraciones por defecto. |
+| **8. RESILIENCE_LOGGING_TELEMETRY** | [`resilience-logging-telemetry`](file:///.agents/skills/resilience-logging-telemetry/SKILL.md) | Prevención de denegación de servicio (DoS), fugas de información en logs, manejo de excepciones y trazabilidad de eventos. |
 
 ---
 
 ## 🗺️ Mapa Completo de Skills del Ecosistema
 
-El repositorio organiza su Capa 1 de Orquestación Agentica en **1 Meta-Skill Orquestadora** y **8 Skills Dimensionales Especializadas**:
+El repositorio organiza su Capa 1 de Orquestación Agentica en **1 Skill Orquestadora Maestra**, **1 Meta-Skill de Ingeniería Inversa** y **8 Skills Dimensionales Especializadas**:
 
 | Skill | Rol / Ámbito | Ubicación Autoritativa |
 | :--- | :--- | :--- |
-| **`security-reverse-engineering`** | **Meta-Skill de Auditoría Forense y Absorción:** Inspecciona cualquier objetivo externo (repo, plugin, skill, binario) sin ejecutar código no confiable, deconstruye flujos y orquesta la adopción técnica hacia las 3 capas del ecosistema. | [SKILL.md](file:///.agent/skills/security-reverse-engineering/SKILL.md) |
-| **`threat-modeling-attack-surface`** | Modelado formal de amenazas (STRIDE/PASTA), catalogación de activos, actores y superficies de ataque. | [SKILL.md](file:///.agent/skills/threat-modeling-attack-surface/SKILL.md) |
-| **`source-code-sast`** | Análisis estático de código fuente, detección de inyecciones, deserialización insegura y taint tracking. | [SKILL.md](file:///.agent/skills/source-code-sast/SKILL.md) |
-| **`secrets-cryptography`** | Detección de secretos, cálculo de entropía de Shannon, evaluación de algoritmos y ciclo de vida criptográfico. | [SKILL.md](file:///.agent/skills/secrets-cryptography/SKILL.md) |
-| **`identity-access-session`** | Auditoría de autenticación, control de acceso (RBAC/ABAC), IDOR/BOLA y gestión de tokens/sesiones. | [SKILL.md](file:///.agent/skills/identity-access-session/SKILL.md) |
-| **`supply-chain-sca`** | Auditoría de composición de software (SCA), lockfiles, CVEs en dependencias y análisis de licencias. | [SKILL.md](file:///.agent/skills/supply-chain-sca/SKILL.md) |
-| **`architecture-boundaries-zero-trust`** | Fronteras de aislamiento offline/cloud, seguridad IPC, Electron hardening y políticas Zero Trust. | [SKILL.md](file:///.agent/skills/architecture-boundaries-zero-trust/SKILL.md) |
-| **`configuration-hardening`** | Bastionado de infraestructura, Docker, Kubernetes, cabeceras HTTP y principios Secure by Default. | [SKILL.md](file:///.agent/skills/configuration-hardening/SKILL.md) |
-| **`resilience-logging-telemetry`** | Mitigación de DoS/ReDoS, prevención de fugas de datos sensibles en logs y monitoreo de excepciones. | [SKILL.md](file:///.agent/skills/resilience-logging-telemetry/SKILL.md) |
+| **`security-audit-orchestrator`** | **Skill Orquestadora Maestra de Auditorías Externas:** Punto de entrada primario para auditar cualquier repositorio externo. Conduce la auditoría de grado militar en 4 fases con pausas estratégicas obligatorias, gobernando las 8 dimensiones, 112 referencias y 26 herramientas de Capa 3. | [SKILL.md](file:///.agents/skills/security-audit-orchestrator/SKILL.md) |
+| **`security-reverse-engineering`** | **Meta-Skill de Auditoría Forense y Absorción:** Inspecciona cualquier objetivo externo (repo, plugin, skill, binario) sin ejecutar código no confiable, deconstruye flujos y orquesta la adopción técnica hacia las 3 capas del ecosistema. | [SKILL.md](file:///.agents/skills/security-reverse-engineering/SKILL.md) |
+| **`threat-modeling-attack-surface`** | Modelado formal de amenazas (STRIDE/PASTA), catalogación de activos, actores y superficies de ataque. | [SKILL.md](file:///.agents/skills/threat-modeling-attack-surface/SKILL.md) |
+| **`source-code-sast`** | Análisis estático de código fuente, detección de inyecciones, deserialización insegura y taint tracking. | [SKILL.md](file:///.agents/skills/source-code-sast/SKILL.md) |
+| **`secrets-cryptography`** | Detección de secretos, cálculo de entropía de Shannon, evaluación de algoritmos y ciclo de vida criptográfico. | [SKILL.md](file:///.agents/skills/secrets-cryptography/SKILL.md) |
+| **`identity-access-session`** | Auditoría de autenticación, control de acceso (RBAC/ABAC), IDOR/BOLA y gestión de tokens/sesiones. | [SKILL.md](file:///.agents/skills/identity-access-session/SKILL.md) |
+| **`supply-chain-sca`** | Auditoría de composición de software (SCA), lockfiles, CVEs en dependencias y análisis de licencias. | [SKILL.md](file:///.agents/skills/supply-chain-sca/SKILL.md) |
+| **`architecture-boundaries-zero-trust`** | Fronteras de aislamiento offline/cloud, seguridad IPC, Electron hardening y políticas Zero Trust. | [SKILL.md](file:///.agents/skills/architecture-boundaries-zero-trust/SKILL.md) |
+| **`configuration-hardening`** | Bastionado de infraestructura, Docker, Kubernetes, cabeceras HTTP y principios Secure by Default. | [SKILL.md](file:///.agents/skills/configuration-hardening/SKILL.md) |
+| **`resilience-logging-telemetry`** | Mitigación de DoS/ReDoS, prevención de fugas de datos sensibles en logs y monitoreo de excepciones. | [SKILL.md](file:///.agents/skills/resilience-logging-telemetry/SKILL.md) |
 
 > [!IMPORTANT]
 > **Axioma de Mapeo Obligatorio:** Cualquier vector emergente (Inteligencia Artificial / LLMs, Web3 / Smart Contracts, Firmware / IoT, Cloud Serverless) **NO autoriza la creación de una dimensión nueva**. Debe mapearse y adaptarse rigurosamente a una o varias de las 8 dimensiones existentes y canalizarse a través de su respectiva Skill dimensional según la naturaleza del fallo de computación o arquitectura.
@@ -121,11 +124,11 @@ El repositorio organiza su Capa 1 de Orquestación Agentica en **1 Meta-Skill Or
 
 ## 📂 Organización del Espacio de Trabajo
 
-- **`src/schemas/`**: Esquemas autoritativos definidos con **Zod** (`finding.schema.ts`, `threat-model.schema.ts`, `report.schema.ts`).
+- **`src/schemas/`**: Esquemas autoritativos definidos con **Zod** (`finding.schema.ts`, `threat-model.schema.ts`, `report.schema.ts`, etc.).
 - **`src/types/`**: Tipos TypeScript fuertemente tipados inferidos directamente de los esquemas Zod (`z.infer`).
-- **`src/engine/`**: Lógica central de orquestación de auditorías, runners y ejecución de reglas.
-- **`src/scripts/`**: Utilidades y scripts en Python para análisis intensivo (entropía, parsers, forense).
-- **`.agent/skills/`**: Habilidades operativas del agente (`SKILL.md`, scripts y referencias) para auditorías especializadas y reutilizables.
+- **`src/engine/`**: Lógica central de orquestación de auditorías, runners y ejecución de reglas (Capa 2).
+- **`src/scripts/`**: Suite canónica y centralizada de motores y utilidades deterministas en Python 3.11+ (Capa 3). Contiene el manifiesto `scripts_manifest.json` y la suite de pruebas unitarias (`test_*.py`). Queda prohibida la creación de carpetas `scripts/` vacías en las skills.
+- **`.agents/skills/`**: Habilidades operativas del agente (`SKILL.md` y `references/`) para razonamiento por dimensión. Cada `SKILL.md` contiene la tabla explícita de herramientas de Capa 3 asignadas con sus rutas a `src/scripts/`.
 - **`docs/`**: Documentación técnica ([`ARCHITECTURE.md`](file:///docs/ARCHITECTURE.md), [`VULNERABILITIES.md`](file:///docs/VULNERABILITIES.md), [`PROACTIVE.md`](file:///docs/PROACTIVE.md), registros y especificaciones).
 - **`external-reps/`**: Biblioteca pasiva de conocimiento y referencias externas. **Excluido permanentemente en `.gitignore` y nunca modificado directamente**.
 
@@ -146,4 +149,10 @@ El repositorio organiza su Capa 1 de Orquestación Agentica en **1 Meta-Skill Or
 6. **Registro Centralizado y Vivo de Vulnerabilidades (`docs/VULNERABILITIES.md`):**
    Toda vulnerabilidad, debilidad lógica (CWE) o vector de ataque identificado, modelado o absorbido en el repositorio debe quedar documentado y trazado en el catálogo canónico [`docs/VULNERABILITIES.md`](file:///docs/VULNERABILITIES.md), vinculando obligatoriamente su identificador, taxonomía oficial (CWE/OWASP), la dimensión canónica asignada y la Skill operativa responsable.
 7. **Consulta y Mantenimiento Obligatorio de la Memoria Proactiva (`docs/PROACTIVE.md`):**
-   Es directiva canónica e inmutable consultar [`docs/PROACTIVE.md`](file:///docs/PROACTIVE.md) al inicio de toda intervención para operar con el contexto acumulado de resoluciones previas, y actualizarlo inmediatamente ante nuevos aprendizajes, optimizaciones algorítmicas, resoluciones de plataforma o mitigaciones de falsos negativos/positivos para preservar la soberanía del conocimiento y minimizar el consumo innecesario de tokens.
+   Es directiva canónica e inmutable consultar [`docs/PROACTIVE.md`](file:///docs/PROACTIVE.md) al inicio de intervenciones arquitectónicas para operar con los invariantes de plataforma, algoritmos y contratos de datos, enriqueciéndolo de forma sintética ante lecciones transversales comprobadas.
+8. **Sincronización Cuádruple Canónica Obligatoria (Skills ↔ Referencias ↔ Scripts ↔ VULNERABILITIES.md):**
+   Toda nueva capacidad, vector de ataque o herramienta debe mantener una alineación estricta y sincronizada en cuatro puntos autoritativos:
+   - a) **Skill Operativa (`.agents/skills/<skill>/SKILL.md`)**: Declaración formal de la herramienta de Capa 3 asignada con su ruta ejecutable `src/scripts/<script>.py`.
+   - b) **Referencias Técnicas (`.agents/skills/<skill>/references/<tema>.md`)**: Documentación técnica exhaustiva con taxonomía multimarco, diagramas y ejemplos vulnerable vs seguro.
+   - c) **Scripts Ejecutables de Capa 3 (`src/scripts/<herramienta>.py`)**: Código determinista en Python 3.11+, probado al 100% con `unittest` y registrado en [`src/scripts/scripts_manifest.json`](file:///src/scripts/scripts_manifest.json).
+   - d) **Catálogo Canónico (`docs/VULNERABILITIES.md`)**: Registro del identificador (`VULN-*`), CWE/OWASP, dimensión asignada, enlace a la referencia, esquema Zod y script ejecutable.

@@ -227,6 +227,64 @@ def check_lockfiles_in_directory(target_dir: Path) -> List[Dict[str, Any]]:
         except Exception:
             pass
 
+        # Check package-lock.json for Lockfile Poisoning (VULN-SCA-012)
+        pkg_lock = target_dir / "package-lock.json"
+        if pkg_lock.is_file():
+            try:
+                lock_data = json.loads(pkg_lock.read_text(encoding="utf-8", errors="ignore"))
+                poisoned_entries: List[str] = []
+                http_entries: List[str] = []
+
+                packages_dict = lock_data.get("packages", {})
+                if not packages_dict:
+                    packages_dict = lock_data.get("dependencies", {})
+
+                for pkg_name, pkg_info in packages_dict.items():
+                    if not isinstance(pkg_info, dict) or not pkg_name:
+                        continue
+                    resolved_url = pkg_info.get("resolved", "")
+                    if isinstance(resolved_url, str) and resolved_url:
+                        if resolved_url.startswith("http://"):
+                            http_entries.append(f"{pkg_name} -> {resolved_url}")
+                        elif not any(reg in resolved_url for reg in [
+                            "registry.npmjs.org",
+                            "registry.yarnpkg.com",
+                            "registry.npmmirror.com",
+                            "npm.pkg.github.com",
+                            "pkgs.dev.azure.com"
+                        ]) and not resolved_url.startswith("file:"):
+                            poisoned_entries.append(f"{pkg_name} -> {resolved_url}")
+
+                if http_entries:
+                    findings.append({
+                        "ruleId": "supply-chain.insecure-lockfile-http",
+                        "type": "Insecure HTTP Lockfile Tarball URL",
+                        "severity": "HIGH",
+                        "file": "package-lock.json",
+                        "line": 1,
+                        "description": f"Found {len(http_entries)} dependencies resolving tarballs over unencrypted HTTP, susceptible to MitM tampering.",
+                        "cwe": ["CWE-319", "CWE-829"],
+                        "owasp": ["A08:2021-Software and Data Integrity Failures"],
+                        "evidence": ", ".join(http_entries[:5]),
+                        "remediation": "Enforce HTTPS for all package resolution URLs in package-lock.json or run lockfile-lint."
+                    })
+
+                if poisoned_entries:
+                    findings.append({
+                        "ruleId": "supply-chain.lockfile-poisoning",
+                        "type": "Lockfile Poisoning / Untrusted Tarball Registry",
+                        "severity": "HIGH",
+                        "file": "package-lock.json",
+                        "line": 1,
+                        "description": f"Found {len(poisoned_entries)} dependencies with resolved URLs pointing to untrusted or external registries.",
+                        "cwe": ["CWE-829", "CWE-353"],
+                        "owasp": ["A08:2021-Software and Data Integrity Failures"],
+                        "evidence": ", ".join(poisoned_entries[:5]),
+                        "remediation": "Verify that all dependencies resolve to the official npm registry or authorized enterprise scopes. Audit with lockfile-lint."
+                    })
+            except Exception:
+                pass
+
     # 2. Python Ecosystem Inspection (Poetry / Pipenv / Requirements)
     pyproject = target_dir / "pyproject.toml"
     if pyproject.is_file():

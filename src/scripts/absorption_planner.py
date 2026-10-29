@@ -77,7 +77,7 @@ def build_absorption_plan(
             "destination": "NEW_SKILL" if is_new else "SKILL_REFERENCE",
             "intent": "CREATE_NEW" if is_new else "ABSORB_EXPAND",
             "existingVulnerabilityId": "VULN-TM-001",
-            "targetPathInRepo": f".agent/skills/{target_name.lower()}/" if is_new else ".agent/skills/security-reverse-engineering/references/",
+            "targetPathInRepo": f".agents/skills/{target_name.lower()}/" if is_new else ".agents/skills/security-reverse-engineering/references/",
             "architecturalRationale": "Capa 1: Orquestación agentica y heurística. Desacoplada del motor de contratos y utilidades de ejecución.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -187,7 +187,7 @@ def build_absorption_plan(
             "destination": "UPDATE_EXISTING",
             "intent": "UPDATE_ENHANCE",
             "existingVulnerabilityId": "VULN-SAST-001",
-            "targetPathInRepo": ".agent/skills/security-reverse-engineering/references/security-dimensions-mapping.md",
+            "targetPathInRepo": ".agents/skills/security-reverse-engineering/references/security-dimensions-mapping.md",
             "architecturalRationale": "Reutilizar antes de añadir maquinaria: Enriquecer y robustecer la matriz de mapeo canónica con los sinks e inyecciones descubiertas.",
             "priority": "MEDIUM",
             "implementationSteps": [

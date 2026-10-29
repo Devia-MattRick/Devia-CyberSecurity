@@ -575,7 +575,7 @@ absorption_plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "CREATE_NEW",
             "existingVulnerabilityId": "VULN-ARCH-011",
-            "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/agentic-system-security-mcp.md",
+            "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/agentic-system-security-mcp.md",
             "architecturalRationale": "Capa 1: Documento de referencia técnico y heurístico para instruir al agente en la auditoría de servidores MCP, contención de agentes y prevención de diputado confundido.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -591,7 +591,7 @@ absorption_plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "CREATE_NEW",
             "existingVulnerabilityId": "VULN-SCA-007",
-            "targetPathInRepo": ".agent/skills/supply-chain-sca/references/npx-and-package-runner-confusion.md",
+            "targetPathInRepo": ".agents/skills/supply-chain-sca/references/npx-and-package-runner-confusion.md",
             "architecturalRationale": "Capa 1: Referencia operativa de Supply Chain SCA para auditar comandos npx, bunx y dlx en CI/CD y repositorios externos.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -607,7 +607,7 @@ absorption_plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "CREATE_NEW",
             "existingVulnerabilityId": "VULN-SAST-008",
-            "targetPathInRepo": ".agent/skills/source-code-sast/references/cli-argument-injection-and-option-smuggling.md",
+            "targetPathInRepo": ".agents/skills/source-code-sast/references/cli-argument-injection-and-option-smuggling.md",
             "architecturalRationale": "Capa 1: Guía de inspección profunda de código fuente para sumideros de procesos nativos que reciben datos de usuario.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -623,7 +623,7 @@ absorption_plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "ROBUSTIFY_HARDEN",
             "existingVulnerabilityId": "VULN-RESI-004",
-            "targetPathInRepo": ".agent/skills/resilience-logging-telemetry/references/finding-validation-gate.md",
+            "targetPathInRepo": ".agents/skills/resilience-logging-telemetry/references/finding-validation-gate.md",
             "architecturalRationale": "Capa 1: Fortalecer las heurísticas de la compuerta de validación incorporando la obligatoriedad de evidencia para ruled_out y el modelo de deduplicación semántica (KNOW-005).",
             "priority": "MEDIUM",
             "implementationSteps": [
@@ -739,14 +739,14 @@ Toda observación y hallazgo ha sido mapeado estrictamente según el principio M
 
 Se estipulan **6 acciones concretas de adopción** clasificadas por capa técnica:
 
-### Capa 1: Orquestación Agentica (`.agent/skills/`)
-1. **`ABS-001` (Nueva Referencia):** `.agent/skills/architecture-boundaries-zero-trust/references/agentic-system-security-mcp.md`  
+### Capa 1: Orquestación Agentica (`.agents/skills/`)
+1. **`ABS-001` (Nueva Referencia):** `.agents/skills/architecture-boundaries-zero-trust/references/agentic-system-security-mcp.md`  
    *Contenido:* Adopción del Effective-Authority Map, canonización de nombres de herramientas MCP, validación de fronteras de protocolo y mitigación de diputado confundido. (Vincular a `VULN-ARCH-011`).
-2. **`ABS-002` (Nueva Referencia):** `.agent/skills/supply-chain-sca/references/npx-and-package-runner-confusion.md`  
+2. **`ABS-002` (Nueva Referencia):** `.agents/skills/supply-chain-sca/references/npx-and-package-runner-confusion.md`  
    *Contenido:* Heurística para auditar el secuestro de ejecutables en `npx`, `npm exec` y `bunx` en pipelines CI/CD y scripts. (Vincular a `VULN-SCA-007`).
-3. **`ABS-003` (Nueva Referencia):** `.agent/skills/source-code-sast/references/cli-argument-injection-and-option-smuggling.md`  
+3. **`ABS-003` (Nueva Referencia):** `.agents/skills/source-code-sast/references/cli-argument-injection-and-option-smuggling.md`  
    *Contenido:* Modelado SAST de option smuggling y response files en invocaciones de subprocesos sin shell. (Vincular a `VULN-SAST-008`).
-4. **`ABS-004` (Actualización In-Place):** `.agent/skills/resilience-logging-telemetry/references/finding-validation-gate.md`  
+4. **`ABS-004` (Actualización In-Place):** `.agents/skills/resilience-logging-telemetry/references/finding-validation-gate.md`  
    *Contenido:* Incorporación de las compuertas de cobertura honesta con justificación obligatoria para descartes y deduplicación semántica en 4 reglas inmutables.
 
 ### Capa 3: Scripts Deterministas Python (`src/scripts/`)

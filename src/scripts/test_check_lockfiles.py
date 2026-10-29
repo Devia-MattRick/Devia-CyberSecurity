@@ -93,6 +93,45 @@ class TestCheckLockfiles(unittest.TestCase):
         self.assertIn("Cargo.toml", files)
         self.assertIn("go.mod", files)
 
+    def test_lockfile_poisoning_detected(self):
+        (self.target / "package.json").write_text('{"name": "test-pkg"}', encoding="utf-8")
+        poisoned_lock = {
+            "name": "test-pkg",
+            "lockfileVersion": 3,
+            "packages": {
+                "node_modules/utility-helper": {
+                    "version": "1.0.0",
+                    "resolved": "https://malicious-artifacts.attacker-controlled.net/utility-helper-1.0.0.tgz",
+                    "integrity": "sha512-fakehash"
+                }
+            }
+        }
+        (self.target / "package-lock.json").write_text(json.dumps(poisoned_lock), encoding="utf-8")
+        findings = check_lockfiles_in_directory(self.target)
+        poisoning = [f for f in findings if f["ruleId"] == "supply-chain.lockfile-poisoning"]
+        self.assertEqual(len(poisoning), 1)
+        self.assertEqual(poisoning[0]["severity"], "HIGH")
+        self.assertIn("utility-helper", poisoning[0]["evidence"])
+
+    def test_insecure_http_lockfile_detected(self):
+        (self.target / "package.json").write_text('{"name": "test-pkg"}', encoding="utf-8")
+        http_lock = {
+            "name": "test-pkg",
+            "lockfileVersion": 3,
+            "packages": {
+                "node_modules/legacy-lib": {
+                    "version": "1.0.0",
+                    "resolved": "http://registry.npmjs.org/legacy-lib/-/legacy-lib-1.0.0.tgz",
+                    "integrity": "sha512-fakehash"
+                }
+            }
+        }
+        (self.target / "package-lock.json").write_text(json.dumps(http_lock), encoding="utf-8")
+        findings = check_lockfiles_in_directory(self.target)
+        http_findings = [f for f in findings if f["ruleId"] == "supply-chain.insecure-lockfile-http"]
+        self.assertEqual(len(http_findings), 1)
+        self.assertEqual(http_findings[0]["severity"], "HIGH")
+
 
 if __name__ == "__main__":
     unittest.main()

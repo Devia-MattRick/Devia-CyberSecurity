@@ -459,7 +459,7 @@ plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "ROBUSTIFY_HARDEN",
             "existingVulnerabilityId": "VULN-ARCH-005",
-            "targetPathInRepo": ".agent/skills/architecture-boundaries-zero-trust/references/ai-and-llm-agent-security.md",
+            "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/ai-and-llm-agent-security.md",
             "architecturalRationale": "Capa 1: Documento de referencia técnica para la Skill architecture-boundaries-zero-trust que formaliza la auditoría de agentes, memoria persistente, MCP servers y action-binding.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -476,7 +476,7 @@ plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "UPDATE_ENHANCE",
             "existingVulnerabilityId": "VULN-TM-003",
-            "targetPathInRepo": ".agent/skills/threat-modeling-attack-surface/references/cairn-blackboard-orchestration.md",
+            "targetPathInRepo": ".agents/skills/threat-modeling-attack-surface/references/cairn-blackboard-orchestration.md",
             "architecturalRationale": "Capa 1: Guía metodológica en threat-modeling-attack-surface para estructurar investigaciones complejas mediante grafos Fact-Intent-Hint inmutables.",
             "priority": "MEDIUM",
             "implementationSteps": [
@@ -493,7 +493,7 @@ plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "ABSORB_EXPAND",
             "existingVulnerabilityId": "VULN-CONF-002",
-            "targetPathInRepo": ".agent/skills/configuration-hardening/references/web-infrastructure-audit-matrix.md",
+            "targetPathInRepo": ".agents/skills/configuration-hardening/references/web-infrastructure-audit-matrix.md",
             "architecturalRationale": "Capa 1: Referencia técnica en configuration-hardening que consolida los 33 controles de seguridad de perímetro web mapeados a CWEs, OWASP y RFCs.",
             "priority": "HIGH",
             "implementationSteps": [
@@ -510,7 +510,7 @@ plan_data = {
             "destination": "SKILL_REFERENCE",
             "intent": "ROBUSTIFY_HARDEN",
             "existingVulnerabilityId": "VULN-IAM-001",
-            "targetPathInRepo": ".agent/skills/identity-access-session/references/data-isolation-and-tenant-lifecycle.md",
+            "targetPathInRepo": ".agents/skills/identity-access-session/references/data-isolation-and-tenant-lifecycle.md",
             "architecturalRationale": "Capa 1: Guía técnica en identity-access-session para auditar fronteras de datos entre inquilinos en sistemas distribuidos y bases de datos SaaS.",
             "priority": "HIGH",
             "implementationSteps": [
