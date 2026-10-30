@@ -205,6 +205,15 @@ export type {
   ExploitPathAssessment
 } from "../schemas/exploit-path-assessment.schema.js";
 
+export type {
+  DangerousFormulaPrefix,
+  TabularExportFormat,
+  FormulaSanitizationVerdict,
+  FormulaInjectionFinding,
+  FormulaInjectionAuditReport
+} from "../schemas/formula-injection.schema.js";
+
+
 
 
 

@@ -1,0 +1,23 @@
+{
+  "target": {
+    "root_path": "K:\\Skills_Pack\\.agent\\skills\\Cybersecurity",
+    "output_path": "K:\\Devia-CyberSecurity\\audits\\skills-pack-cybersecurity",
+    "archetype": "AGENTIC_SKILL_OR_PLUGIN",
+    "archetype_description": "Paquete unificado de 77 skills agenticas de ciberseguridad defensiva y ofensiva"
+  },
+  "timestamps": {
+    "started_at": "2026-10-30T15:53:07Z",
+    "finished_at": "2026-10-30T15:53:07Z"
+  },
+  "metrics": {
+    "total_files": 143,
+    "total_bytes": 1838513,
+    "total_skills": 77,
+    "extension_distribution": {
+      ".md": 124,
+      ".py": 12,
+      ".txt": 4,
+      ".yaml": 3
+    }
+  }
+}

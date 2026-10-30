@@ -72,6 +72,13 @@ Este documento constituye el **Playbook Operativo de Invariantes de Ingeniería 
 - **La Regla:** Para garantizar cero deriva técnica, cualquier nuevo vector, script o análisis debe mantener la coherencia perfecta de cuatro puntos:
   $$\text{Skill (Capa 1)} \longleftrightarrow \text{Referencias (references/)} \longleftrightarrow \text{Scripts (Capa 3)} \longleftrightarrow \text{Catálogo (docs/VULNERABILITIES.md)}$$
 
+### 3.5. Invariante de Sanitización de Hojas de Cálculo (CWE-1236)
+- **La Regla:** Todo dato exportado hacia formatos tabulares (CSV, TSV, XLSX) que comience con `=, +, -, @, \t, \r, |, %` debe prefijarse obligatoriamente con comilla simple (`'`) para forzar su evaluación como texto plano en suites ofimáticas, neutralizando comandos DDE y exfiltración de datos. Todo flujo CSV debe prefijarse con BOM UTF-8 (`\uFEFF`) para evitar mojibake en Microsoft Excel.
+
+### 3.6. Invariante de Resiliencia en Transporte MCP Stdio
+- **La Regla:** En servidores Model Context Protocol (MCP) headless que operan sobre `stdin`/`stdout`, un error no capturado o llamada a `process.exit()` finaliza el proceso completo y destruye la sesión IPC del agente. Toda herramienta registrada debe envolver su ejecución en bloques `try/catch` y retornar `{ isError: true, content: [...] }`.
+
+
 ---
 
 ## 🪟 4. Entornos de Ejecución Windows y Prevención de Hijacking

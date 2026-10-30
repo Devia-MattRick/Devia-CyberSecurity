@@ -61,3 +61,31 @@ db.query(untrusted), child_process.exec(untrusted), fs.writeFile(untrusted)
        ▼
 [VULNERABILIDAD SAST CONFIRMADA] (CWE-89, CWE-78, CWE-22)
 ```
+
+---
+
+## 💻 Flujo Operacional de Compilación y Análisis con CodeQL CLI
+
+### 1. Creación Determinista de la Base de Datos
+```bash
+codeql database create codeql-db \
+  --language=javascript-typescript \
+  --source-root=. \
+  --overwrite
+```
+
+### 2. Ejecución de la Suite con Exportación SARIF
+```bash
+codeql database analyze codeql-db \
+  codeql/javascript-queries:codeql-suites/javascript-security-and-quality.qls \
+  --format=sarif-latest \
+  --output=codeql-findings.sarif \
+  --threads=0 \
+  --ram=8192
+```
+
+### 3. Normalización y Deduplicación en Devia-CyberSecurity
+El archivo `codeql-findings.sarif` generado se procesa mediante el motor de Capa 3:
+```bash
+python src/scripts/sarif_toolkit.py codeql-findings.sarif --json -o audits/codeql-normalized.json
+```

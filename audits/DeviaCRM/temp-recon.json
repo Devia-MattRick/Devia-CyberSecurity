@@ -1,0 +1,108 @@
+{
+  "status": "SUCCESS",
+  "reconnaissance": {
+    "targetDirectory": "K:\\DeviaCRM",
+    "totalFilesDiscovered": 3917,
+    "languages": [
+      "JavaScript",
+      "JavaScript/Node.js",
+      "Python",
+      "TypeScript"
+    ],
+    "frameworks": [
+      "Angular",
+      "Express",
+      "FastAPI",
+      "Next.js",
+      "React",
+      "Vue"
+    ],
+    "manifests": [
+      "documentation\\LLMs_APIS\\package-lock.json",
+      "documentation\\LLMs_APIS\\package.json",
+      "documentation\\LLMs_APIS\\providers\\grok\\Grok-Api-main\\requirements.txt",
+      "documentation\\providers\\grok\\Grok-Api-main\\requirements.txt",
+      "documentation\\providers\\package.json",
+      "package.json",
+      "pnpm-lock.yaml"
+    ],
+    "infrastructure": [],
+    "authPatterns": [
+      "JWT / Token Auth",
+      "OAuth 2.0 / OIDC"
+    ],
+    "databases": [
+      "PostgreSQL"
+    ],
+    "aiAndAgentic": [
+      "LLM / Agentic Systems / MCP"
+    ],
+    "desktopAndMobile": [
+      "Electron Desktop App"
+    ]
+  },
+  "mapping": {
+    "activeDimensions": [
+      "THREAT_MODELING_ATTACK_SURFACE",
+      "SOURCE_CODE_SAST",
+      "SECRETS_CRYPTOGRAPHY",
+      "IDENTITY_ACCESS_SESSION",
+      "SUPPLY_CHAIN_SCA",
+      "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "RESILIENCE_LOGGING_TELEMETRY"
+    ],
+    "skillsInvolved": [
+      "threat-modeling-attack-surface",
+      "source-code-sast",
+      "secrets-cryptography",
+      "identity-access-session",
+      "supply-chain-sca",
+      "architecture-boundaries-zero-trust",
+      "resilience-logging-telemetry"
+    ],
+    "recommendedScripts": [
+      "attack_vector_assessment_engine.py",
+      "check_lockfiles.py",
+      "differential_exploit_verifier.py",
+      "hard_exclusions.py",
+      "mcp_tool_poisoning_scanner.py",
+      "poc_safety_linter.py",
+      "pqc_inventory_scanner.py",
+      "prompt_injection_detector.py",
+      "risk_assessment_engine.py",
+      "role_mining_analyzer.py",
+      "sarif_toolkit.py",
+      "scan_covert_telemetry.py",
+      "scan_secrets.py",
+      "target_snapshot.py",
+      "url_validator.py"
+    ],
+    "recommendedReferences": [
+      ".agents/skills/architecture-boundaries-zero-trust/references/agentic-system-security-mcp.md",
+      ".agents/skills/architecture-boundaries-zero-trust/references/electron-ipc-hardening.md",
+      ".agents/skills/architecture-boundaries-zero-trust/references/mcp-tool-poisoning-and-rug-pull-defense.md",
+      ".agents/skills/architecture-boundaries-zero-trust/references/sealed-scan-contracts-and-projections.md",
+      ".agents/skills/identity-access-session/references/multitenant-and-sibling-guard-auditing.md",
+      ".agents/skills/identity-access-session/references/rls-deep-audit-guide.md",
+      ".agents/skills/resilience-logging-telemetry/references/interrupted-scan-recovery.md",
+      ".agents/skills/secrets-cryptography/references/source-exposed-secrets-standard.md",
+      ".agents/skills/source-code-sast/references/angular-spa-ssr-hydration-security.md",
+      ".agents/skills/source-code-sast/references/code-evidence-and-root-cause-reasoning.md",
+      ".agents/skills/source-code-sast/references/prototype-pollution-and-property-injection.md",
+      ".agents/skills/supply-chain-sca/references/package-integrity-and-patch-risk-rubric.md"
+    ],
+    "priorityVulnerabilities": [
+      "VULN-ARCH-008",
+      "VULN-ARCH-010",
+      "VULN-ARCH-011",
+      "VULN-CRYP-001",
+      "VULN-IAM-001",
+      "VULN-IAM-002",
+      "VULN-SAST-016",
+      "VULN-SAST-018",
+      "VULN-SCA-001",
+      "VULN-SCA-006",
+      "VULN-SCA-007"
+    ]
+  }
+}

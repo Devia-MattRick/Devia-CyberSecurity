@@ -21,6 +21,8 @@ export * from "./endpoint-hardening.schema.js";
 export * from "./deception-posture.schema.js";
 export * from "./threat-detection.schema.js";
 export * from "./exploit-path-assessment.schema.js";
+export * from "./formula-injection.schema.js";
+
 
 
 

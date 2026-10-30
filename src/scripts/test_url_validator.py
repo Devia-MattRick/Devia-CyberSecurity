@@ -86,5 +86,21 @@ class TestUrlValidator(unittest.TestCase):
             safe, reason = is_safe_external_url(url)
             self.assertFalse(safe, f"Expected unsafe for malformed {url}, got safe: {reason}")
 
+    def test_link_aggregators_blocking(self):
+        aggregators = [
+            "https://linktr.ee/phishinguser",
+            "https://sub.carrd.co/page",
+            "https://bio.link/creator"
+        ]
+        for url in aggregators:
+            # Not blocked by default
+            safe_default, _ = is_safe_external_url(url)
+            self.assertTrue(safe_default)
+            # Blocked when block_aggregators=True
+            safe_blocked, reason = is_safe_external_url(url, block_aggregators=True)
+            self.assertFalse(safe_blocked)
+            self.assertIn("link aggregator", reason.lower())
+
 if __name__ == "__main__":
+
     unittest.main()

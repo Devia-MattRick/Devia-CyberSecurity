@@ -1,0 +1,9 @@
+{"path": "report-schema.json", "kind": "file", "extension": ".json", "size_bytes": 15539, "category": "CONFIGURATION", "is_security_critical": false, "sha256": null}
+{"path": "SKILL.md", "kind": "file", "extension": ".md", "size_bytes": 36688, "category": "CRITICAL_MANIFEST_OR_CONFIG", "is_security_critical": true, "sha256": "4628cb79c50f39506eedd1a8df1af6439b99199bae3039a87946ab3fb291fffd"}
+{"path": "tests/test-cyber-audit.cjs", "kind": "file", "extension": ".cjs", "size_bytes": 12947, "category": "SOURCE_CODE", "is_security_critical": false, "sha256": null}
+{"path": "templates/AUDIT_REPORT_TEMPLATE.md", "kind": "file", "extension": ".md", "size_bytes": 6919, "category": "DOCUMENTATION", "is_security_critical": false, "sha256": null}
+{"path": "scripts/deepsearch-cyber-audit.cjs", "kind": "file", "extension": ".cjs", "size_bytes": 28965, "category": "SOURCE_CODE", "is_security_critical": false, "sha256": null}
+{"path": "scripts/validate-coverage-ledger.cjs", "kind": "file", "extension": ".cjs", "size_bytes": 15753, "category": "SOURCE_CODE", "is_security_critical": false, "sha256": null}
+{"path": "scripts/validate-findings.cjs", "kind": "file", "extension": ".cjs", "size_bytes": 22461, "category": "SOURCE_CODE", "is_security_critical": false, "sha256": null}
+{"path": "references/CATALOGO_VECTORES.md", "kind": "file", "extension": ".md", "size_bytes": 8439, "category": "DOCUMENTATION", "is_security_critical": false, "sha256": null}
+{"path": "references/CHECKLIST_CAPAS.md", "kind": "file", "extension": ".md", "size_bytes": 6091, "category": "DOCUMENTATION", "is_security_critical": false, "sha256": null}

@@ -35,6 +35,11 @@ CLOUD_METADATA_NETWORKS = [
     ipaddress.ip_network("fe80::/10"),            # IPv6 Link-Local
 ]
 
+BLOCKED_LINK_AGGREGATORS = {
+    "linktr.ee", "carrd.co", "bio.link", "lnk.bio", "beacons.ai", "taplink.cc"
+}
+
+
 def has_terminal_control(text: str) -> bool:
     """Return True if text contains terminal escape or control sequences."""
     return bool(_TERMINAL_CONTROL_RE.search(text))
@@ -93,7 +98,7 @@ def parse_url(value: str) -> SplitResult | None:
 
     return parsed
 
-def is_safe_external_url(url: str, *, allow_private: bool = False) -> tuple[bool, str]:
+def is_safe_external_url(url: str, *, allow_private: bool = False, block_aggregators: bool = False) -> tuple[bool, str]:
     """Validate whether a URL is a safe external HTTP(S) endpoint.
 
     Returns (is_safe, reason).
@@ -106,6 +111,11 @@ def is_safe_external_url(url: str, *, allow_private: bool = False) -> tuple[bool
     if hostname == "localhost" or hostname.endswith((".localhost", ".local", ".internal")):
         if not allow_private:
             return False, f"Localhost or internal domain '{hostname}' rejected"
+
+    if block_aggregators:
+        if hostname in BLOCKED_LINK_AGGREGATORS or any(hostname.endswith("." + agg) for agg in BLOCKED_LINK_AGGREGATORS):
+            return False, f"Shared non-corporate link aggregator domain '{hostname}' rejected under sovereign anti-SSRF policy"
+
 
     # Check if host is an explicit IP address (IPv4 or IPv6 enclosed in brackets)
     try:

@@ -1,0 +1,29 @@
+{
+  "target": {
+    "root_path": "K:\\DeepSearch_LeadsResearch\\.agents\\skills\\cybersecurity-engineer",
+    "output_path": "K:\\Devia-CyberSecurity\\audits\\deepsearch-skills-audit\\cybersecurity-engineer\\inventory",
+    "archetype": "AGENTIC_SKILL_OR_PLUGIN"
+  },
+  "timestamps": {
+    "started_at": "2026-10-30T06:28:57.759737+00:00",
+    "finished_at": "2026-10-30T06:28:57.762307+00:00"
+  },
+  "metrics": {
+    "total_files": 68,
+    "total_directories": 5,
+    "total_links_or_reparse_skipped": 0,
+    "total_bytes": 740249,
+    "total_errors": 0
+  },
+  "category_distribution": {
+    "CRITICAL_MANIFEST_OR_CONFIG": 1,
+    "SOURCE_CODE": 19,
+    "DOCUMENTATION": 48
+  },
+  "top_extensions": {
+    ".md": 49,
+    ".py": 10,
+    ".sh": 9
+  },
+  "errors": []
+}

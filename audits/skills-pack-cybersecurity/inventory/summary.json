@@ -1,0 +1,31 @@
+{
+  "target": {
+    "root_path": "K:\\Skills_Pack\\.agent\\skills\\Cybersecurity",
+    "output_path": "K:\\Devia-CyberSecurity\\audits\\skills-pack-cybersecurity\\inventory",
+    "archetype": "AGENTIC_SKILL_OR_PLUGIN"
+  },
+  "timestamps": {
+    "started_at": "2026-10-30T15:48:06.566741+00:00",
+    "finished_at": "2026-10-30T15:48:06.593257+00:00"
+  },
+  "metrics": {
+    "total_files": 143,
+    "total_directories": 107,
+    "total_links_or_reparse_skipped": 0,
+    "total_bytes": 1838513,
+    "total_errors": 0
+  },
+  "category_distribution": {
+    "CRITICAL_MANIFEST_OR_CONFIG": 81,
+    "DOCUMENTATION": 47,
+    "CONFIGURATION": 3,
+    "SOURCE_CODE": 12
+  },
+  "top_extensions": {
+    ".md": 124,
+    ".py": 12,
+    ".txt": 4,
+    ".yaml": 3
+  },
+  "errors": []
+}

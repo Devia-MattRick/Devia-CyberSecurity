@@ -263,6 +263,16 @@
       "schema": "src/schemas/report.schema.ts",
       "test": "src/scripts/test_sarif_toolkit.py",
       "vulnerabilities": ["VULN-ARCH-004", "VULN-RESI-004"]
+    },
+    {
+      "name": "scan_formula_injection.py",
+      "path": "src/scripts/scan_formula_injection.py",
+      "dimension": "SOURCE_CODE_SAST",
+      "skill": "source-code-sast",
+      "description": "Escaneo estático determinista de Formula Injection en CSV/Excel (CWE-1236), verificación de prefijo de comilla simple (=, +, -, @, \\t, \\r, |, %) y BOM UTF-8.",
+      "schema": "src/schemas/formula-injection.schema.ts",
+      "test": "src/scripts/test_scan_formula_injection.py",
+      "vulnerabilities": ["VULN-SAST-022"]
     }
   ]
 }

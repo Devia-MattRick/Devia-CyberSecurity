@@ -121,6 +121,7 @@ El agente emite un resumen conciso:
 1. **Ejecución de Motores Deterministas de Capa 3:**
    - **Secretos:** `python src/scripts/scan_secrets.py "<TARGET>" --json`
    - **Lockfiles & Supply Chain:** `python src/scripts/check_lockfiles.py "<TARGET>" --json`
+   - **Formula Injection (CWE-1236):** `python src/scripts/scan_formula_injection.py "<TARGET>" --json`
    - **Snapshot & Huellas:** `python src/scripts/target_snapshot.py "<TARGET>" --json`
    - **Evaluación de Endpoints / Hardening:** `python src/scripts/endpoint_hardening_auditor.py ...` (si aplica)
    - **Verificación de Inyecciones:** `python src/scripts/differential_exploit_verifier.py ...` (si aplica)
@@ -129,11 +130,22 @@ El agente emite un resumen conciso:
    - Inspeccionar cada archivo relevante, línea por línea.
    - Rastrear el flujo de datos no confiables (*Taint Analysis*): Entrada $\to$ Propagación $\to$ Sumidero.
    - Validar fronteras de confianza, control de acceso, permisos y manejo de excepciones.
-3. **Estructuración Contract-First de Hallazgos:**
+3. **Validación Adversarial con 'Ojos Frescos' & Finding Validation Gate (7 Preguntas):**
+   - **Regla de Ojos Frescos:** Todo hallazgo candidato debe ser evaluado con mentalidad refutativa por un rol independiente (*Hunter != Verifier*), buscando activamente controles en el código que neutralicen el vector.
+   - **Filtro de las 7 Preguntas:**
+     1. ¿Existe un límite de confianza real y una entrada de menor confianza identificada?
+     2. ¿Se demostró un resultado observable con impacto de seguridad real?
+     3. ¿Se verificó contra el código fuente en HEAD mediante lectura directa o tests locales?
+     4. ¿Se descartó la existencia de controles que ya prevengan o neutralicen el vector?
+     5. ¿La severidad general está calibrada y NO excede el impacto demostrado?
+     6. ¿La remediación propuesta es el cambio de código más pequeño y efectivo en el punto de decisión correcto?
+     7. ¿El veredicto final está respaldado por evidencia empírica fresca?
+4. **Estructuración Contract-First de Hallazgos:**
    - Para cada hallazgo, generar una huella primaria estable:
      $$\text{Fingerprint} = \text{SHA-256}(\text{targetId} : \text{ruleId} : \text{anchor} : \text{instance})$$
    - Mapear los 7 roles semánticos de evidencia de código (`user_input`, `entrypoint`, `propagation`, `root_control`, `sink`, `outcome`, `expected_control`).
    - Mapear a `VULN-*`, CWE, OWASP Top 10 y severidad CVSS conformes a `SecurityFindingSchema`.
+
 
 #### 🛑 PAUSA ESTRATÉGICA OBLIGATORIA 3
 El agente emite un resumen preliminar:

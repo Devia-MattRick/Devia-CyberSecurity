@@ -1,0 +1,1083 @@
+[
+  {
+    "folder": "007",
+    "name": "007",
+    "author": "renat",
+    "desc": "Security audit, hardening, threat modeling (STRIDE/PASTA), Red/Blue Team, OWASP checks, code review, incident response, and infrastructure security for any project.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 15,
+    "files": [
+      "SKILL.md",
+      "references/ai-agent-security.md",
+      "references/api-security-patterns.md",
+      "references/incident-playbooks.md",
+      "references/owasp-checklists.md",
+      "references/stride-pasta-guide.md",
+      "scripts/config.py",
+      "scripts/full_audit.py",
+      "scripts/quick_scan.py",
+      "scripts/requirements.txt",
+      "scripts/score_calculator.py",
+      "scripts/scanners/dependency_scanner.py",
+      "scripts/scanners/injection_scanner.py",
+      "scripts/scanners/secrets_scanner.py",
+      "scripts/scanners/__init__.py"
+    ],
+    "py_files": [
+      "scripts/config.py",
+      "scripts/full_audit.py",
+      "scripts/quick_scan.py",
+      "scripts/score_calculator.py",
+      "scripts/scanners/dependency_scanner.py",
+      "scripts/scanners/injection_scanner.py",
+      "scripts/scanners/secrets_scanner.py",
+      "scripts/scanners/__init__.py"
+    ],
+    "content_length": 22630
+  },
+  {
+    "folder": "active-directory-attacks",
+    "name": "active-directory-attacks",
+    "author": "zebbern",
+    "desc": "Provide comprehensive techniques for attacking Microsoft Active Directory environments. Covers reconnaissance, credential harvesting, Kerberos attacks, lateral movement, privilege escalation, and domain dominance for red team operations and penetration testing.",
+    "dim": "IDENTITY_ACCESS_SESSION",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "references/advanced-attacks.md"
+    ],
+    "py_files": [],
+    "content_length": 9615
+  },
+  {
+    "folder": "anti-reversing-techniques",
+    "name": "anti-reversing-techniques",
+    "author": "",
+    "desc": "AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any bypass or analysis: > 1.",
+    "dim": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 2048
+  },
+  {
+    "folder": "api-fuzzing-bug-bounty",
+    "name": "api-fuzzing-bug-bounty",
+    "author": "zebbern",
+    "desc": "Provide comprehensive techniques for testing REST, SOAP, and GraphQL APIs during bug bounty hunting and penetration testing engagements. Covers vulnerability discovery, authentication bypass, IDOR exploitation, and API-specific attack vectors.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10381
+  },
+  {
+    "folder": "api-security-best-practices",
+    "name": "api-security-best-practices",
+    "author": "",
+    "desc": "Implement secure API design patterns including authentication, authorization, input validation, rate limiting, and protection against common API vulnerabilities",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 23420
+  },
+  {
+    "folder": "api-security-testing",
+    "name": "api-security-testing",
+    "author": "",
+    "desc": "API security testing workflow for REST and GraphQL APIs covering authentication, authorization, rate limiting, input validation, and security best practices.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 3606
+  },
+  {
+    "folder": "attack-tree-construction",
+    "name": "attack-tree-construction",
+    "author": "",
+    "desc": "Build comprehensive attack trees to visualize threat paths. Use when mapping attack scenarios, identifying defense gaps, or communicating security risks to stakeholders.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 1348
+  },
+  {
+    "folder": "aws-penetration-testing",
+    "name": "aws-penetration-testing",
+    "author": "zebbern",
+    "desc": "Provide comprehensive techniques for penetration testing AWS cloud environments. Covers IAM enumeration, privilege escalation, SSRF to metadata endpoint, S3 bucket exploitation, Lambda code extraction, and persistence techniques for red team operations.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "references/advanced-aws-pentesting.md"
+    ],
+    "py_files": [],
+    "content_length": 10014
+  },
+  {
+    "folder": "azure-keyvault-py",
+    "name": "azure-keyvault-py",
+    "author": "",
+    "desc": "Azure Key Vault SDK for Python. Use for secrets, keys, and certificates management with secure storage.",
+    "dim": "SECRETS_CRYPTOGRAPHY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 6756
+  },
+  {
+    "folder": "azure-keyvault-secrets-rust",
+    "name": "azure-keyvault-secrets-rust",
+    "author": "",
+    "desc": "Azure Key Vault Secrets SDK for Rust. Use for storing and retrieving secrets, passwords, and API keys. Triggers:",
+    "dim": "SECRETS_CRYPTOGRAPHY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 3651
+  },
+  {
+    "folder": "azure-keyvault-secrets-ts",
+    "name": "azure-keyvault-secrets-ts",
+    "author": "",
+    "desc": "Manage secrets using Azure Key Vault Secrets SDK for JavaScript (@azure/keyvault-secrets). Use when storing and retrieving application secrets or configuration values.",
+    "dim": "SECRETS_CRYPTOGRAPHY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 6260
+  },
+  {
+    "folder": "azure-security-keyvault-keys-dotnet",
+    "name": "azure-security-keyvault-keys-dotnet",
+    "author": "",
+    "desc": "Azure Key Vault Keys SDK for .NET. Client library for managing cryptographic keys in Azure Key Vault and Managed HSM. Use for key creation, rotation, encryption, decryption, signing, and verification.",
+    "dim": "SECRETS_CRYPTOGRAPHY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 11895
+  },
+  {
+    "folder": "azure-security-keyvault-keys-java",
+    "name": "azure-security-keyvault-keys-java",
+    "author": "",
+    "desc": "Azure Key Vault Keys Java SDK for cryptographic key management. Use when creating, managing, or using RSA/EC keys, performing encrypt/decrypt/sign/verify operations, or working with HSM-backed keys.",
+    "dim": "SECRETS_CRYPTOGRAPHY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 11011
+  },
+  {
+    "folder": "azure-security-keyvault-secrets-java",
+    "name": "azure-security-keyvault-secrets-java",
+    "author": "",
+    "desc": "Azure Key Vault Secrets Java SDK for secret management. Use when storing, retrieving, or managing passwords, API keys, connection strings, or other sensitive configuration data.",
+    "dim": "SECRETS_CRYPTOGRAPHY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 11533
+  },
+  {
+    "folder": "backend-security-coder",
+    "name": "backend-security-coder",
+    "author": "",
+    "desc": "Expert in secure backend coding practices specializing in input validation, authentication, and API security. Use PROACTIVELY for backend security implementations or security code reviews.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 9881
+  },
+  {
+    "folder": "broken-authentication",
+    "name": "Broken Authentication Testing",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "IDENTITY_ACCESS_SESSION",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 12614
+  },
+  {
+    "folder": "burp-suite-testing",
+    "name": "Burp Suite Web Application Testing",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10889
+  },
+  {
+    "folder": "burpsuite-project-parser",
+    "name": "burpsuite-project-parser",
+    "author": "",
+    "desc": "Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting security audit findings, dumping proxy history or site map data, or analyzing HTTP traffic captured in a Burp project.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 12517
+  },
+  {
+    "folder": "cloud-infrastructure-security",
+    "name": "cloud-infrastructure-security",
+    "author": "",
+    "desc": "",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10161
+  },
+  {
+    "folder": "cloud-penetration-testing",
+    "name": "Cloud Penetration Testing",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "references/advanced-cloud-scripts.md"
+    ],
+    "py_files": [],
+    "content_length": 14036
+  },
+  {
+    "folder": "ethical-hacking-methodology",
+    "name": "ethical-hacking-methodology",
+    "author": "zebbern",
+    "desc": "Master the complete penetration testing lifecycle from reconnaissance through reporting. This skill covers the five stages of ethical hacking methodology, essential tools, attack techniques, and professional reporting for authorized security assessments.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10964
+  },
+  {
+    "folder": "ethical_hacking_methodology",
+    "name": "ethical-hacking-methodology",
+    "author": "",
+    "desc": "Master the complete penetration testing lifecycle from reconnaissance through reporting.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 2,
+    "files": [
+      "Ethical Hacking Methodology - Guia de uso.md",
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 1962
+  },
+  {
+    "folder": "file-path-traversal",
+    "name": "file-path-traversal",
+    "author": "zebbern",
+    "desc": "Identify and exploit file path traversal (directory traversal) vulnerabilities that allow attackers to read arbitrary files on the server, potentially including sensitive configuration files, credentials, and source code.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 11854
+  },
+  {
+    "folder": "frontend-mobile-security-xss-scan",
+    "name": "frontend-mobile-security-xss-scan",
+    "author": "",
+    "desc": "You are a frontend security specialist focusing on Cross-Site Scripting (XSS) vulnerability detection and prevention. Analyze React, Vue, Angular, and vanilla JavaScript code to identify injection poi",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 9300
+  },
+  {
+    "folder": "frontend-security-coder",
+    "name": "frontend-security-coder",
+    "author": "",
+    "desc": "Expert in secure frontend coding practices specializing in XSS prevention, output sanitization, and client-side security patterns.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 11487
+  },
+  {
+    "folder": "gdpr-data-handling",
+    "name": "gdpr-data-handling",
+    "author": "",
+    "desc": "Practical implementation guide for GDPR-compliant data processing, consent management, and privacy controls.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 1087
+  },
+  {
+    "folder": "gha-security-review",
+    "name": "gha-security-review",
+    "author": "",
+    "desc": "Find exploitable vulnerabilities in GitHub Actions workflows. Every finding MUST include a concrete exploitation scenario — if you can",
+    "dim": "SUPPLY_CHAIN_SCA",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 8119
+  },
+  {
+    "folder": "html-injection-testing",
+    "name": "html-injection-testing",
+    "author": "zebbern",
+    "desc": "Identify and exploit HTML injection vulnerabilities that allow attackers to inject malicious HTML content into web applications. This vulnerability enables attackers to modify page appearance, create phishing pages, and steal user credentials through injected forms.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 13147
+  },
+  {
+    "folder": "idor-testing",
+    "name": "IDOR Vulnerability Testing",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "IDENTITY_ACCESS_SESSION",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 12579
+  },
+  {
+    "folder": "incident-responder",
+    "name": "incident-responder",
+    "author": "",
+    "desc": "Expert SRE incident responder specializing in rapid problem resolution, modern observability, and comprehensive incident management.",
+    "dim": "RESILIENCE_LOGGING_TELEMETRY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10235
+  },
+  {
+    "folder": "incident-response-incident-response",
+    "name": "incident-response-incident-response",
+    "author": "",
+    "desc": "Use when working with incident response incident response",
+    "dim": "RESILIENCE_LOGGING_TELEMETRY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10764
+  },
+  {
+    "folder": "incident-response-smart-fix",
+    "name": "incident-response-smart-fix",
+    "author": "",
+    "desc": "[Extended thinking: This workflow implements a sophisticated debugging and resolution pipeline that leverages AI-assisted debugging tools and observability platforms to systematically diagnose and res",
+    "dim": "RESILIENCE_LOGGING_TELEMETRY",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 3371
+  },
+  {
+    "folder": "incident-runbook-templates",
+    "name": "incident-runbook-templates",
+    "author": "",
+    "desc": "Production-ready templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication.",
+    "dim": "RESILIENCE_LOGGING_TELEMETRY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10978
+  },
+  {
+    "folder": "laravel-security-audit",
+    "name": "laravel-security-audit",
+    "author": "",
+    "desc": "Security auditor for Laravel applications. Analyzes code for vulnerabilities, misconfigurations, and insecure practices using OWASP standards and Laravel security best practices.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 4459
+  },
+  {
+    "folder": "linux-privilege-escalation",
+    "name": "Linux Privilege Escalation",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "IDENTITY_ACCESS_SESSION",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 11730
+  },
+  {
+    "folder": "memory-forensics",
+    "name": "memory-forensics",
+    "author": "",
+    "desc": "Comprehensive techniques for acquiring, analyzing, and extracting artifacts from memory dumps for incident response and malware analysis.",
+    "dim": "RESILIENCE_LOGGING_TELEMETRY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10990
+  },
+  {
+    "folder": "metasploit-framework",
+    "name": "metasploit-framework",
+    "author": "zebbern",
+    "desc": "⚠️ AUTHORIZED USE ONLY > This skill is for educational purposes or authorized security assessments only. > You must have explicit, written permission from the system owner before using this tool. > Misuse of this tool is illegal and strictly prohibited.",
+    "dim": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 13925
+  },
+  {
+    "folder": "mobile-security-coder",
+    "name": "mobile-security-coder",
+    "author": "",
+    "desc": "Expert in secure mobile coding practices specializing in input validation, WebView security, and mobile-specific security patterns.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 12654
+  },
+  {
+    "folder": "odoo-security-rules",
+    "name": "odoo-security-rules",
+    "author": "",
+    "desc": "Expert in Odoo access control: ir.model.access.csv, record rules (ir.rule), groups, and multi-company security patterns.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 4284
+  },
+  {
+    "folder": "pci-compliance",
+    "name": "pci-compliance",
+    "author": "",
+    "desc": "Master PCI DSS (Payment Card Industry Data Security Standard) compliance for secure payment processing and handling of cardholder data.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 13843
+  },
+  {
+    "folder": "privilege-escalation-methods",
+    "name": "privilege-escalation-methods",
+    "author": "zebbern",
+    "desc": "Provide comprehensive techniques for escalating privileges from a low-privileged user to root/administrator access on compromised Linux and Windows systems. Essential for penetration testing post-exploitation phase and red team operations.",
+    "dim": "IDENTITY_ACCESS_SESSION",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 8164
+  },
+  {
+    "folder": "red-team-tactics",
+    "name": "red-team-tactics",
+    "author": "",
+    "desc": "Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting.",
+    "dim": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 4495
+  },
+  {
+    "folder": "red-team-tools",
+    "name": "red-team-tools",
+    "author": "zebbern",
+    "desc": "Implement proven methodologies and tool workflows from top security researchers for effective reconnaissance, vulnerability discovery, and bug bounty hunting. Automate common tasks while maintaining thorough coverage of attack surfaces.",
+    "dim": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 7866
+  },
+  {
+    "folder": "reverse-engineer",
+    "name": "reverse-engineer",
+    "author": "",
+    "desc": "Expert reverse engineer specializing in binary analysis, disassembly, decompilation, and software analysis. Masters IDA Pro, Ghidra, radare2, x64dbg, and modern RE toolchains.",
+    "dim": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 5325
+  },
+  {
+    "folder": "sast-configuration",
+    "name": "sast-configuration",
+    "author": "",
+    "desc": "Static Application Security Testing (SAST) tool setup, configuration, and custom rule creation for comprehensive security scanning across multiple programming languages.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 6227
+  },
+  {
+    "folder": "scanning-tools",
+    "name": "scanning-tools",
+    "author": "zebbern",
+    "desc": "Master essential security scanning tools for network discovery, vulnerability assessment, web application testing, wireless security, and compliance validation. This skill covers tool selection, configuration, and practical usage across different scanning categories.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 13608
+  },
+  {
+    "folder": "secure-code-guardian",
+    "name": "secure-code-guardian",
+    "author": "https://github.com/Jeffallan",
+    "desc": "Use when implementing authentication/authorization, securing user input, or preventing OWASP Top 10 vulnerabilities — including custom security implementations such as hashing passwords with bcrypt/argon2, sanitizing SQL queries with parameterized statements, configuring CORS/CSP headers, validating input with Zod, and setting up JWT tokens. Invoke for authentication, authorization, input validation, encryption, OWASP Top 10 prevention, secure session management, and security hardening. For pre-built OAuth/SSO integrations or standalone security audits, consider a more specialized skill.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 6,
+    "files": [
+      "SKILL.md",
+      "references/authentication.md",
+      "references/input-validation.md",
+      "references/owasp-prevention.md",
+      "references/security-headers.md",
+      "references/xss-csrf.md"
+    ],
+    "py_files": [],
+    "content_length": 6920
+  },
+  {
+    "folder": "security",
+    "name": "security",
+    "author": "",
+    "desc": "",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 4,
+    "files": [
+      "aws-compliance-checker/SKILL.md",
+      "aws-iam-best-practices/SKILL.md",
+      "aws-secrets-rotation/SKILL.md",
+      "aws-security-audit/SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 0
+  },
+  {
+    "folder": "security-audit",
+    "name": "security-audit",
+    "author": "",
+    "desc": "Comprehensive security auditing workflow covering web application testing, API security, penetration testing, vulnerability scanning, and security hardening.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 5195
+  },
+  {
+    "folder": "security-auditor",
+    "name": "security-auditor",
+    "author": "",
+    "desc": "Expert security auditor specializing in DevSecOps, comprehensive cybersecurity, and compliance frameworks.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10063
+  },
+  {
+    "folder": "security-best-practices",
+    "name": "security-best-practices",
+    "author": "openai",
+    "desc": "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 13,
+    "files": [
+      "LICENSE.txt",
+      "SKILL.md",
+      "agents/openai.yaml",
+      "references/golang-general-backend-security.md",
+      "references/javascript-express-web-server-security.md",
+      "references/javascript-general-web-frontend-security.md",
+      "references/javascript-jquery-web-frontend-security.md",
+      "references/javascript-typescript-nextjs-web-server-security.md",
+      "references/javascript-typescript-react-web-frontend-security.md",
+      "references/javascript-typescript-vue-web-frontend-security.md",
+      "references/python-django-web-server-security.md",
+      "references/python-fastapi-web-server-security.md",
+      "references/python-flask-web-server-security.md"
+    ],
+    "py_files": [],
+    "content_length": 8627
+  },
+  {
+    "folder": "security-bluebook-builder",
+    "name": "security-bluebook-builder",
+    "author": "",
+    "desc": "Build a minimal but real security policy for sensitive apps. The output is a single, coherent Blue Book document using MUST/SHOULD/CAN language, with explicit assumptions, scope, and security gates.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 2007
+  },
+  {
+    "folder": "security-compliance-compliance-check",
+    "name": "security-compliance-compliance-check",
+    "author": "",
+    "desc": "You are a compliance expert specializing in regulatory requirements for software systems including GDPR, HIPAA, SOC2, PCI-DSS, and other industry standards. Perform comprehensive compliance audits and provide implementation guidance for achieving and maintaining compliance.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 2512
+  },
+  {
+    "folder": "security-ownership-map",
+    "name": "security-ownership-map",
+    "author": "openai",
+    "desc": "Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 8,
+    "files": [
+      "LICENSE.txt",
+      "SKILL.md",
+      "agents/openai.yaml",
+      "references/neo4j-import.md",
+      "scripts/build_ownership_map.py",
+      "scripts/community_maintainers.py",
+      "scripts/query_ownership.py",
+      "scripts/run_ownership_map.py"
+    ],
+    "py_files": [
+      "scripts/build_ownership_map.py",
+      "scripts/community_maintainers.py",
+      "scripts/query_ownership.py",
+      "scripts/run_ownership_map.py"
+    ],
+    "content_length": 8747
+  },
+  {
+    "folder": "security-requirement-extraction",
+    "name": "security-requirement-extraction",
+    "author": "",
+    "desc": "Derive security requirements from threat models and business context. Use when translating threats into actionable requirements, creating security user stories, or building security test cases.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 1146
+  },
+  {
+    "folder": "security-review",
+    "name": "security-review",
+    "author": "",
+    "desc": "Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 12194
+  },
+  {
+    "folder": "security-reviewer",
+    "name": "security-reviewer",
+    "author": "https://github.com/Jeffallan",
+    "desc": "Identifies security vulnerabilities, generates structured audit reports with severity ratings, and provides actionable remediation guidance. Use when conducting security audits, reviewing code for vulnerabilities, or analyzing infrastructure security. Invoke for SAST scans, penetration testing, DevSecOps practices, cloud security reviews, dependency audits, secrets scanning, or compliance checks. Produces vulnerability reports, prioritized recommendations, and compliance checklists.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 7,
+    "files": [
+      "SKILL.md",
+      "references/infrastructure-security.md",
+      "references/penetration-testing.md",
+      "references/report-template.md",
+      "references/sast-tools.md",
+      "references/secret-scanning.md",
+      "references/vulnerability-patterns.md"
+    ],
+    "py_files": [],
+    "content_length": 4771
+  },
+  {
+    "folder": "security-scanning-security-dependencies",
+    "name": "security-scanning-security-dependencies",
+    "author": "",
+    "desc": "You are a security expert specializing in dependency vulnerability analysis, SBOM generation, and supply chain security. Scan project dependencies across multiple ecosystems to identify vulnerabilities, assess risks, and provide automated remediation strategies.",
+    "dim": "SUPPLY_CHAIN_SCA",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 1933
+  },
+  {
+    "folder": "security-scanning-security-hardening",
+    "name": "security-scanning-security-hardening",
+    "author": "",
+    "desc": "Coordinate multi-layer security scanning and hardening across application, infrastructure, and compliance controls.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 10857
+  },
+  {
+    "folder": "security-scanning-security-sast",
+    "name": "security-scanning-security-sast",
+    "author": "",
+    "desc": "Static Application Security Testing (SAST) for code vulnerability",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 14396
+  },
+  {
+    "folder": "security-threat-model",
+    "name": "security-threat-model",
+    "author": "openai",
+    "desc": "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 5,
+    "files": [
+      "LICENSE.txt",
+      "SKILL.md",
+      "agents/openai.yaml",
+      "references/prompt-template.md",
+      "references/security-controls-and-assets.md"
+    ],
+    "py_files": [],
+    "content_length": 5572
+  },
+  {
+    "folder": "shellcheck-configuration",
+    "name": "shellcheck-configuration",
+    "author": "",
+    "desc": "Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting up linting infrastructure, fixing code issues, or ensuring script portability.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 9978
+  },
+  {
+    "folder": "shodan-reconnaissance",
+    "name": "Shodan Reconnaissance and Pentesting",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 13821
+  },
+  {
+    "folder": "smtp-penetration-testing",
+    "name": "smtp-penetration-testing",
+    "author": "zebbern",
+    "desc": "Conduct comprehensive security assessments of SMTP (Simple Mail Transfer Protocol) servers to identify vulnerabilities including open relays, user enumeration, weak authentication, and misconfiguration.",
+    "dim": "CONFIGURATION_HARDENING",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 12181
+  },
+  {
+    "folder": "solidity-security",
+    "name": "solidity-security",
+    "author": "",
+    "desc": "Master smart contract security best practices, vulnerability prevention, and secure Solidity development patterns.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 1173
+  },
+  {
+    "folder": "sql-injection-testing",
+    "name": "SQL Injection Testing",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 11442
+  },
+  {
+    "folder": "sql_injection_testing",
+    "name": "sql-injection-testing",
+    "author": "",
+    "desc": "Execute comprehensive SQL injection vulnerability assessments to identify database security flaws.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "SQL Injection Testing - Guia de uso.md"
+    ],
+    "py_files": [],
+    "content_length": 1775
+  },
+  {
+    "folder": "sqlmap-database-pentesting",
+    "name": "SQLMap Database Penetration Testing",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 12026
+  },
+  {
+    "folder": "ssh-penetration-testing",
+    "name": "ssh-penetration-testing",
+    "author": "zebbern",
+    "desc": "Conduct comprehensive SSH security assessments including enumeration, credential attacks, vulnerability exploitation, tunneling techniques, and post-exploitation activities. This skill covers the complete methodology for testing SSH service security.",
+    "dim": "IDENTITY_ACCESS_SESSION",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 12025
+  },
+  {
+    "folder": "stride-analysis-patterns",
+    "name": "stride-analysis-patterns",
+    "author": "",
+    "desc": "Apply STRIDE methodology to systematically identify threats. Use when analyzing system security, conducting threat modeling sessions, or creating security documentation.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 1110
+  },
+  {
+    "folder": "threat-mitigation-mapping",
+    "name": "threat-mitigation-mapping",
+    "author": "",
+    "desc": "Map identified threats to appropriate security controls and mitigations. Use when prioritizing security investments, creating remediation plans, or validating control effectiveness.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 2,
+    "files": [
+      "SKILL.md",
+      "resources/implementation-playbook.md"
+    ],
+    "py_files": [],
+    "content_length": 1079
+  },
+  {
+    "folder": "threat-modeling-expert",
+    "name": "threat-modeling-expert",
+    "author": "",
+    "desc": "Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters STRIDE, PASTA, attack trees, and security requirement extraction. Use PROACTIVELY for security architecture reviews, threat identification, or building secure-by-design systems.",
+    "dim": "THREAT_MODELING_ATTACK_SURFACE",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 2113
+  },
+  {
+    "folder": "windows-privilege-escalation",
+    "name": "Windows Privilege Escalation",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "IDENTITY_ACCESS_SESSION",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 14367
+  },
+  {
+    "folder": "wireshark-analysis",
+    "name": "Wireshark Network Traffic Analysis",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 12176
+  },
+  {
+    "folder": "wordpress-penetration-testing",
+    "name": "wordpress-penetration-testing",
+    "author": "zebbern",
+    "desc": "Assess WordPress installations for common vulnerabilities and WordPress 7.0 attack surfaces.",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 15157
+  },
+  {
+    "folder": "xss-html-injection",
+    "name": "Cross-Site Scripting and HTML Injection Testing",
+    "author": "zebbern",
+    "desc": "This skill should be used when the user asks to",
+    "dim": "SOURCE_CODE_SAST",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 13251
+  },
+  {
+    "folder": "zeroize-audit",
+    "name": "zeroize-audit",
+    "author": "",
+    "desc": "Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification. Use for auditing C/C++/Rust code handling secrets, keys, passwords, or other sensitive data.",
+    "dim": "SECRETS_CRYPTOGRAPHY",
+    "file_count": 1,
+    "files": [
+      "SKILL.md"
+    ],
+    "py_files": [],
+    "content_length": 20987
+  }
+]

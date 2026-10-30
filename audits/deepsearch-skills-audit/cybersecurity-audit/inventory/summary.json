@@ -1,0 +1,30 @@
+{
+  "target": {
+    "root_path": "K:\\DeepSearch_LeadsResearch\\.agents\\skills\\Cybersecurity-Audit",
+    "output_path": "K:\\Devia-CyberSecurity\\audits\\deepsearch-skills-audit\\cybersecurity-audit\\inventory",
+    "archetype": "AGENTIC_SKILL_OR_PLUGIN"
+  },
+  "timestamps": {
+    "started_at": "2026-10-30T06:28:57.824509+00:00",
+    "finished_at": "2026-10-30T06:28:57.825491+00:00"
+  },
+  "metrics": {
+    "total_files": 9,
+    "total_directories": 5,
+    "total_links_or_reparse_skipped": 0,
+    "total_bytes": 153802,
+    "total_errors": 0
+  },
+  "category_distribution": {
+    "CONFIGURATION": 1,
+    "CRITICAL_MANIFEST_OR_CONFIG": 1,
+    "SOURCE_CODE": 4,
+    "DOCUMENTATION": 3
+  },
+  "top_extensions": {
+    ".md": 4,
+    ".cjs": 4,
+    ".json": 1
+  },
+  "errors": []
+}
