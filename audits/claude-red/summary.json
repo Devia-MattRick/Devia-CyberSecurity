@@ -1,0 +1,37 @@
+{
+  "target": {
+    "root_path": "D:\\Descargas\\Claude-Red-main\\Claude-Red-main",
+    "output_path": "K:\\Devia-CyberSecurity\\audits\\claude-red",
+    "name": "claude-red",
+    "version": "0.3.0",
+    "archetype": "AGENTIC_SKILLS_AND_OFFENSIVE_REDTEAM_FRAMEWORK"
+  },
+  "timestamps": {
+    "started_at": "2026-10-31T20:02:14Z",
+    "finished_at": "2026-10-31T20:02:14Z"
+  },
+  "metrics": {
+    "total_files": 97,
+    "total_directories": 84,
+    "total_links_or_reparse_skipped": 0,
+    "total_bytes": 4686684,
+    "total_errors": 0
+  },
+  "category_distribution": {
+    "ASSET_OR_OTHER": 5,
+    "DOCUMENTATION": 4,
+    "CRITICAL_MANIFEST_OR_CONFIG": 81,
+    "SOURCE_CODE": 3,
+    "CONFIGURATION": 4
+  },
+  "top_extensions": {
+    "[no_ext]": 4,
+    ".md": 84,
+    ".json": 1,
+    ".py": 2,
+    ".sh": 1,
+    ".yml": 4,
+    ".png": 1
+  },
+  "errors": []
+}

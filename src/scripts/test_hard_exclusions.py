@@ -3,7 +3,12 @@
 
 import unittest
 from pathlib import Path
-from src.scripts.hard_exclusions import HardExclusionEngine, ExclusionResult
+from src.scripts.hard_exclusions import (
+    HardExclusionEngine,
+    ExclusionResult,
+    validate_safe_path_segment,
+    assert_path_containment
+)
 
 
 class TestHardExclusionEngine(unittest.TestCase):
@@ -131,6 +136,28 @@ class TestHardExclusionEngine(unittest.TestCase):
         self.assertEqual(len(kept), 2)
         self.assertEqual(len(excluded), 2)
 
+    def test_safe_path_segment_validation(self):
+        self.assertEqual(validate_safe_path_segment("audit_report.json"), "audit_report.json")
+        self.assertEqual(validate_safe_path_segment("engagement-001"), "engagement-001")
+        
+        with self.assertRaises(ValueError):
+            validate_safe_path_segment("..")
+        with self.assertRaises(ValueError):
+            validate_safe_path_segment("../secret.txt")
+        with self.assertRaises(ValueError):
+            validate_safe_path_segment("foo\\bar")
+        with self.assertRaises(ValueError):
+            validate_safe_path_segment("null\x00byte")
+
+    def test_path_containment_assertion(self):
+        base = Path("/app/storage")
+        safe_child = assert_path_containment(base, "reports/sub/report.json")
+        self.assertTrue(str(safe_child).startswith(str(base.resolve())))
+
+        with self.assertRaises(ValueError):
+            assert_path_containment(base, "../../etc/passwd")
+
 
 if __name__ == "__main__":
     unittest.main()
+

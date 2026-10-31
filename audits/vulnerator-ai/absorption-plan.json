@@ -1,0 +1,362 @@
+{
+  "planId": "9a3c2888-347e-4f3c-996e-c9a78a9e06b3",
+  "createdAt": "2026-10-31T05:22:18Z",
+  "target": {
+    "path": "D:\\Descargas\\vulnerator-ai-master",
+    "canonicalPath": "D:\\Descargas\\vulnerator-ai-master",
+    "name": "vulnerator-ai-master",
+    "type": "REPOSITORY",
+    "commitOrSnapshot": "v1.7.0 (Distribution Snapshot)",
+    "archetypeDescription": "AGENTIC_MULTI_CONTAINER_PENTEST_SYSTEM"
+  },
+  "scopeSummary": {
+    "totalEntriesScanned": 164,
+    "primaryLanguages": [
+      ".py",
+      ".md",
+      "[no_ext]",
+      ".yml",
+      ".json",
+      ".php"
+    ],
+    "securityDimensionsEvaluated": [
+      "THREAT_MODELING_ATTACK_SURFACE",
+      "SOURCE_CODE_SAST",
+      "SECRETS_CRYPTOGRAPHY",
+      "IDENTITY_ACCESS_SESSION",
+      "SUPPLY_CHAIN_SCA",
+      "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "CONFIGURATION_HARDENING",
+      "RESILIENCE_LOGGING_TELEMETRY"
+    ]
+  },
+  "extractedKnowledge": [
+    {
+      "id": "KNOW-001",
+      "title": "Bucle OODA y Navegación Táctica con MITRE ATT&CK como Ontología Agéntica",
+      "description": "Metodología integral de orquestación agéntica que implementa el bucle Observe-Orient-Decide-Act (OODA) utilizando las 14 tácticas de MITRE ATT&CK Enterprise/Cloud como vocabulario rector de orientación y etiquetado sistemático de hallazgos.",
+      "dimension": "THREAT_MODELING_ATTACK_SURFACE",
+      "cwe": [
+        "CWE-1059",
+        "CWE-501"
+      ],
+      "owasp": [
+        "A04:2021-Insecure Design"
+      ],
+      "sourceLocations": [
+        "agent-ooda/skills/attack-navigation/SKILL.md",
+        "agent-ooda/skills/pentest-ooda/SKILL.md",
+        "agent-ooda/profile/SOUL.md"
+      ],
+      "authority": "OBSERVED",
+      "valueProposition": "Enriquece el modelado de amenazas y la orquestación agéntica en Devia-CyberSecurity, dotando a los agentes de un marco formal de orientación estratégica para planificar el siguiente vector de análisis y clasificar hallazgos de forma estandarizada."
+    },
+    {
+      "id": "KNOW-002",
+      "title": "Gate Determinista Fail-Closed de Confinamiento de Objetivos (Scope-Guard)",
+      "description": "Mecanismo preventivo estricto implementado en Python estándar que valida de manera determinista cada destino contra listas blancas CIDR, hostnames literales y puertos permitidos antes de ejecutar comandos, con verificación híbrida de argumentos.",
+      "dimension": "SOURCE_CODE_SAST",
+      "cwe": [
+        "CWE-78",
+        "CWE-862"
+      ],
+      "owasp": [
+        "A01:2021-Broken Access Control",
+        "A03:2021-Injection"
+      ],
+      "sourceLocations": [
+        "docker/kali/scope_guard.py",
+        "docker/kali/tests/test_scope_guard.py",
+        "scope.example.json"
+      ],
+      "authority": "OBSERVED",
+      "valueProposition": "Aporta una arquitectura de gate fail-closed para verificación de reglas de compromiso (Rules of Engagement), impidiendo la ejecución accidental o inducida de análisis sobre activos fuera de alcance."
+    },
+    {
+      "id": "KNOW-003",
+      "title": "Cadenas Avanzadas de Explotación PHP2Shell (Session Upload LFI, Handler Mismatch y mod_php OOM RCE)",
+      "description": "Catálogo exhaustivo de cinco cadenas de ataque en entornos PHP que incluye inyección de sesiones multipart con LFI (Chain A), desincronización de serializadores de sesión php_serialize vs php con ejecución en __destruct (Chain C), y corrupción de estado global EG() por OOM en Apache mod_php provocando RCE pre-autenticación (Chain D).",
+      "dimension": "SOURCE_CODE_SAST",
+      "cwe": [
+        "CWE-502",
+        "CWE-98",
+        "CWE-416",
+        "CWE-400"
+      ],
+      "owasp": [
+        "A03:2021-Injection",
+        "A08:2021-Software and Data Integrity Failures"
+      ],
+      "sourceLocations": [
+        "labs/php2shell-lab/CHAINS.md",
+        "labs/php2shell-lab/webroot/vuln.php"
+      ],
+      "authority": "OBSERVED",
+      "valueProposition": "Amplía drásticamente las heurísticas SAST para auditoría de aplicaciones PHP modernas y legacy, permitiendo detectar vulnerabilidades sutiles de deserialización en sesiones y configuraciones de SAPI inherentemente frágiles."
+    },
+    {
+      "id": "KNOW-004",
+      "title": "Vector de Fuga de Credenciales en Canales Auxiliares de Modelos Agénticos",
+      "description": "Identificación del patrón de fuga de datos sensibles en agentes de IA donde payloads, tokens y claves capturadas en el historial de conversación son transmitidos inadvertidamente a modelos auxiliares secundarios durante la compresión de contexto o generación de resúmenes de sesión.",
+      "dimension": "SECRETS_CRYPTOGRAPHY",
+      "cwe": [
+        "CWE-200",
+        "CWE-312"
+      ],
+      "owasp": [
+        "A02:2021-Cryptographic Failures"
+      ],
+      "sourceLocations": [
+        "agent-ooda/skills/web-pentest/SKILL.md"
+      ],
+      "authority": "OBSERVED",
+      "valueProposition": "Establece directivas obligatorias de ofuscación y redacción de credenciales en tiempo de ejecución para agentes LLM, impidiendo la filtración de secretos hacia pipelines de telemetría o compresión conversacional."
+    },
+    {
+      "id": "KNOW-005",
+      "title": "Matriz de Escalada de Privilegios en AWS IAM y Verificación Read-Only Pre-Vuelo",
+      "description": "Metodología sistemática de auditoría de identidades y permisos en entornos AWS que cataloga más de diez primitivas de escalada de privilegios y exige su verificación previa en modo de solo lectura mediante SimulatePrincipalPolicy antes de emitir un veredicto de vulnerabilidad.",
+      "dimension": "IDENTITY_ACCESS_SESSION",
+      "cwe": [
+        "CWE-269",
+        "CWE-284"
+      ],
+      "owasp": [
+        "A01:2021-Broken Access Control"
+      ],
+      "sourceLocations": [
+        "agent-ooda/skills/aws-pacu-privesc/SKILL.md",
+        "docker/kali/aws_simulate.py",
+        "docker/kali/aws_iam_simulate.py"
+      ],
+      "authority": "OBSERVED",
+      "valueProposition": "Proporciona a la skill de gestión de accesos una batería de reglas de validación formal para permisos IAM y minimiza los falsos positivos mediante pruebas de simulación deterministas sin impacto operacional."
+    },
+    {
+      "id": "KNOW-006",
+      "title": "Modelo de Confianza y Riesgos de Seguridad en Plugins de Servidores MCP",
+      "description": "Análisis de límites de seguridad en arquitecturas de plugins para servidores Model Context Protocol, evidenciando los riesgos de ejecución en el mismo espacio de proceso sin sandboxing y la necesidad de mecanismos de habilitación explícita (sufijo .disabled) e inspección de integridad.",
+      "dimension": "SUPPLY_CHAIN_SCA",
+      "cwe": [
+        "CWE-829",
+        "CWE-250"
+      ],
+      "owasp": [
+        "A08:2021-Software and Data Integrity Failures"
+      ],
+      "sourceLocations": [
+        "plugins/README.md",
+        "docker/kali/plugin_loader.py",
+        "docker/kali/plugin_api.py"
+      ],
+      "authority": "OBSERVED",
+      "valueProposition": "Fortalece las capacidades de escaneo de dependencias y cadenas de suministro MCP en Devia-CyberSecurity para auditar servidores extensibles e identificar extensiones maliciosas o sobreprivilegiadas."
+    },
+    {
+      "id": "KNOW-007",
+      "title": "Aislamiento de Procesos Subordinados y Confinamiento Estricto de Rutas de Almacenamiento",
+      "description": "Patrón arquitectónico de ejecución segura que utiliza grupos de procesos independientes (start_new_session=True) para garantizar la terminación limpia de subprocesos ante timeouts o cancelaciones cooperativas, junto con validación canónica de segmentos de ruta para prevenir Zip-Slip y Path Traversal.",
+      "dimension": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "cwe": [
+        "CWE-22",
+        "CWE-78",
+        "CWE-400"
+      ],
+      "owasp": [
+        "A01:2021-Broken Access Control",
+        "A04:2021-Insecure Design"
+      ],
+      "sourceLocations": [
+        "docker/kali/tool_streaming.py",
+        "docker/kali/artifact_store.py"
+      ],
+      "authority": "OBSERVED",
+      "valueProposition": "Robustece las herramientas deterministas de Capa 3 contra fugas de procesos en memoria, procesos zombies y manipulación de rutas en sistemas multi-tenant o entornos de ejecución compartidos."
+    },
+    {
+      "id": "KNOW-008",
+      "title": "Bastionado de Interfaces de Diagnóstico y Gateways MCP con Autenticación Fail-Closed",
+      "description": "Estrategias de endurecimiento para servicios web y APIs MCP que implementan verificación estricta de tokens antes del inicio de listeners HTTP, delimitación exacta de rutas de healthcheck (/healthz) para evitar bypasses de prefijo, y desconexión por defecto de puertos sensibles.",
+      "dimension": "CONFIGURATION_HARDENING",
+      "cwe": [
+        "CWE-1188",
+        "CWE-306"
+      ],
+      "owasp": [
+        "A05:2021-Security Misconfiguration"
+      ],
+      "sourceLocations": [
+        "docker/mcp/vulnerator_mcp_server.py",
+        "docker-compose.yml"
+      ],
+      "authority": "OBSERVED",
+      "valueProposition": "Eleva los estándares de configuración segura para middlewares y agentes expuestos en redes internas de contenedores, erradicando puertas traseras por rutas de salud mal configuradas."
+    },
+    {
+      "id": "KNOW-009",
+      "title": "Paginación con Doble Presupuesto de Transporte SSE y Almacén Persistente de Evidencias",
+      "description": "Mecanismo de alta resiliencia para transporte streamable-http de MCP que segmenta los resultados de auditoría en memoria bajo un doble presupuesto estricto (256 KiB y 100 elementos) para no exceder el límite de 1 MiB de SSE, respaldado por un almacén JSONL que valida la reproducibilidad empírica de hallazgos.",
+      "dimension": "RESILIENCE_LOGGING_TELEMETRY",
+      "cwe": [
+        "CWE-400",
+        "CWE-754"
+      ],
+      "owasp": [
+        "A04:2021-Insecure Design",
+        "A09:2021-Security Logging and Monitoring Failures"
+      ],
+      "sourceLocations": [
+        "docker/kali/tool_streaming.py",
+        "docker/kali/finding_store.py"
+      ],
+      "authority": "OBSERVED",
+      "valueProposition": "Previene la denegación de servicio por desbordamiento de búfer en canales de comunicación entre agentes y servidores MCP, asegurando que los hallazgos críticos persistan de forma íntegra e inmutable."
+    }
+  ],
+  "absorptionActions": [
+    {
+      "id": "ABS-001",
+      "knowledgeId": "KNOW-001",
+      "title": "Integración de Ontología Táctica OODA y MITRE ATT&CK en Threat Modeling",
+      "destination": "SKILL_REFERENCE",
+      "intent": "ABSORB_EXPAND",
+      "existingVulnerabilityId": "VULN-TM-001",
+      "targetPathInRepo": ".agents/skills/threat-modeling-attack-surface/references/ooda-loop-and-attack-tactical-orientation.md",
+      "architecturalRationale": "Capa 1: Documentación metodológica para guiar a los agentes en el razonamiento táctico basado en OODA y mapeo contra las 14 tácticas de MITRE ATT&CK.",
+      "priority": "HIGH",
+      "implementationSteps": [
+        "Crear el documento de referencia con el ciclo Observe-Orient-Decide-Act.",
+        "Estructurar la tabla de progresión por tácticas ATT&CK y directivas de etiquetado.",
+        "Actualizar el SKILL.md de threat-modeling-attack-surface para referenciar la nueva guía."
+      ]
+    },
+    {
+      "id": "ABS-002",
+      "knowledgeId": "KNOW-002",
+      "title": "Adopción de Motor Determinista de Validación de Scope y Confinamiento de Targets",
+      "destination": "PYTHON_SCRIPT",
+      "intent": "UPDATE_ENHANCE",
+      "existingVulnerabilityId": "VULN-SAST-002",
+      "targetPathInRepo": "src/scripts/target_scope_guard.py",
+      "architecturalRationale": "Capa 3: Script determinista en Python stdlib pura que valida rangos CIDR, hosts y puertos antes de ejecutar cualquier herramienta de escaneo.",
+      "priority": "CRITICAL",
+      "implementationSteps": [
+        "Adaptar la lógica de scope_guard.py de Vulnerator-AI al ecosistema de Capa 3 de Devia.",
+        "Incorporar interfaz CLI con soporte para salida JSON (--json).",
+        "Escribir suite de pruebas unitarias en src/scripts/test_target_scope_guard.py con 100% de cobertura.",
+        "Registrar el script en src/scripts/scripts_manifest.json bajo la dimensión SOURCE_CODE_SAST."
+      ]
+    },
+    {
+      "id": "ABS-003",
+      "knowledgeId": "KNOW-003",
+      "title": "Guía Técnica de Explotación y Detección de Deserialización y LFI en PHP (PHP2Shell)",
+      "destination": "SKILL_REFERENCE",
+      "intent": "CREATE_NEW",
+      "existingVulnerabilityId": "VULN-SAST-004",
+      "targetPathInRepo": ".agents/skills/source-code-sast/references/php-session-deserialization-and-sapi-chains.md",
+      "architecturalRationale": "Capa 1: Referencia técnica especializada sobre las 5 cadenas de ataque PHP2Shell, sus precondiciones, detección AST y remediación en php.ini.",
+      "priority": "HIGH",
+      "implementationSteps": [
+        "Documentar las cadenas A (LFI + upload_progress), C (handler mismatch) y D (mod_php OOM).",
+        "Incluir ejemplos de código vulnerable vs configuraciones endurecidas.",
+        "Vincular las debilidades con CWE-502, CWE-98 y CWE-400."
+      ]
+    },
+    {
+      "id": "ABS-004",
+      "knowledgeId": "KNOW-004",
+      "title": "Directiva de Redacción de Secretos en Contexto Conversacional y Canales Auxiliares",
+      "destination": "UPDATE_EXISTING",
+      "intent": "ROBUSTIFY_HARDEN",
+      "existingVulnerabilityId": "VULN-CRYP-001",
+      "targetPathInRepo": "docs/PROACTIVE.md",
+      "architecturalRationale": "Memoria Proactiva: Adopción del invariante de redacción obligatoria a los últimos 6 caracteres en el historial de chat para neutralizar fugas por clientes LLM auxiliares.",
+      "priority": "HIGH",
+      "implementationSteps": [
+        "Añadir la regla operativa de redacción de secretos en la sección de invariantes transversales de docs/PROACTIVE.md.",
+        "Actualizar las referencias de secrets-cryptography para exigir este control en auditorías de sistemas de IA."
+      ]
+    },
+    {
+      "id": "ABS-005",
+      "knowledgeId": "KNOW-005",
+      "title": "Catálogo de Primitivas de Escalada de Privilegios en AWS IAM y Verificación Read-Only",
+      "destination": "SKILL_REFERENCE",
+      "intent": "ABSORB_EXPAND",
+      "existingVulnerabilityId": "VULN-IAM-003",
+      "targetPathInRepo": ".agents/skills/identity-access-session/references/aws-iam-privilege-escalation-and-simulation.md",
+      "architecturalRationale": "Capa 1: Guía exhaustiva de privesc en AWS con tabla de permisos, mapeo ATT&CK Cloud y protocolo de simulación previa.",
+      "priority": "HIGH",
+      "implementationSteps": [
+        "Redactar la guía técnica con las más de 10 rutas de privesc documentadas.",
+        "Integrar el patrón de trazabilidad con etiquetado obligatorio y scripts de reversión.",
+        "Añadir sección sobre simulación sin impacto mediante iam:SimulatePrincipalPolicy."
+      ]
+    },
+    {
+      "id": "ABS-006",
+      "knowledgeId": "KNOW-006",
+      "title": "Auditoría de Confianza y Superficie de Ataque en Plugins de Servidores MCP",
+      "destination": "SKILL_REFERENCE",
+      "intent": "UPDATE_ENHANCE",
+      "existingVulnerabilityId": "VULN-ARCH-020",
+      "targetPathInRepo": ".agents/skills/architecture-boundaries-zero-trust/references/mcp-plugin-trust-and-process-isolation.md",
+      "architecturalRationale": "Capa 1: Guía de modelado de amenazas y verificación de postura de confianza en arquitecturas de plugins MCP.",
+      "priority": "MEDIUM",
+      "implementationSteps": [
+        "Documentar el riesgo de ejecución de plugins en el mismo contexto de privilegios del servidor MCP.",
+        "Definir el checklist de validación previa al montaje de plugins de terceros.",
+        "Vincular con VULN-ARCH-011 y VULN-ARCH-020 en docs/VULNERABILITIES.md."
+      ]
+    },
+    {
+      "id": "ABS-007",
+      "knowledgeId": "KNOW-007",
+      "title": "Librería de Aislamiento de Procesos y Confinamiento Path Traversal para Capa 3",
+      "destination": "UPDATE_EXISTING",
+      "intent": "ROBUSTIFY_HARDEN",
+      "existingVulnerabilityId": "VULN-SAST-003",
+      "targetPathInRepo": "src/scripts/hard_exclusions.py",
+      "architecturalRationale": "Capa 3: Extensión in-place de las utilidades de exclusión y confinamiento con las rutinas probadas de _safe_segment y verificación de candidate.parents.",
+      "priority": "HIGH",
+      "implementationSteps": [
+        "Refactorizar la validación de segmentos de ruta en hard_exclusions.py utilizando la lógica anti-traversal.",
+        "Ejecutar suite de tests unitarios existentes para verificar compatibilidad y cero regresiones."
+      ]
+    },
+    {
+      "id": "ABS-008",
+      "knowledgeId": "KNOW-008",
+      "title": "Esquema y Validador de Paginación con Doble Presupuesto para Eventos MCP",
+      "destination": "ZOD_SCHEMA",
+      "intent": "CREATE_NEW",
+      "existingVulnerabilityId": "VULN-RESI-001",
+      "targetPathInRepo": "src/schemas/mcp-paging.schema.ts",
+      "architecturalRationale": "Capa 2: Contrato TypeScript + Zod para modelar respuestas paginadas en herramientas MCP que respeten los límites de transporte SSE de 1 MiB.",
+      "priority": "MEDIUM",
+      "implementationSteps": [
+        "Definir McpPagingBudgetSchema con restricciones de bytes (256 KiB) y conteo (100 elementos).",
+        "Exportar tipos inferidos en src/types/index.ts.",
+        "Crear prueba de contrato en src/schemas/mcp-paging.test.ts y compilar con pnpm build."
+      ]
+    }
+  ],
+  "metrics": {
+    "totalKnowledgeItems": 9,
+    "destinationsBreakdown": {
+      "NEW_SKILL": 0,
+      "SKILL_REFERENCE": 4,
+      "PYTHON_SCRIPT": 1,
+      "ZOD_SCHEMA": 1,
+      "MCP_TOOL_OR_ENGINE": 0,
+      "UPDATE_EXISTING": 2
+    }
+  },
+  "ledgerPaths": {
+    "inventoryJsonl": "audits/vulnerator-ai/inventory.jsonl",
+    "coverageJsonl": "audits/vulnerator-ai/coverage.jsonl",
+    "evidenceJsonl": "audits/vulnerator-ai/evidence.jsonl",
+    "unknownsJsonl": "audits/vulnerator-ai/unknowns.jsonl"
+  }
+}

@@ -23,8 +23,9 @@ Esta Skill gobierna la dimensión de **Secretos y Postura Criptográfica**. Su r
 
 ## 📂 Organización Interna
 
-- `references/`: Tablas de algoritmos criptográficos recomendados vs prohibidos, heurísticas de entropía y firmas de tokens de proveedores (6 referencias técnicas).
+- `references/`: Tablas de algoritmos criptográficos recomendados vs prohibidos, heurísticas de entropía y firmas de tokens de proveedores (7 referencias técnicas).
   - [`source-exposed-secrets-standard.md`](references/source-exposed-secrets-standard.md): Estándar de divulgación de secretos por lectura de código fuente (sin requisito de ejecución ni ruta de ataque runtime).
+  - [`cryptographic-implementation-flaws-and-oracles.md`](references/cryptographic-implementation-flaws-and-oracles.md): Detección y mitigación de fallas prácticas: oráculos CBC/PKCS#7, determinismo ECB, reutilización de nonces en AES-GCM, extensión de longitud y generadores pseudoaleatorios predecibles.
 
 ---
 

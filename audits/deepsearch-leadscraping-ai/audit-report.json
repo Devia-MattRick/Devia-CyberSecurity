@@ -1,0 +1,156 @@
+{
+  "id": "7f9c2d11-419b-4e08-9df5-635eb8432a90",
+  "title": "Auditoría Forense de Seguridad Integral — DeepSearch LeadScraping AI",
+  "auditDate": "2026-10-31T15:35:00Z",
+  "engineVersion": "Devia-CyberSecurity v2.5.0-military",
+  "scope": {
+    "targetRepository": "K:\\DeepSearch_LeadsResearch",
+    "commitHash": "5177136308e3be9da6d54e8b025c8155aeaa5ab4",
+    "scannedPaths": [
+      "mcp/",
+      "src/",
+      "scripts/",
+      "package.json",
+      "pnpm-lock.yaml",
+      "tsconfig.json",
+      "tsconfig.mcp.json"
+    ],
+    "excludedPaths": [
+      "node_modules/",
+      "dist/",
+      ".git/",
+      "vendor/"
+    ],
+    "dimensionsAudited": [
+      "THREAT_MODELING_ATTACK_SURFACE",
+      "SOURCE_CODE_SAST",
+      "SECRETS_CRYPTOGRAPHY",
+      "IDENTITY_ACCESS_SESSION",
+      "SUPPLY_CHAIN_SCA",
+      "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "RESILIENCE_LOGGING_TELEMETRY"
+    ]
+  },
+  "executiveSummary": {
+    "riskScore": 2,
+    "keyRisks": [
+      "Transición criptográfica hacia estándares post-cuánticos (PQC FIPS 204) para firmas asimétricas en dependencias transitivas",
+      "Deuda técnica de higiene de código (separadores decorativos ASCII en profiler DNS y optimización de forma monomórfica en herramienta de profiling)"
+    ],
+    "postureOverview": "Postura Excelente (Segura / Endurecida). El repositorio demuestra una arquitectura madura con defensas multicapa activas: sandbox QuickJS WASM hermético con cuotas estrictas y fail-closed, mitigación completa de inyección de fórmulas CWE-1236 en exportaciones CSV/XLSX/TOON, confinamiento perimetral chroot en ./exports/, escudo anti-SSRF y purga de esteganografía Unicode con ZWSP defanging contra Role Hijacking."
+  },
+  "metrics": {
+    "totalFilesScanned": 955,
+    "findingsCount": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 2,
+      "informational": 0
+    },
+    "durationSeconds": 142.5
+  },
+  "findings": [
+    {
+      "id": "SEC-CRYP-005",
+      "title": "Firmas Asimétricas Clásicas en Dependencias Transitivas (Preparación PQC FIPS 204)",
+      "severity": "LOW",
+      "confidence": "CONFIRMED",
+      "dimension": "SECRETS_CRYPTOGRAPHY",
+      "identity": {
+        "anchor": "pnpm-lock-asymmetric-signature",
+        "instance": "pnpm-lock.yaml:1811"
+      },
+      "fingerprints": {
+        "algorithm": "devia/v1",
+        "primary": "devia/v1:sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "cvss": {
+        "score": 1.5,
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "cwe": [
+        "CWE-1395"
+      ],
+      "owasp": [
+        "A02:2021-Cryptographic Failures"
+      ],
+      "location": {
+        "path": "pnpm-lock.yaml",
+        "startLine": 1811,
+        "endLine": 1815
+      },
+      "evidence": "Uso detectado de firmas digitales asimétricas clásicas ECDSA/EdDSA en metadatos de integridad de dependencias de terceros.",
+      "description": "Se identificaron primitivas asimétricas clásicas ECDSA/EdDSA en firmas de paquetes npm registradas en el lockfile de dependencias. Aunque estas primitivas son seguras contra atacantes clásicos, no ofrecen resistencia cuántica a largo plazo conforme a los lineamientos NIST FIPS 204 (ML-DSA / Crystals-Dilithium).",
+      "impact": "Riesgo futuro a largo plazo de falsificación de firmas si un adversario dispone de computación cuántica a escala criptográficamente relevante (CRQC).",
+      "remediation": {
+        "summary": "Supervisar la adopción de esquemas híbridos o post-cuánticos por parte de los registros de paquetes en los ciclos de actualización 2026-2028.",
+        "steps": [
+          "Mantener pnpm y Node.js actualizados en sus canales LTS para heredar validaciones post-cuánticas nativas",
+          "Continuar monitoreando las directivas NIST PQC FIPS 203/204"
+        ]
+      }
+    },
+    {
+      "id": "SEC-SLOP-001",
+      "title": "Violaciones de Higiene de Código y Desoptimización Monomórfica",
+      "severity": "LOW",
+      "confidence": "CONFIRMED",
+      "dimension": "RESILIENCE_LOGGING_TELEMETRY",
+      "identity": {
+        "anchor": "antislop-hygiene-violations",
+        "instance": "sovereign-dns-tech-profiler-and-tool"
+      },
+      "fingerprints": {
+        "algorithm": "devia/v1",
+        "primary": "devia/v1:sha256:4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+      },
+      "cvss": {
+        "score": 1.0,
+        "vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
+      },
+      "cwe": [
+        "CWE-1078"
+      ],
+      "location": {
+        "path": "mcp/services/sovereign-dns-tech-profiler.service.ts",
+        "startLine": 79,
+        "endLine": 81,
+        "symbol": "TECH_SIGNATURES"
+      },
+      "evidence": "// =========================================================================\\n// 1. Redes de Distribución de Contenido (CDNs)\\n// =========================================================================",
+      "description": "El análisis estático de higiene (scripts/check-antislop.ts) detectó 8 separadores decorativos ASCII en sovereign-dns-tech-profiler.service.ts y un spread condicional con objeto vacío alternativo (...(dnsProfile ? { dnsProfile } : {})) en mcp/tools/profile-website-tech.tool.ts:175, provocando desoptimización de transiciones de forma V8 (Hidden Classes).",
+      "impact": "Fallo en la suite CI-001 / check:antislop y micro-desoptimización en el motor JIT V8 por polimorfismo innecesario de objetos.",
+      "remediation": {
+        "summary": "Purgar banners decorativos repetitivos y asignar propiedades directamente con forma de objeto monomórfica.",
+        "fixSnippet": "const structuredData: Record<string, unknown> = { success: true, signals, executionTimeMs: duration }; if (dnsProfile) { structuredData['dnsProfile'] = dnsProfile; }",
+        "steps": [
+          "Eliminar banners decorativos ASCII '// =====...' en mcp/services/sovereign-dns-tech-profiler.service.ts",
+          "Reemplazar el spread condicional en mcp/tools/profile-website-tech.tool.ts:175 por asignación de propiedad directa monomórfica",
+          "Ejecutar pnpm run check:antislop para validar conformidad limpia"
+        ]
+      }
+    }
+  ],
+  "recommendationsRoadmap": [
+    {
+      "phase": "IMMEDIATE_HOTFIX",
+      "action": "Corregir el spread condicional en profile-website-tech.tool.ts y purgar banners ASCII en sovereign-dns-tech-profiler.service.ts para superar check:antislop.",
+      "associatedFindingIds": [
+        "SEC-SLOP-001"
+      ]
+    },
+    {
+      "phase": "SHORT_TERM",
+      "action": "Mantener la suite de tests de caos y pruebas herméticas de sandbox WASM en el pipeline de pre-push.",
+      "associatedFindingIds": []
+    },
+    {
+      "phase": "ARCHITECTURAL_LONG_TERM",
+      "action": "Seguimiento de la migración post-cuántica (PQC FIPS 204) para firmas asimétricas en ecosistemas de paquetes npm.",
+      "associatedFindingIds": [
+        "SEC-CRYP-005"
+      ]
+    }
+  ]
+}

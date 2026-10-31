@@ -22,12 +22,13 @@ Esta Skill gobierna la dimensión de **Control de Identidad, Acceso y Sesiones**
 
 ## 📂 Organización Interna
 
-- `references/`: Checklists de verificación de autenticación/autorización, guías de auditoría de JWT y matrices de permisos RBAC (13 referencias técnicas).
+- `references/`: Checklists de verificación de autenticación/autorización, guías de auditoría de JWT y matrices de permisos RBAC (14 referencias técnicas).
   - [`phishing-resistant-mfa-and-fatigue-defense.md`](references/phishing-resistant-mfa-and-fatigue-defense.md): Evaluación de robustez MFA, detección de ataques de fatiga (prompt bombing) y principio obligatorio de fallo cerrado (`VULN-IAM-014`).
   - [`active-directory-tiered-model-esae.md`](references/active-directory-tiered-model-esae.md): Partición de privilegios Active Directory (ESAE Tier 0/1/2) y directivas autoritativas para Privileged Access Workstations (PAWs).
   - [`multitenant-and-sibling-guard-auditing.md`](references/multitenant-and-sibling-guard-auditing.md): Metodología de auditoría de diferencias de guardias entre operaciones hermanas (*sibling operations*) y aislamiento estricto multinquilino.
   - [`rls-deep-audit-guide.md`](references/rls-deep-audit-guide.md): Auditoría profunda de políticas Row-Level Security (RLS) y optimización InitPlan $O(1)$.
   - [`role-mining-and-entitlement-optimization.md`](references/role-mining-and-entitlement-optimization.md): Minería algorítmica de roles, detección de explosión de roles y optimización RBAC.
+  - [`aws-iam-privilege-escalation-and-simulation.md`](references/aws-iam-privilege-escalation-and-simulation.md): Matriz canónica de escalada de privilegios en AWS IAM, simulación read-only con SimulatePrincipalPolicy y directivas de reversibilidad.
 
 ---
 

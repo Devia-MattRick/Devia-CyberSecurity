@@ -23,11 +23,12 @@ Esta Skill gobierna la dimensión de **Seguridad de Código Fuente (SAST)**. Su 
 
 ## 📂 Organización Interna
 
-- `references/`: Catálogos de sumideros (*sinks*) por lenguaje, patrones de inyección y guías de taint analysis (19 referencias técnicas).
+- `references/`: Catálogos de sumideros (*sinks*) por lenguaje, patrones de inyección y guías de taint analysis (20 referencias técnicas).
   - [`code-evidence-and-root-cause-reasoning.md`](references/code-evidence-and-root-cause-reasoning.md): Estándar de evidencia estructurada en código, los 7 roles semánticos (`CodeEvidenceRole`), razonamiento conectivo y política de `ruleId`.
   - [`cwe-1236-csv-formula-injection.md`](references/cwe-1236-csv-formula-injection.md): Detección y mitigación de Formula Injection y comandos DDE en CSV/Excel.
   - [`sani-parse-and-llm-output-validation.md`](references/sani-parse-and-llm-output-validation.md): Protocolo Sani-Parse Invariable para salidas no deterministas de modelos de IA.
   - [`race-condition-testing-and-turbo-intruder.md`](references/race-condition-testing-and-turbo-intruder.md): Testing de condiciones de carrera con HTTP/2 Single-Packet Attack y bloqueos atómicos.
+  - [`php-session-deserialization-and-sapi-chains.md`](references/php-session-deserialization-and-sapi-chains.md): Cadenas avanzadas de deserialización insegura (PHP2Shell), desincronización de serializadores de sesión y corrupción en SAPIs.
 
 ---
 
@@ -41,4 +42,6 @@ Esta Skill consume y orquesta los siguientes motores de análisis determinista e
 | [`src/scripts/attack_vector_assessment_engine.py`](file:///k:/Devia-CyberSecurity/src/scripts/attack_vector_assessment_engine.py) | [`exploit-path-assessment.schema.ts`](file:///k:/Devia-CyberSecurity/src/schemas/exploit-path-assessment.schema.ts) | Evaluación estática de rutas de ataque, análisis de impacto y severidad de sumideros. | [`test_attack_vector_assessment_engine.py`](file:///k:/Devia-CyberSecurity/src/scripts/test_attack_vector_assessment_engine.py) |
 | [`src/scripts/poc_safety_linter.py`](file:///k:/Devia-CyberSecurity/src/scripts/poc_safety_linter.py) | [`roe-enforcement.schema.ts`](file:///k:/Devia-CyberSecurity/src/schemas/roe-enforcement.schema.ts) | Linter estricto de seguridad para scripts de prueba de concepto; prohíbe subprocesos inseguros y cargas hostiles. | [`test_poc_safety_linter.py`](file:///k:/Devia-CyberSecurity/src/scripts/test_poc_safety_linter.py) |
 | [`src/scripts/scan_formula_injection.py`](file:///k:/Devia-CyberSecurity/src/scripts/scan_formula_injection.py) | [`formula-injection.schema.ts`](file:///k:/Devia-CyberSecurity/src/schemas/formula-injection.schema.ts) | Escaneo determinista de Formula Injection en CSV/Excel (CWE-1236), verificación de prefijo de comilla simple y BOM UTF-8. | [`test_scan_formula_injection.py`](file:///k:/Devia-CyberSecurity/src/scripts/test_scan_formula_injection.py) |
+| [`src/scripts/target_scope_guard.py`](file:///k:/Devia-CyberSecurity/src/scripts/target_scope_guard.py) | [`roe-enforcement.schema.ts`](file:///k:/Devia-CyberSecurity/src/schemas/roe-enforcement.schema.ts) | Validador determinista fail-closed de alcance (RoE) y confinamiento de targets; verifica CIDRs, host literals y puertos. | [`test_target_scope_guard.py`](file:///k:/Devia-CyberSecurity/src/scripts/test_target_scope_guard.py) |
+
 

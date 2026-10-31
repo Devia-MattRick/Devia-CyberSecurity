@@ -213,6 +213,13 @@ export type {
   FormulaInjectionAuditReport
 } from "../schemas/formula-injection.schema.js";
 
+export type {
+  McpPagingBudgetConfig,
+  McpExecutionStatus,
+  McpPagedResponse,
+  McpExecutionReport
+} from "../schemas/mcp-paging.schema.js";
+
 
 
 

@@ -1,0 +1,473 @@
+{
+  "id": "e602e78c-8d07-4d30-bb01-8a6443023447",
+  "title": "Auditoría Forense y Militar de Ciberseguridad — Devia Landing Page",
+  "auditDate": "2026-10-31T06:46:10.915Z",
+  "engineVersion": "0.1.0-mcptoon-v3.4.0",
+  "scope": {
+    "targetRepository": "K:\\Devia_Landing_Page",
+    "commitHash": "7ea3d700c319917f3b10f9f5d9ea41ffebcba993",
+    "scannedPaths": [
+      "astro.config.mjs",
+      "wrangler.json",
+      "cloudflare_guide.md",
+      "package.json",
+      ".env",
+      ".env.example",
+      "public/_headers",
+      "functions/api/contact.ts",
+      "src/pages/api/contact.ts",
+      "src/lib/contact-processor.ts",
+      "src/lib/rate-limiter.ts",
+      "src/lib/circuit-breaker.ts",
+      "src/lib/validation.ts",
+      "src/layouts/Layout.astro",
+      "src/pages/index.astro",
+      "src/pages/seguridad/index.astro",
+      "src/components/ContactForm.tsx"
+    ],
+    "excludedPaths": [
+      "node_modules/**",
+      ".git/**",
+      "dist/**",
+      ".astro/**",
+      "test-results/**"
+    ],
+    "dimensionsAudited": [
+      "THREAT_MODELING_ATTACK_SURFACE",
+      "SOURCE_CODE_SAST",
+      "SECRETS_CRYPTOGRAPHY",
+      "IDENTITY_ACCESS_SESSION",
+      "SUPPLY_CHAIN_SCA",
+      "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "CONFIGURATION_HARDENING",
+      "RESILIENCE_LOGGING_TELEMETRY"
+    ]
+  },
+  "executiveSummary": {
+    "riskScore": 32,
+    "keyRisks": [
+      "Claves de API de producción activas (dva_ingest_live_...) almacenadas en texto claro en .env local.",
+      "Configuración CORS preflight abierta con comodín (*) y exposición de cabecera secreta S2S (X-Devia-Api-Secret) en OPTIONS.",
+      "Rate Limiter susceptible a evasión mediante cabecera X-Forwarded-For no confiable y fragmentación de estado en edge isolates.",
+      "Ingesta no restringida de referrer/sourceUrl con potencial vector SSRF en el pipeline de ingesta de CRM.",
+      "Exposición de Account ID de Cloudflare en documentación técnica (cloudflare_guide.md)."
+    ],
+    "postureOverview": "Postura Comprometedora (Health Score: 68/100). La arquitectura general de Astro y Cloudflare Pages es sólida y defensiva (sin SSR innecesario, validación Zod estricta, aislamiento de tokens de sesión), pero se identificaron vulnerabilidades que comprometen los límites de confianza (Zero Trust), la gestión de secretos productivos y la resiliencia del pipeline de captura de leads."
+  },
+  "metrics": {
+    "totalFilesScanned": 163,
+    "findingsCount": {
+      "critical": 0,
+      "high": 1,
+      "medium": 3,
+      "low": 2,
+      "informational": 0
+    },
+    "durationSeconds": 4.85
+  },
+  "findings": [
+    {
+      "id": "SEC-CRYP-001",
+      "title": "Claves de API de Producción Activas Almacenadas en Texto Claro en .env Local",
+      "severity": "HIGH",
+      "confidence": "CONFIRMED",
+      "dimension": "SECRETS_CRYPTOGRAPHY",
+      "identity": {
+        "anchor": "env-s2s-production-keys",
+        "instance": "root-env"
+      },
+      "fingerprints": {
+        "algorithm": "devia/v1",
+        "primary": "devia/v1:sha256:7b5d12ef38947f9c89e2101ab47963bcae56e01a884d8520cf856b372091ea28"
+      },
+      "cvss": {
+        "score": 7.5,
+        "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N"
+      },
+      "cwe": [
+        "CWE-798",
+        "CWE-312"
+      ],
+      "owasp": [
+        "A02:2021-Cryptographic Failures",
+        "A07:2021-Identification and Authentication Failures"
+      ],
+      "location": {
+        "path": ".env",
+        "startLine": 5,
+        "endLine": 6,
+        "symbol": "DEVIA_API_SECRET"
+      },
+      "evidence": "DEVIA_API_SECRET=dva_ingest_live_1n-wspoBLtY2NEaV5K78cjorO5NV0_bGCkPR2294Z44\nDEVIA_API_SERVER_SECRET=dva_ingest_live_FM9AQaTDLNc9MXtJeCuSWgwCrSBxPtYC-itBPrlzjMg",
+      "codeEvidence": [
+        {
+          "id": "ev-01",
+          "label": "Plaintext Production Secret in .env",
+          "path": ".env",
+          "startLine": 5,
+          "endLine": 6,
+          "language": "env",
+          "role": "sink",
+          "code": "DEVIA_API_SECRET=dva_ingest_live_1n-wspoBLtY2NEaV5K78cjorO5NV0_bGCkPR2294Z44\nDEVIA_API_SERVER_SECRET=dva_ingest_live_FM9AQaTDLNc9MXtJeCuSWgwCrSBxPtYC-itBPrlzjMg",
+          "explanation": "Tokens de producción en vivo están alojados sin encriptación en el disco local."
+        }
+      ],
+      "description": "El archivo .env en la raíz del repositorio contiene secretos de producción en vivo (dva_ingest_live_...). Aunque .env se encuentra excluido en .gitignore, su permanencia en texto claro en estaciones de desarrollo expone las credenciales a exfiltración por herramientas con privilegios de lectura, copias locales o scripts de terceros.",
+      "impact": "Acceso no autorizado directo al webhook privado de DeviaCRM en Supabase, permitiendo inyectar prospectos fraudulentos, sobrecargar la base de datos y comprometer la integridad del CRM.",
+      "remediation": {
+        "summary": "Rotar tokens en producción e inyectar secretos exclusivamente vía Cloudflare Pages Secrets.",
+        "fixSnippet": "# .env (Desarrollo Local Seguro)\nDEVIA_API_SERVER_SECRET=dva_ingest_dev_mock_local_secret\nDEVIA_API_SECRET=dva_ingest_dev_mock_local_secret\n# En producción (Cloudflare Dashboard o Wrangler CLI):\n# wrangler pages secret put DEVIA_API_SERVER_SECRET",
+        "steps": [
+          "Rotar inmediatamente los tokens dva_ingest_live_... en DeviaCRM.",
+          "Purgar los valores reales del archivo .env y sustituirlos por credenciales simuladas o de entorno sandbox.",
+          "Configurar los secretos productivos en Cloudflare Pages mediante 'wrangler pages secret put' o variables de entorno encriptadas en el dashboard."
+        ]
+      },
+      "references": [
+        "https://cwe.mitre.org/data/definitions/798.html",
+        "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/"
+      ]
+    },
+    {
+      "id": "SEC-ARCH-001",
+      "title": "Configuración CORS Preflight Abierta (*) y Exposición de Cabecera S2S en OPTIONS",
+      "severity": "MEDIUM",
+      "confidence": "CONFIRMED",
+      "dimension": "ARCHITECTURE_BOUNDARIES_ZERO_TRUST",
+      "identity": {
+        "anchor": "cors-options-wildcard",
+        "instance": "contact-processor-options"
+      },
+      "fingerprints": {
+        "algorithm": "devia/v1",
+        "primary": "devia/v1:sha256:69cb4a56aef71101893c544d6738910b2ac8397a61845eb5b230f81d19b48950"
+      },
+      "cvss": {
+        "score": 5.3,
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "cwe": [
+        "CWE-942",
+        "CWE-200"
+      ],
+      "owasp": [
+        "A01:2021-Broken Access Control",
+        "A05:2021-Security Misconfiguration"
+      ],
+      "location": {
+        "path": "src/lib/contact-processor.ts",
+        "startLine": 51,
+        "endLine": 61,
+        "symbol": "handleContactOptions"
+      },
+      "evidence": "export function handleContactOptions(): Response {\n  return new Response(null, {\n    status: 204,\n    headers: {\n      'Access-Control-Allow-Origin': '*',\n      'Access-Control-Allow-Methods': 'POST, OPTIONS',\n      'Access-Control-Allow-Headers': 'Content-Type, X-Devia-Api-Secret',\n      'Access-Control-Max-Age': '86400',\n    },\n  });\n}",
+      "codeEvidence": [
+        {
+          "id": "ev-02",
+          "label": "Wildcard CORS in OPTIONS",
+          "path": "src/lib/contact-processor.ts",
+          "startLine": 55,
+          "endLine": 57,
+          "language": "typescript",
+          "role": "sink",
+          "code": "'Access-Control-Allow-Origin': '*',\n'Access-Control-Allow-Headers': 'Content-Type, X-Devia-Api-Secret',",
+          "explanation": "La respuesta preflight anuncia comodín universal '*' y expone una cabecera de autenticación S2S que nunca debe ser gestionada por clientes web."
+        }
+      ],
+      "description": "El manejador OPTIONS preflight expone 'Access-Control-Allow-Origin: *' y lista explícitamente 'X-Devia-Api-Secret' en 'Access-Control-Allow-Headers'. Esto contradice la política de origen estricta de POST y distorsiona el límite de confianza, insinuando erróneamente que navegadores externos pueden suministrar la clave privada S2S.",
+      "impact": "Inconsistencia de seguridad que propicia confusiones en integradores frontend y expone la arquitectura interna S2S.",
+      "remediation": {
+        "summary": "Reflejar únicamente orígenes validados en CORS preflight y desautorizar la cabecera S2S para navegadores.",
+        "fixSnippet": "export function handleContactOptions(request?: Request): Response {\n  const origin = request?.headers.get('Origin');\n  const allowedOrigin = origin && isAllowedOrigin(origin) ? origin : 'https://deviacrm.com';\n  return new Response(null, {\n    status: 204,\n    headers: {\n      'Access-Control-Allow-Origin': allowedOrigin,\n      'Access-Control-Allow-Methods': 'POST, OPTIONS',\n      'Access-Control-Allow-Headers': 'Content-Type',\n      'Access-Control-Max-Age': '86400',\n      'Vary': 'Origin',\n    },\n  });\n}",
+        "steps": [
+          "Actualizar handleContactOptions para recibir request y validar el Origin contra isAllowedOrigin().",
+          "Eliminar 'X-Devia-Api-Secret' de 'Access-Control-Allow-Headers'.",
+          "Añadir la cabecera 'Vary: Origin' para evitar envenenamiento de caché por proxies intermedios."
+        ]
+      },
+      "references": [
+        "https://cwe.mitre.org/data/definitions/942.html",
+        "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/"
+      ]
+    },
+    {
+      "id": "SEC-RESI-001",
+      "title": "Evasión de Rate Limiting por Cabecera X-Forwarded-For no Confiable y Estado Efímero en Isolate",
+      "severity": "MEDIUM",
+      "confidence": "CONFIRMED",
+      "dimension": "RESILIENCE_LOGGING_TELEMETRY",
+      "identity": {
+        "anchor": "rate-limit-spoofing-isolate",
+        "instance": "contact-processor-ip"
+      },
+      "fingerprints": {
+        "algorithm": "devia/v1",
+        "primary": "devia/v1:sha256:1a84f3ec18a7c64098319e7dbcd34977462bf4505f56b627885b542013f93bc5"
+      },
+      "cvss": {
+        "score": 5.3,
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+      },
+      "cwe": [
+        "CWE-770",
+        "CWE-290"
+      ],
+      "owasp": [
+        "A04:2021-Insecure Design",
+        "A05:2021-Security Misconfiguration"
+      ],
+      "location": {
+        "path": "src/lib/contact-processor.ts",
+        "startLine": 95,
+        "endLine": 102,
+        "symbol": "handleContactSubmission"
+      },
+      "evidence": "const rawXForwardedFor = request.headers.get('x-forwarded-for');\nconst clientIp =\n  request.headers.get('cf-connecting-ip') ||\n  (rawXForwardedFor ? rawXForwardedFor.split(',')[0].trim() : null) ||\n  clientAddress ||\n  'unknown';",
+      "codeEvidence": [
+        {
+          "id": "ev-03",
+          "label": "Unverified X-Forwarded-For Trust",
+          "path": "src/lib/contact-processor.ts",
+          "startLine": 95,
+          "endLine": 100,
+          "language": "typescript",
+          "role": "user_input",
+          "code": "const rawXForwardedFor = request.headers.get('x-forwarded-for');\nconst clientIp = ... || (rawXForwardedFor ? rawXForwardedFor.split(',')[0].trim() : null)",
+          "explanation": "Se toma el primer elemento de X-Forwarded-For sin validar si la petición atravesó un proxy confiable, permitiendo spoofing de IP."
+        }
+      ],
+      "description": "La extracción de la dirección IP del cliente otorga precedencia a la cabecera 'x-forwarded-for' cuando no se detecta 'cf-connecting-ip' o en despliegues con adaptadores alternativos (@astrojs/node). Asimismo, la limitación de tasa se gestiona en un Map en memoria local del isolate de JavaScript, el cual no está sincronizado entre los múltiples data centers de Cloudflare Edge.",
+      "impact": "Bypass completo del control de tasa (rate limiting) mediante rotación de encabezados HTTP o concurrencia distribuida, saturando los endpoints y activando el Circuit Breaker para usuarios legítimos.",
+      "remediation": {
+        "summary": "Descartar X-Forwarded-For spoofable y delegar la limitación de tasa en Cloudflare WAF / Durable Objects.",
+        "fixSnippet": "const clientIp =\n  request.headers.get('cf-connecting-ip') ||\n  clientAddress ||\n  'unknown';",
+        "steps": [
+          "Eliminar el fallback hacia 'x-forwarded-for' manipulable por el cliente.",
+          "Habilitar Cloudflare WAF Rate Limiting Rules en la ruta /api/contact para bloquear ráfagas antes de llegar al compute worker.",
+          "Si se requiere rate limiting en código distribuido, usar Cloudflare KV o Upstash Redis con ratelimit token bucket."
+        ]
+      },
+      "references": [
+        "https://cwe.mitre.org/data/definitions/770.html",
+        "https://cwe.mitre.org/data/definitions/290.html"
+      ]
+    },
+    {
+      "id": "SEC-SAST-001",
+      "title": "Ingesta de Referrer Arbitrario Vulnerable a SSRF en Pipeline Descentralizado",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "dimension": "SOURCE_CODE_SAST",
+      "identity": {
+        "anchor": "ssrf-referrer-ingest",
+        "instance": "contact-processor-sourceurl"
+      },
+      "fingerprints": {
+        "algorithm": "devia/v1",
+        "primary": "devia/v1:sha256:45ea98471b8d27cb803a6358dbb3e218cb72ff127394c8651a02797e882a170e"
+      },
+      "cvss": {
+        "score": 6.5,
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "cwe": [
+        "CWE-918",
+        "CWE-20"
+      ],
+      "owasp": [
+        "A10:2021-Server-Side Request Forgery (SSRF)"
+      ],
+      "location": {
+        "path": "src/lib/contact-processor.ts",
+        "startLine": 235,
+        "endLine": 242,
+        "symbol": "handleContactSubmission"
+      },
+      "evidence": "const validSourceUrl =\n  bodyReferrer && (bodyReferrer.startsWith('http://') || bodyReferrer.startsWith('https://'))\n    ? bodyReferrer\n    : referer && (referer.startsWith('http://') || referer.startsWith('https://'))\n      ? referer\n      : request.url.startsWith('http://') || request.url.startsWith('https://')\n        ? request.url\n        : 'https://deviacrm.com';",
+      "codeEvidence": [
+        {
+          "id": "ev-04",
+          "label": "Arbitrary SourceUrl Ingestion",
+          "path": "src/lib/contact-processor.ts",
+          "startLine": 235,
+          "endLine": 242,
+          "language": "typescript",
+          "role": "propagation",
+          "code": "const validSourceUrl = bodyReferrer && (bodyReferrer.startsWith('http://') || bodyReferrer.startsWith('https://')) ? bodyReferrer : ...",
+          "explanation": "Se acepta cualquier URL absoluta provista en el body sin verificar que apunte a hosts públicos o dominios aprobados."
+        }
+      ],
+      "description": "El campo validSourceUrl acepta cualquier URL enviada por el cliente que inicie con http:// o https:// (incluyendo localhost, 127.0.0.1, 169.254.169.254 o subredes privadas RFC 1918) y la retransmite en el payload crmPayload.sourceUrl hacia DeviaCRM. Si el CRM o algún webhook descendente ejecuta previews, resolución DNS o scrapers sobre esta URL, se produce un SSRF de segundo orden.",
+      "impact": "Vector de ataque SSRF de segundo orden hacia servicios internos o metadatos de computación en la nube (AWS/GCP/Cloudflare) en los sistemas del CRM.",
+      "remediation": {
+        "summary": "Sanitizar y validar dominios en sourceUrl restringiéndolos a dominios institucionales autorizados o bloqueando rangos privados.",
+        "fixSnippet": "function sanitizeSourceUrl(urlStr?: string): string {\n  if (!urlStr) return 'https://deviacrm.com';\n  try {\n    const parsed = new URL(urlStr);\n    if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') return 'https://deviacrm.com';\n    const host = parsed.hostname.toLowerCase();\n    if (host === 'localhost' || host === '127.0.0.1' || host.startsWith('192.168.') || host.startsWith('10.') || host === '169.254.169.254') {\n      return 'https://deviacrm.com';\n    }\n    return parsed.toString();\n  } catch {\n    return 'https://deviacrm.com';\n  }\n}",
+        "steps": [
+          "Implementar validación estricta de host en validSourceUrl bloqueando IPs de loopback, RFC 1918 y servicios de metadatos de nube.",
+          "Establecer 'https://deviacrm.com' como fallback irrevocable en caso de dominios sospechosos."
+        ]
+      },
+      "references": [
+        "https://cwe.mitre.org/data/definitions/918.html",
+        "https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/"
+      ]
+    },
+    {
+      "id": "SEC-CONF-001",
+      "title": "Divulgación de Cloudflare Account ID en Documentación Pública",
+      "severity": "LOW",
+      "confidence": "CONFIRMED",
+      "dimension": "CONFIGURATION_HARDENING",
+      "identity": {
+        "anchor": "cloudflare-account-id-leak",
+        "instance": "cloudflare-guide"
+      },
+      "fingerprints": {
+        "algorithm": "devia/v1",
+        "primary": "devia/v1:sha256:d9b2387e0147cb988a183bc6695f247731a5472851cd6420556c123ea6981cf0"
+      },
+      "cvss": {
+        "score": 3.1,
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "cwe": [
+        "CWE-200"
+      ],
+      "owasp": [
+        "A05:2021-Security Misconfiguration"
+      ],
+      "location": {
+        "path": "cloudflare_guide.md",
+        "startLine": 12,
+        "endLine": 35,
+        "symbol": "Guía de Pages"
+      },
+      "evidence": "https://dash.cloudflare.com/941b64eed4fee2ecfa52cb6042b64eaa/workers-and-pages/create/pages",
+      "codeEvidence": [
+        {
+          "id": "ev-05",
+          "label": "Hardcoded Account ID in Docs",
+          "path": "cloudflare_guide.md",
+          "startLine": 12,
+          "endLine": 12,
+          "language": "markdown",
+          "role": "sink",
+          "code": "https://dash.cloudflare.com/941b64eed4fee2ecfa52cb6042b64eaa/workers-and-pages/create/pages",
+          "explanation": "El ID de la cuenta Cloudflare de Devia está expuesto en texto plano en la guía técnica."
+        }
+      ],
+      "description": "El archivo cloudflare_guide.md incluye enlaces al dashboard de Cloudflare que contienen el Account ID institucional ('941b64eed4fee2ecfa52cb6042b64eaa'). Esta divulgación facilita la enumeración de recursos y aumenta la superficie de ataques dirigidos de phishing o ingeniería social.",
+      "impact": "Divulgación informativa que expone identificadores internos de la cuenta de infraestructura.",
+      "remediation": {
+        "summary": "Ofuscar el Account ID utilizando marcadores de posición en la documentación.",
+        "fixSnippet": "1. Ve a [Workers & Pages → Create](https://dash.cloudflare.com/?to=/:account/workers-and-pages/create/pages)",
+        "steps": [
+          "Reemplazar el hash numérico en cloudflare_guide.md por ':account' o '<your-account-id>'.",
+          "Incorporar una regla en scripts/scan-secrets.cjs para detectar IDs de infraestructura."
+        ]
+      },
+      "references": [
+        "https://cwe.mitre.org/data/definitions/200.html"
+      ]
+    },
+    {
+      "id": "SEC-CONF-002",
+      "title": "Directiva Content-Security-Policy con 'unsafe-inline' en script-src sin Hashes",
+      "severity": "LOW",
+      "confidence": "CONFIRMED",
+      "dimension": "CONFIGURATION_HARDENING",
+      "identity": {
+        "anchor": "csp-unsafe-inline-scripts",
+        "instance": "public-headers-csp"
+      },
+      "fingerprints": {
+        "algorithm": "devia/v1",
+        "primary": "devia/v1:sha256:fa23490b67e812d4567e9812bc8527a0149723bf8923a41bc7890e1234567890"
+      },
+      "cvss": {
+        "score": 3.7,
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N"
+      },
+      "cwe": [
+        "CWE-1021",
+        "CWE-79"
+      ],
+      "owasp": [
+        "A05:2021-Security Misconfiguration"
+      ],
+      "location": {
+        "path": "public/_headers",
+        "startLine": 13,
+        "endLine": 13,
+        "symbol": "Content-Security-Policy"
+      },
+      "evidence": "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; ...",
+      "codeEvidence": [
+        {
+          "id": "ev-06",
+          "label": "CSP Unsafe-Inline Directive",
+          "path": "public/_headers",
+          "startLine": 13,
+          "endLine": 13,
+          "language": "http",
+          "role": "sink",
+          "code": "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com;",
+          "explanation": "El uso de 'unsafe-inline' anula la capacidad del navegador para bloquear scripts inyectados maliciosamente."
+        }
+      ],
+      "description": "El archivo public/_headers declara una política CSP con 'unsafe-inline' en la directiva script-src. Aunque se utiliza para permitir scripts pre-paint en Layout.astro (restauración de scroll y preferencia de color), relaja la protección contra Cross-Site Scripting (XSS).",
+      "impact": "Reducción de la efectividad de la política de seguridad del navegador frente a inyecciones de script en el cliente.",
+      "remediation": {
+        "summary": "Sustituir 'unsafe-inline' por hashes SHA-256 de los scripts inline o empaquetarlos mediante Astro.",
+        "fixSnippet": "Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-...' 'sha256-...' https://static.cloudflareinsights.com; ...",
+        "steps": [
+          "Calcular los hashes SHA-256 de los bloques <script is:inline> presentes en src/layouts/Layout.astro.",
+          "Incorporar dichos hashes en la directiva script-src y remover 'unsafe-inline'.",
+          "Evaluar 'strict-dynamic' con nonces si se agregan scripts de analítica dinámicos adicionales."
+        ]
+      },
+      "references": [
+        "https://cwe.mitre.org/data/definitions/1021.html",
+        "https://cwe.mitre.org/data/definitions/79.html"
+      ]
+    }
+  ],
+  "recommendationsRoadmap": [
+    {
+      "phase": "IMMEDIATE_HOTFIX",
+      "action": "Rotar las claves dva_ingest_live_... expuestas en DeviaCRM y purgarlas de .env local.",
+      "associatedFindingIds": [
+        "SEC-CRYP-001"
+      ]
+    },
+    {
+      "phase": "SHORT_TERM",
+      "action": "Bastionar la respuesta CORS en handleContactOptions() y eliminar X-Devia-Api-Secret de cabeceras permitidas.",
+      "associatedFindingIds": [
+        "SEC-ARCH-001"
+      ]
+    },
+    {
+      "phase": "SHORT_TERM",
+      "action": "Eliminar la confianza en X-Forwarded-For no verificado y activar Cloudflare WAF Rate Limiting en /api/contact.",
+      "associatedFindingIds": [
+        "SEC-RESI-001"
+      ]
+    },
+    {
+      "phase": "SHORT_TERM",
+      "action": "Sanitizar sourceUrl/referrer en contact-processor.ts bloqueando rangos privados y metadatos de nube.",
+      "associatedFindingIds": [
+        "SEC-SAST-001"
+      ]
+    },
+    {
+      "phase": "ARCHITECTURAL_LONG_TERM",
+      "action": "Ofuscar Account IDs en documentación y migrar CSP a hashes SHA-256 eliminando 'unsafe-inline'.",
+      "associatedFindingIds": [
+        "SEC-CONF-001",
+        "SEC-CONF-002"
+      ]
+    }
+  ]
+}

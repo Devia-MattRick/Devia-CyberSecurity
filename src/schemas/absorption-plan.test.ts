@@ -357,6 +357,25 @@ test("AbsorptionPlanSchema validates audits/deepsearch-skills-audit/absorption-p
   assert.equal(parsed.success, true);
 });
 
+test("AbsorptionPlanSchema validates audits/vulnerator-ai/absorption-plan.json", async (t) => {
+  const fs = await import("node:fs/promises");
+  const { existsSync } = await import("node:fs");
+  const path = await import("node:path");
+  const planPath = path.resolve(process.cwd(), "audits/vulnerator-ai/absorption-plan.json");
+  if (!existsSync(planPath)) {
+    t.skip("Audit file not present on disk");
+    return;
+  }
+  const raw = await fs.readFile(planPath, "utf-8");
+  const planData = JSON.parse(raw);
+  const parsed = AbsorptionPlanSchema.safeParse(planData);
+  if (!parsed.success) {
+    console.error("Validation error:", parsed.error);
+  }
+  assert.equal(parsed.success, true);
+});
+
+
 
 
 

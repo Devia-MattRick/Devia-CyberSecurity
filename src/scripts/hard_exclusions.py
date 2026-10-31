@@ -318,5 +318,29 @@ def main():
             print(json.dumps(result_payload["summary"], indent=2))
 
 
+def validate_safe_path_segment(value: str) -> str:
+    """Valida que un segmento o nombre de archivo sea seguro frente a Path Traversal (CWE-22).
+    
+    Rechaza cadenas vacías, '.', '..', separadores '/' o '\\', y bytes NUL.
+    """
+    if not value or not isinstance(value, str):
+        raise ValueError("Segmento de ruta vacío o no-string")
+    if value in (".", "..") or "/" in value or "\\" in value or "\x00" in value:
+        raise ValueError(f"Segmento de ruta inseguro o intento de traversal: {value!r}")
+    return value
+
+
+def assert_path_containment(base_dir: Union[Path, str], target_path: Union[Path, str]) -> Path:
+    """Verifica y garantiza que target_path resuelva estrictamente dentro de base_dir.
+    
+    Mitiga Zip-Slip y Path Traversal comprobando inclusión canónica en parents.
+    """
+    root = Path(base_dir).resolve()
+    candidate = (root / target_path).resolve()
+    if candidate != root and root not in candidate.parents:
+        raise ValueError(f"Ruta candidata fuera de la raíz confinada: {candidate} no reside en {root}")
+    return candidate
+
+
 if __name__ == "__main__":
     main()

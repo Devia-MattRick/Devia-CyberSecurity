@@ -8,7 +8,10 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "test": "node --test \"dist/**/*.test.js\""
+    "test": "node --test \"dist/**/*.test.js\"",
+    "start:mcp": "node dist/mcp/index.js",
+    "mcp:publish": "node dist/mcp/publish.js",
+    "test:mcp": "node --test \"dist/mcp/tests/**/*.test.js\""
   },
   "keywords": [
     "cybersecurity",
@@ -24,6 +27,7 @@
   "license": "Apache-2.0",
   "packageManager": "pnpm@10.32.1",
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
     "zod": "^4.6.7"
   },
   "devDependencies": {

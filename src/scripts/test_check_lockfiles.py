@@ -132,6 +132,74 @@ class TestCheckLockfiles(unittest.TestCase):
         self.assertEqual(len(http_findings), 1)
         self.assertEqual(http_findings[0]["severity"], "HIGH")
 
+    def test_npmrc_insecure_http_registry_detected(self):
+        (self.target / "package.json").write_text('{"name": "test-pkg"}', encoding="utf-8")
+        (self.target / "package-lock.json").write_text('{}', encoding="utf-8")
+        (self.target / ".npmrc").write_text("registry = http://internal-npm.local/repo/\n", encoding="utf-8")
+        findings = check_lockfiles_in_directory(self.target)
+        http_reg = [f for f in findings if f["ruleId"] == "supply-chain.insecure-npmrc-http"]
+        self.assertEqual(len(http_reg), 1)
+        self.assertEqual(http_reg[0]["severity"], "HIGH")
+
+    def test_npmrc_unmapped_scope_dependency_confusion_detected(self):
+        pkg_content = {
+            "name": "internal-app",
+            "dependencies": {
+                "@corp/private-auth": "^1.0.0",
+                "lodash": "^4.17.21"
+            }
+        }
+        (self.target / "package.json").write_text(json.dumps(pkg_content), encoding="utf-8")
+        (self.target / "package-lock.json").write_text('{}', encoding="utf-8")
+        (self.target / ".npmrc").write_text("always-auth=true\n", encoding="utf-8")
+        findings = check_lockfiles_in_directory(self.target)
+        unmapped = [f for f in findings if f["ruleId"] == "supply-chain.npmrc-unmapped-scope"]
+        self.assertEqual(len(unmapped), 1)
+        self.assertIn("@corp", unmapped[0]["evidence"])
+
+    def test_npmrc_mapped_scope_is_clean(self):
+        pkg_content = {
+            "name": "internal-app",
+            "dependencies": {
+                "@corp/private-auth": "^1.0.0"
+            }
+        }
+        (self.target / "package.json").write_text(json.dumps(pkg_content), encoding="utf-8")
+        (self.target / "package-lock.json").write_text('{}', encoding="utf-8")
+        (self.target / ".npmrc").write_text("@corp:registry=https://pkgs.corp.internal/npm/\n", encoding="utf-8")
+        findings = check_lockfiles_in_directory(self.target)
+        unmapped = [f for f in findings if f["ruleId"] == "supply-chain.npmrc-unmapped-scope"]
+        self.assertEqual(len(unmapped), 0)
+
+    def test_pypi_extra_index_confusion_detected(self):
+        req_content = (
+            "--extra-index-url https://nexus.internal.corp/simple\n"
+            "requests==2.31.0\n"
+            "corp-auth-client==1.0.0\n"
+        )
+        (self.target / "requirements.txt").write_text(req_content, encoding="utf-8")
+        findings = check_lockfiles_in_directory(self.target)
+        confusion = [f for f in findings if f["ruleId"] == "supply-chain.pypi-extra-index-confusion"]
+        self.assertEqual(len(confusion), 1)
+        self.assertEqual(confusion[0]["severity"], "HIGH")
+
+    def test_pypi_extra_index_with_require_hashes_is_safe(self):
+        req_content = (
+            "--require-hashes\n"
+            "--extra-index-url https://nexus.internal.corp/simple\n"
+            "requests==2.31.0 --hash=sha256:abcdef1234567890\n"
+        )
+        (self.target / "requirements.txt").write_text(req_content, encoding="utf-8")
+        findings = check_lockfiles_in_directory(self.target)
+        confusion = [f for f in findings if f["ruleId"] == "supply-chain.pypi-extra-index-confusion"]
+        self.assertEqual(len(confusion), 0)
+
+    def test_pip_conf_extra_index_confusion_detected(self):
+        (self.target / "pip.conf").write_text("[global]\nextra-index-url = https://internal.repo/\n", encoding="utf-8")
+        findings = check_lockfiles_in_directory(self.target)
+        confusion = [f for f in findings if f["ruleId"] == "supply-chain.pypi-extra-index-confusion"]
+        self.assertEqual(len(confusion), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

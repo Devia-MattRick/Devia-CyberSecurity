@@ -39,6 +39,9 @@ El orquestador dispone de 26 scripts de análisis determinista en Python 3.11+, 
 ### 4. Catálogo Canónico SSOT (`docs/VULNERABILITIES.md`)
 Cada vulnerabilidad descubierta se mapea contra su identificador canónico (`VULN-*`), su taxonomía formal (CWE, OWASP Top 10, MITRE ATT&CK) y su esquema Zod correspondiente.
 
+### 5. Catálogo de 10 Tools MCP Canónicas (`src/mcp/`)
+El orquestador dispone de un Servidor MCP nativo (`pnpm start:mcp`, `dist/mcp/index.js`) que expone 10 herramientas maestras hacia cualquier cliente o agente externo, implementando resiliencia Stdio en Windows (drenado asíncrono en chunks de 4KB, `taskkill /T /F`), tokenomics TOON v1.1 (-50% tokens BPE), ZWSP defanging (`GHSA-g5f9-3xfg-p9mf`) y captura dual CCR con hash chains SHA-256.
+
 ---
 
 ## 🎖️ Protocolo Militar de Auditoría en 4 Fases
@@ -195,12 +198,13 @@ El agente emite un resumen preliminar:
 
 ---
 
-## 🛠️ Herramientas de Capa 3 Asignadas a esta Skill
+## 🛠️ Herramientas de Capa 3 y Tools MCP Asignadas
 
-| Script Ejecutable | Contrato Zod (Capa 2) | Rol en la Orquestación |
-| :--- | :--- | :--- |
-| [`src/scripts/stack_detector_mapper.py`](file:///k:/Devia-CyberSecurity/src/scripts/stack_detector_mapper.py) | [`report.schema.ts`](file:///k:/Devia-CyberSecurity/src/schemas/report.schema.ts) | Reconocimiento automático del stack, frameworks, manifests y mapeo dimensional en Fase 1. |
-| **Suite Completa de 25 Scripts** | Varios (`src/schemas/*.ts`) | Orquestados dinámicamente en Fase 3 según los resultados del mapeo dimensional. |
+| Tool MCP (Capa 2) | Script Ejecutable (Capa 3) | Contrato Zod (Capa 2) | Rol en la Orquestación |
+| :--- | :--- | :--- | :--- |
+| **`devia_orchestrate_audit`** | [`src/scripts/stack_detector_mapper.py`](file:///k:/Devia-CyberSecurity/src/scripts/stack_detector_mapper.py) | [`report.schema.ts`](file:///k:/Devia-CyberSecurity/src/schemas/report.schema.ts) | Reconocimiento automático del stack, frameworks, manifests y mapeo dimensional en Fase 1. |
+| **`devia_search_tools`** | Catálogo `scripts_manifest.json` | `mcp-audit.schema.ts` | Búsqueda léxica offline BM25 en <4ms de capacidades y referencias. |
+| **8 Tools Dimensionales** | **Suite Completa de 26 Scripts** | Varios (`src/schemas/*.ts`) | Orquestadas dinámicamente en Fase 3 según los resultados del mapeo dimensional. |
 
 ---
 

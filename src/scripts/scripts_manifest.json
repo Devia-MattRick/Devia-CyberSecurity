@@ -12,7 +12,11 @@
       "description": "Reconocimiento determinista del stack, dependencias, frameworks y arquitectura del objetivo; mapeo automático a las 8 dimensiones, skills, referencias y scripts.",
       "schema": "src/schemas/report.schema.ts",
       "test": "src/scripts/test_stack_detector_mapper.py",
-      "vulnerabilities": ["VULN-TM-001", "VULN-TM-003"]
+      "vulnerabilities": [
+        "VULN-TM-001",
+        "VULN-TM-003"
+      ],
+      "mcp_tool": "devia_orchestrate_audit"
     },
     {
       "name": "forensic_inventory.py",
@@ -22,7 +26,8 @@
       "description": "Traversal determinista sin ejecución de código; maneja reparse points / symlinks y calcula hashes SHA-256.",
       "schema": "src/schemas/absorption-plan.schema.ts",
       "test": "src/scripts/test_forensic_artifact_parser.py",
-      "vulnerabilities": []
+      "vulnerabilities": [],
+      "mcp_tool": "devia_orchestrate_audit"
     },
     {
       "name": "absorption_planner.py",
@@ -32,7 +37,8 @@
       "description": "Mapea inventario forense contra las 8 dimensiones y genera el plan de adopción y dossier ejecutivo en formato Zod.",
       "schema": "src/schemas/absorption-plan.schema.ts",
       "test": "src/scripts/test_forensic_artifact_parser.py",
-      "vulnerabilities": []
+      "vulnerabilities": [],
+      "mcp_tool": "devia_orchestrate_audit"
     },
     {
       "name": "forensic_artifact_parser.py",
@@ -42,7 +48,10 @@
       "description": "Parser estructurado de artefactos forenses, evidencias de código y generación de ledgers con digests SHA-256.",
       "schema": "src/schemas/forensic-artifact.schema.ts",
       "test": "src/scripts/test_forensic_artifact_parser.py",
-      "vulnerabilities": ["VULN-ARCH-004"]
+      "vulnerabilities": [
+        "VULN-ARCH-004"
+      ],
+      "mcp_tool": "devia_orchestrate_audit"
     },
     {
       "name": "target_snapshot.py",
@@ -52,7 +61,11 @@
       "description": "Generación determinista de snapshots de repositorios con ordenación lexicográfica O(n log n) y huellas primarias O(1).",
       "schema": "src/schemas/threat-model.schema.ts",
       "test": "src/scripts/test_target_snapshot.py",
-      "vulnerabilities": ["VULN-TM-001", "VULN-ARCH-004"]
+      "vulnerabilities": [
+        "VULN-TM-001",
+        "VULN-ARCH-004"
+      ],
+      "mcp_tool": "devia_threat_modeling"
     },
     {
       "name": "risk_assessment_engine.py",
@@ -62,7 +75,10 @@
       "description": "Motor cuantitativo de evaluación de riesgos cibernéticos basado en NIST SP 800-30 y matrices de criticidad.",
       "schema": "src/schemas/cyber-risk-assessment.schema.ts",
       "test": "src/scripts/test_risk_assessment_engine.py",
-      "vulnerabilities": ["VULN-TM-001"]
+      "vulnerabilities": [
+        "VULN-TM-001"
+      ],
+      "mcp_tool": "devia_threat_modeling"
     },
     {
       "name": "navigator_mapper.py",
@@ -72,7 +88,10 @@
       "description": "Mapeo y exportación determinista de capas de visualización táctica MITRE ATT&CK Navigator v4.x.",
       "schema": "src/schemas/framework-mapping.schema.ts",
       "test": "src/scripts/test_navigator_mapper.py",
-      "vulnerabilities": ["VULN-TM-003"]
+      "vulnerabilities": [
+        "VULN-TM-003"
+      ],
+      "mcp_tool": "devia_threat_modeling"
     },
     {
       "name": "incident_triage_scorer.py",
@@ -82,7 +101,11 @@
       "description": "Scoring cuantitativo ponderado y selección determinista de playbooks de respuesta a incidentes.",
       "schema": "src/schemas/incident-triage.schema.ts",
       "test": "src/scripts/test_incident_triage_scorer.py",
-      "vulnerabilities": ["VULN-RESI-003", "VULN-RESI-008"]
+      "vulnerabilities": [
+        "VULN-RESI-003",
+        "VULN-RESI-008"
+      ],
+      "mcp_tool": "devia_threat_modeling"
     },
     {
       "name": "vulnerability_sla_analyzer.py",
@@ -92,7 +115,10 @@
       "description": "Seguimiento riguroso de SLAs de remediación por severidad y cálculo de métricas de aging buckets.",
       "schema": "src/schemas/vulnerability-sla.schema.ts",
       "test": "src/scripts/test_vulnerability_sla_analyzer.py",
-      "vulnerabilities": ["VULN-TM-001"]
+      "vulnerabilities": [
+        "VULN-TM-001"
+      ],
+      "mcp_tool": "devia_threat_modeling"
     },
     {
       "name": "prompt_injection_detector.py",
@@ -102,7 +128,11 @@
       "description": "Detección estática de vectores de inyección de prompt indirecta, fuga de instrucciones y evasión de guardrails.",
       "schema": "src/schemas/threat-model.schema.ts",
       "test": "src/scripts/test_prompt_injection_detector.py",
-      "vulnerabilities": ["VULN-TM-004", "VULN-ARCH-010"]
+      "vulnerabilities": [
+        "VULN-TM-004",
+        "VULN-ARCH-010"
+      ],
+      "mcp_tool": "devia_threat_modeling"
     },
     {
       "name": "differential_exploit_verifier.py",
@@ -112,7 +142,11 @@
       "description": "Verificación diferencial no destructiva de oráculos de inyección (SQLi, SSTI, Command Injection).",
       "schema": "src/schemas/finding.schema.ts",
       "test": "src/scripts/test_differential_exploit_verifier.py",
-      "vulnerabilities": ["VULN-SAST-001", "VULN-SAST-020"]
+      "vulnerabilities": [
+        "VULN-SAST-001",
+        "VULN-SAST-020"
+      ],
+      "mcp_tool": "devia_source_sast"
     },
     {
       "name": "attack_vector_assessment_engine.py",
@@ -122,7 +156,13 @@
       "description": "Evaluador estático de rutas de ataque, análisis de impacto y cálculo de severidad de sumideros de ejecución.",
       "schema": "src/schemas/exploit-path-assessment.schema.ts",
       "test": "src/scripts/test_attack_vector_assessment_engine.py",
-      "vulnerabilities": ["VULN-SAST-017", "VULN-SAST-018", "VULN-SAST-019", "VULN-SAST-021"]
+      "vulnerabilities": [
+        "VULN-SAST-017",
+        "VULN-SAST-018",
+        "VULN-SAST-019",
+        "VULN-SAST-021"
+      ],
+      "mcp_tool": "devia_source_sast"
     },
     {
       "name": "poc_safety_linter.py",
@@ -132,7 +172,11 @@
       "description": "Linter estricto de seguridad para scripts de auditoría; previene llamadas a shell=True, sockets sin timeout y payloads destructivos.",
       "schema": "src/schemas/roe-enforcement.schema.ts",
       "test": "src/scripts/test_poc_safety_linter.py",
-      "vulnerabilities": ["VULN-SAST-002", "VULN-ARCH-019"]
+      "vulnerabilities": [
+        "VULN-SAST-002",
+        "VULN-ARCH-019"
+      ],
+      "mcp_tool": "devia_source_sast"
     },
     {
       "name": "scan_secrets.py",
@@ -142,7 +186,10 @@
       "description": "Escáner determinista de secretos con cálculo de entropía de Shannon, firmas regex de proveedores y filtro de falsos positivos.",
       "schema": "src/schemas/finding.schema.ts",
       "test": "src/scripts/test_scan_secrets.py",
-      "vulnerabilities": ["VULN-CRYP-001"]
+      "vulnerabilities": [
+        "VULN-CRYP-001"
+      ],
+      "mcp_tool": "devia_secrets_crypto"
     },
     {
       "name": "pqc_inventory_scanner.py",
@@ -152,7 +199,11 @@
       "description": "Escaneo de inventario criptográfico y auditoría de preparación Post-Cuántica (PQC FIPS 203/204).",
       "schema": "src/schemas/cryptographic-inventory.schema.ts",
       "test": "src/scripts/test_pqc_inventory_scanner.py",
-      "vulnerabilities": ["VULN-CRYP-002", "VULN-CRYP-004"]
+      "vulnerabilities": [
+        "VULN-CRYP-002",
+        "VULN-CRYP-004"
+      ],
+      "mcp_tool": "devia_secrets_crypto"
     },
     {
       "name": "role_mining_analyzer.py",
@@ -162,17 +213,28 @@
       "description": "Análisis y minería de matrices de permisos RBAC/ABAC para detectar sobre-privilegios y roles huérfanos.",
       "schema": "src/schemas/role-mining.schema.ts",
       "test": "src/scripts/test_role_mining_analyzer.py",
-      "vulnerabilities": ["VULN-IAM-002", "VULN-IAM-003"]
+      "vulnerabilities": [
+        "VULN-IAM-002",
+        "VULN-IAM-003"
+      ],
+      "mcp_tool": "devia_identity_access"
     },
     {
       "name": "check_lockfiles.py",
       "path": "src/scripts/check_lockfiles.py",
       "dimension": "SUPPLY_CHAIN_SCA",
       "skill": "supply-chain-sca",
-      "description": "Verificación estática de integridad de lockfiles (npm, pnpm, yarn, poetry, cargo) y detección de lifecycle hooks maliciosos.",
+      "description": "Verificación estática de integridad de lockfiles (npm, pnpm, yarn, poetry, cargo), detección de lifecycle hooks maliciosos, confusión de dependencias (.npmrc scopes) y resolución dual PyPI (--extra-index-url).",
       "schema": "src/schemas/finding.schema.ts",
       "test": "src/scripts/test_check_lockfiles.py",
-      "vulnerabilities": ["VULN-SCA-001", "VULN-SCA-006", "VULN-SCA-007"]
+      "vulnerabilities": [
+        "VULN-SCA-001",
+        "VULN-SCA-003",
+        "VULN-SCA-006",
+        "VULN-SCA-007",
+        "VULN-SCA-012"
+      ],
+      "mcp_tool": "devia_supply_chain"
     },
     {
       "name": "mcp_tool_poisoning_scanner.py",
@@ -182,7 +244,10 @@
       "description": "Auditoría de esquemas de herramientas Model Context Protocol (MCP); detecta tool poisoning y rug pulls mediante digests inmutables.",
       "schema": "src/schemas/mcp-audit.schema.ts",
       "test": "src/scripts/test_mcp_tool_poisoning_scanner.py",
-      "vulnerabilities": ["VULN-ARCH-011"]
+      "vulnerabilities": [
+        "VULN-ARCH-011"
+      ],
+      "mcp_tool": "devia_zero_trust_arch"
     },
     {
       "name": "c2_beaconing_detector.py",
@@ -192,7 +257,10 @@
       "description": "Detección estadística de patrones de beaconing y canales encubiertos de Command and Control (C2).",
       "schema": "src/schemas/threat-hunt.schema.ts",
       "test": "src/scripts/test_c2_beaconing_detector.py",
-      "vulnerabilities": ["VULN-ARCH-023"]
+      "vulnerabilities": [
+        "VULN-ARCH-023"
+      ],
+      "mcp_tool": "devia_zero_trust_arch"
     },
     {
       "name": "deception_canary_auditor.py",
@@ -202,7 +270,10 @@
       "description": "Auditoría de postura de tecnologías de engaño, canarios de credenciales y señuelos con regla Deny-All.",
       "schema": "src/schemas/deception-posture.schema.ts",
       "test": "src/scripts/test_deception_canary_auditor.py",
-      "vulnerabilities": ["VULN-ARCH-025"]
+      "vulnerabilities": [
+        "VULN-ARCH-025"
+      ],
+      "mcp_tool": "devia_zero_trust_arch"
     },
     {
       "name": "threat_detection_engine.py",
@@ -212,7 +283,11 @@
       "description": "Motor de correlación y detección de amenazas avanzadas en logs y telemetría de red.",
       "schema": "src/schemas/threat-detection.schema.ts",
       "test": "src/scripts/test_threat_detection_engine.py",
-      "vulnerabilities": ["VULN-ARCH-021", "VULN-ARCH-022"]
+      "vulnerabilities": [
+        "VULN-ARCH-021",
+        "VULN-ARCH-022"
+      ],
+      "mcp_tool": "devia_zero_trust_arch"
     },
     {
       "name": "url_validator.py",
@@ -222,7 +297,13 @@
       "description": "Validador estricto anti-SSRF; realiza resolución preflight DNS, control de redirecciones manuales y bloqueo de rangos privados/link-local.",
       "schema": "src/schemas/scan-contract.schema.ts",
       "test": "src/scripts/test_url_validator.py",
-      "vulnerabilities": ["VULN-SAST-012", "VULN-SAST-014", "VULN-CONF-005", "VULN-CONF-006"]
+      "vulnerabilities": [
+        "VULN-SAST-012",
+        "VULN-SAST-014",
+        "VULN-CONF-005",
+        "VULN-CONF-006"
+      ],
+      "mcp_tool": "devia_zero_trust_arch"
     },
     {
       "name": "hard_exclusions.py",
@@ -232,7 +313,10 @@
       "description": "Módulo O(1) de filtrado y exclusión determinista de rutas no confiables, dependencias externas y archivos de compilación.",
       "schema": "src/schemas/scan-contract.schema.ts",
       "test": "src/scripts/test_hard_exclusions.py",
-      "vulnerabilities": ["VULN-ARCH-004"]
+      "vulnerabilities": [
+        "VULN-ARCH-004"
+      ],
+      "mcp_tool": "devia_zero_trust_arch"
     },
     {
       "name": "endpoint_hardening_auditor.py",
@@ -242,7 +326,11 @@
       "description": "Auditoría de configuración de bastionado de endpoints (reglas ASR de Windows Defender, políticas de contraseñas y mitigaciones de kernel).",
       "schema": "src/schemas/endpoint-hardening.schema.ts",
       "test": "src/scripts/test_endpoint_hardening_auditor.py",
-      "vulnerabilities": ["VULN-CONF-001", "VULN-CONF-015"]
+      "vulnerabilities": [
+        "VULN-CONF-001",
+        "VULN-CONF-015"
+      ],
+      "mcp_tool": "devia_config_hardening"
     },
     {
       "name": "scan_covert_telemetry.py",
@@ -252,7 +340,11 @@
       "description": "Escaneo de telemetría clandestina, balizas SMS no autorizadas y exfiltración en cargas Base64.",
       "schema": "src/schemas/report.schema.ts",
       "test": "src/scripts/test_scan_covert_telemetry.py",
-      "vulnerabilities": ["VULN-CRYP-005", "VULN-RESI-006"]
+      "vulnerabilities": [
+        "VULN-CRYP-005",
+        "VULN-RESI-006"
+      ],
+      "mcp_tool": "devia_resilience_telemetry"
     },
     {
       "name": "sarif_toolkit.py",
@@ -262,7 +354,11 @@
       "description": "Parser, normalizador y deduplicador determinista de reportes en formato SARIF 2.1.0 (OASIS Standard).",
       "schema": "src/schemas/report.schema.ts",
       "test": "src/scripts/test_sarif_toolkit.py",
-      "vulnerabilities": ["VULN-ARCH-004", "VULN-RESI-004"]
+      "vulnerabilities": [
+        "VULN-ARCH-004",
+        "VULN-RESI-004"
+      ],
+      "mcp_tool": "devia_resilience_telemetry"
     },
     {
       "name": "scan_formula_injection.py",
@@ -272,7 +368,24 @@
       "description": "Escaneo estático determinista de Formula Injection en CSV/Excel (CWE-1236), verificación de prefijo de comilla simple (=, +, -, @, \\t, \\r, |, %) y BOM UTF-8.",
       "schema": "src/schemas/formula-injection.schema.ts",
       "test": "src/scripts/test_scan_formula_injection.py",
-      "vulnerabilities": ["VULN-SAST-022"]
+      "vulnerabilities": [
+        "VULN-SAST-022"
+      ],
+      "mcp_tool": "devia_source_sast"
+    },
+    {
+      "name": "target_scope_guard.py",
+      "path": "src/scripts/target_scope_guard.py",
+      "dimension": "SOURCE_CODE_SAST",
+      "skill": "source-code-sast",
+      "description": "Validador determinista fail-closed de alcance (RoE) y confinamiento de targets; verifica CIDRs, host literals y puertos antes de ejecutar comandos ofensivos.",
+      "schema": "src/schemas/roe-enforcement.schema.ts",
+      "test": "src/scripts/test_target_scope_guard.py",
+      "vulnerabilities": [
+        "VULN-SAST-002",
+        "VULN-ARCH-019"
+      ],
+      "mcp_tool": "devia_source_sast"
     }
   ]
 }

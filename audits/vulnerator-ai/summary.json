@@ -1,0 +1,36 @@
+{
+  "target": {
+    "root_path": "D:\\Descargas\\vulnerator-ai-master",
+    "canonical_path": "D:\\Descargas\\vulnerator-ai-master",
+    "name": "vulnerator-ai-master",
+    "archetype": "AGENTIC_SKILL_OR_PLUGIN",
+    "version": "1.7.0",
+    "snapshot_type": "OFFLINE_DISTRIBUTION_ZIP",
+    "total_files": 164,
+    "total_directories": 50
+  },
+  "timestamps": {
+    "created_at": "2026-10-31T05:22:18Z"
+  },
+  "metrics": {
+    "total_files": 164,
+    "total_bytes": 8956037,
+    "category_distribution": {
+      "CRITICAL_MANIFEST_OR_CONFIG": 97,
+      "SOURCE_CODE": 71,
+      "CONFIGURATION": 22,
+      "DOCUMENTATION": 45,
+      "ASSET_OR_OTHER": 22
+    },
+    "top_extensions": {
+      ".py": 63,
+      ".md": 45,
+      "[no_ext]": 9,
+      ".yml": 8,
+      ".json": 6,
+      ".php": 5,
+      ".ini": 4,
+      ".example": 3
+    }
+  }
+}

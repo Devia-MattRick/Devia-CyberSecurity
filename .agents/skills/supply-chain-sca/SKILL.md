@@ -34,4 +34,4 @@ Esta Skill consume y orquesta los siguientes motores de análisis determinista e
 
 | Script Ejecutable | Contrato Zod (Capa 2) | Rol y Capacidades | Test Unitario |
 | :--- | :--- | :--- | :--- |
-| [`src/scripts/check_lockfiles.py`](file:///k:/Devia-CyberSecurity/src/scripts/check_lockfiles.py) | [`finding.schema.ts`](file:///k:/Devia-CyberSecurity/src/schemas/finding.schema.ts) | Verificación estática determinista de integridad de lockfiles (npm, pnpm, yarn, poetry, cargo) y detección de hooks de instalación maliciosos. | [`test_check_lockfiles.py`](file:///k:/Devia-CyberSecurity/src/scripts/test_check_lockfiles.py) |
+| [`src/scripts/check_lockfiles.py`](file:///k:/Devia-CyberSecurity/src/scripts/check_lockfiles.py) | [`finding.schema.ts`](file:///k:/Devia-CyberSecurity/src/schemas/finding.schema.ts) | Verificación estática determinista de integridad de lockfiles (npm, pnpm, yarn, poetry, cargo), detección de hooks de instalación, confusión de dependencias (.npmrc) y resolución dual PyPI (--extra-index-url). | [`test_check_lockfiles.py`](file:///k:/Devia-CyberSecurity/src/scripts/test_check_lockfiles.py) |

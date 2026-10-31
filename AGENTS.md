@@ -126,6 +126,7 @@ El repositorio organiza su Capa 1 de Orquestación Agentica en **1 Skill Orquest
 
 - **`src/schemas/`**: Esquemas autoritativos definidos con **Zod** (`finding.schema.ts`, `threat-model.schema.ts`, `report.schema.ts`, etc.).
 - **`src/types/`**: Tipos TypeScript fuertemente tipados inferidos directamente de los esquemas Zod (`z.infer`).
+- **`src/mcp/`**: Servidor Model Context Protocol (MCP) de grado industrial en TypeScript (Capa 2), conector de resiliencia Stdio (Axiomas de mcptoon), serializador tabular TOON v1.1, interceptor Lossless CCR, ZWSP defanging y 10 tools canónicas.
 - **`src/engine/`**: Lógica central de orquestación de auditorías, runners y ejecución de reglas (Capa 2).
 - **`src/scripts/`**: Suite canónica y centralizada de motores y utilidades deterministas en Python 3.11+ (Capa 3). Contiene el manifiesto `scripts_manifest.json` y la suite de pruebas unitarias (`test_*.py`). Queda prohibida la creación de carpetas `scripts/` vacías en las skills.
 - **`.agents/skills/`**: Habilidades operativas del agente (`SKILL.md` y `references/`) para razonamiento por dimensión. Cada `SKILL.md` contiene la tabla explícita de herramientas de Capa 3 asignadas con sus rutas a `src/scripts/`.
@@ -156,3 +157,5 @@ El repositorio organiza su Capa 1 de Orquestación Agentica en **1 Skill Orquest
    - b) **Referencias Técnicas (`.agents/skills/<skill>/references/<tema>.md`)**: Documentación técnica exhaustiva con taxonomía multimarco, diagramas y ejemplos vulnerable vs seguro.
    - c) **Scripts Ejecutables de Capa 3 (`src/scripts/<herramienta>.py`)**: Código determinista en Python 3.11+, probado al 100% con `unittest` y registrado en [`src/scripts/scripts_manifest.json`](file:///src/scripts/scripts_manifest.json).
    - d) **Catálogo Canónico (`docs/VULNERABILITIES.md`)**: Registro del identificador (`VULN-*`), CWE/OWASP, dimensión asignada, enlace a la referencia, esquema Zod y script ejecutable.
+9. **Servidor MCP Canónico y Gobernanza Cross-Agent (Capa 2):**
+   El repositorio expone un Servidor Model Context Protocol (MCP) nativo (`pnpm start:mcp`, `dist/mcp/index.js`) con 10 herramientas maestras que proyectan las 8 dimensiones y los 26 motores de Capa 3 hacia cualquier cliente (Claude Desktop, Cursor, Windsurf, Cline, Roo, Zed y Antigravity). Todo transporte opera bajo los principios de `agentic-execution-core` v3.4.0: resiliencia Stdio con drenado asíncrono en chunks de 4KB (escudo anti-deadlock en Windows), terminación en árbol (`taskkill /PID /T /F`), compresión tabular TOON v1.1, captura Lossless CCR (>1.200 tokens / 1 MiB) con trazabilidad forense en Hash Chains, y neutralización ZWSP de delimitadores de chat (`GHSA-g5f9-3xfg-p9mf`).

@@ -22,8 +22,9 @@ Esta Skill gobierna la dimensión de **Modelado de Amenazas y Superficie de Ataq
 
 ## 📂 Organización Interna
 
-- `references/`: Guías de metodologías de modelado (STRIDE, PASTA), catálogos de superficies y checklists (10 referencias técnicas).
+- `references/`: Guías de metodologías de modelado (STRIDE, PASTA), catálogos de superficies y checklists (11 referencias técnicas).
   - [`target-snapshots-and-investigation-packets.md`](references/target-snapshots-and-investigation-packets.md): Snapshots deterministas de workspaces, huellas primarias de hallazgos y formulación de paquetes de investigación.
+  - [`ooda-loop-and-attack-tactical-orientation.md`](references/ooda-loop-and-attack-tactical-orientation.md): Bucle Observe-Orient-Decide-Act (OODA) y orientación táctica basada en las 14 tácticas de MITRE ATT&CK.
 
 ---
 

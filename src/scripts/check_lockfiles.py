@@ -184,6 +184,70 @@ def check_lockfiles_in_directory(target_dir: Path) -> List[Dict[str, Any]]:
                     })
                     break
 
+        # Check .npmrc for Dependency Confusion and Insecure Registries
+        npmrc = target_dir / ".npmrc"
+        if npmrc.is_file():
+            try:
+                npmrc_lines = npmrc.read_text(encoding="utf-8", errors="ignore").splitlines()
+                scoped_registries: Set[str] = set()
+                has_insecure_http_reg = False
+                http_reg_evidence = ""
+
+                for idx, line in enumerate(npmrc_lines, 1):
+                    clean_l = line.strip()
+                    if not clean_l or clean_l.startswith("#") or clean_l.startswith(";"):
+                        continue
+                    if "http://" in clean_l and ("registry" in clean_l or "_auth" in clean_l):
+                        has_insecure_http_reg = True
+                        http_reg_evidence = f"line {idx}: {clean_l}"
+                    scope_match = re.match(r"^@([a-zA-Z0-9_-]+):registry\s*=", clean_l)
+                    if scope_match:
+                        scoped_registries.add(f"@{scope_match.group(1).lower()}")
+
+                if has_insecure_http_reg:
+                    findings.append({
+                        "ruleId": "supply-chain.insecure-npmrc-http",
+                        "type": "Insecure HTTP Registry in .npmrc",
+                        "severity": "HIGH",
+                        "file": ".npmrc",
+                        "line": 1,
+                        "description": "Found unencrypted HTTP registry or auth configuration in .npmrc, susceptible to MitM manipulation.",
+                        "cwe": ["CWE-319", "CWE-829"],
+                        "owasp": ["A08:2021-Software and Data Integrity Failures"],
+                        "evidence": http_reg_evidence,
+                        "remediation": "Enforce HTTPS for all registry URLs in .npmrc."
+                    })
+
+                # Check if package.json has scoped dependencies not pinned in .npmrc
+                try:
+                    pkg_data = json.loads(pkg_json.read_text(encoding="utf-8", errors="ignore"))
+                    all_deps = dict(pkg_data.get("dependencies", {}))
+                    all_deps.update(pkg_data.get("devDependencies", {}))
+                    unpinned_scopes: Set[str] = set()
+                    for dep_name in all_deps.keys():
+                        if dep_name.startswith("@") and "/" in dep_name:
+                            dep_scope = dep_name.split("/")[0].lower()
+                            if dep_scope not in scoped_registries:
+                                unpinned_scopes.add(dep_scope)
+
+                    if unpinned_scopes:
+                        findings.append({
+                            "ruleId": "supply-chain.npmrc-unmapped-scope",
+                            "type": "Unmapped npm Scope Dependency Confusion",
+                            "severity": "HIGH",
+                            "file": ".npmrc",
+                            "line": 1,
+                            "description": f"Found scoped packages ({', '.join(unpinned_scopes)}) in package.json without dedicated scope registry mapping in .npmrc. Builds risk resolving internal packages against public npm registry.",
+                            "cwe": ["CWE-829", "CWE-427"],
+                            "owasp": ["A08:2021-Software and Data Integrity Failures"],
+                            "evidence": f"Unmapped scopes in .npmrc: {', '.join(unpinned_scopes)}",
+                            "remediation": "Add '@<scope>:registry=https://private-registry/' to .npmrc to pin internal package namespaces exclusively."
+                        })
+                except Exception:
+                    pass
+            except Exception:
+                pass
+
         # Check package.json content: unpinned dependencies and risky hooks
         try:
             content = json.loads(pkg_json.read_text(encoding="utf-8", errors="ignore"))
@@ -325,18 +389,40 @@ def check_lockfiles_in_directory(target_dir: Path) -> List[Dict[str, Any]]:
                 "remediation": "Run 'pipenv lock' and commit Pipfile.lock."
             })
 
-    # Requirements.txt unpinned check
+    # Requirements.txt unpinned and dependency confusion checks
     for req_fname in ["requirements.txt", "requirements-dev.txt"]:
         req_file = target_dir / req_fname
         if req_file.is_file():
             try:
                 unpinned_py: List[str] = []
-                for idx, line in enumerate(req_file.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
+                extra_index_lines: List[str] = []
+                req_lines = req_file.read_text(encoding="utf-8", errors="ignore").splitlines()
+                has_require_hashes = any("--require-hashes" in l for l in req_lines)
+
+                for idx, line in enumerate(req_lines, 1):
                     clean_l = line.strip()
-                    if not clean_l or clean_l.startswith("#") or clean_l.startswith("-"):
+                    if not clean_l or clean_l.startswith("#"):
+                        continue
+                    if "--extra-index-url" in clean_l:
+                        extra_index_lines.append(f"line {idx}: {clean_l}")
+                    if clean_l.startswith("-"):
                         continue
                     if "==" not in clean_l and "@" not in clean_l:
                         unpinned_py.append(f"line {idx}: {clean_l}")
+
+                if extra_index_lines and not has_require_hashes:
+                    findings.append({
+                        "ruleId": "supply-chain.pypi-extra-index-confusion",
+                        "type": "PyPI Dependency Confusion via --extra-index-url",
+                        "severity": "HIGH",
+                        "file": req_fname,
+                        "line": 1,
+                        "description": "Detected '--extra-index-url' without '--require-hashes'. Pip queries public PyPI and internal registries in parallel, preferring highest version numbers and exposing internal dependencies to public namespace confusion attacks.",
+                        "cwe": ["CWE-829", "CWE-427"],
+                        "owasp": ["A08:2021-Software and Data Integrity Failures"],
+                        "evidence": ", ".join(extra_index_lines[:3]),
+                        "remediation": "Replace '--extra-index-url' with a single '--index-url' pointing to an enterprise repository proxy (Nexus/Artifactory) or enforce '--require-hashes'."
+                    })
 
                 if unpinned_py:
                     findings.append({
@@ -353,6 +439,27 @@ def check_lockfiles_in_directory(target_dir: Path) -> List[Dict[str, Any]]:
                     })
             except Exception:
                 pass
+
+    # pip.conf dependency confusion check
+    pip_conf = target_dir / "pip.conf"
+    if pip_conf.is_file():
+        try:
+            pip_conf_content = pip_conf.read_text(encoding="utf-8", errors="ignore")
+            if "extra-index-url" in pip_conf_content:
+                findings.append({
+                    "ruleId": "supply-chain.pypi-extra-index-confusion",
+                    "type": "PyPI Dependency Confusion in pip.conf",
+                    "severity": "HIGH",
+                    "file": "pip.conf",
+                    "line": 1,
+                    "description": "Found 'extra-index-url' in pip.conf. Dual-index pip resolution allows malicious public packages with higher version numbers to override private dependencies.",
+                    "cwe": ["CWE-829", "CWE-427"],
+                    "owasp": ["A08:2021-Software and Data Integrity Failures"],
+                    "evidence": "extra-index-url setting in pip.conf",
+                    "remediation": "Use an enterprise artifact repository proxy as sole 'index-url' instead of configuring secondary indexes."
+                })
+        except Exception:
+            pass
 
     # 3. Rust (Cargo.lock)
     cargo_toml = target_dir / "Cargo.toml"

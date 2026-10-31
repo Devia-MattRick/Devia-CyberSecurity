@@ -78,6 +78,38 @@ Este documento constituye el **Playbook Operativo de Invariantes de Ingeniería 
 ### 3.6. Invariante de Resiliencia en Transporte MCP Stdio
 - **La Regla:** En servidores Model Context Protocol (MCP) headless que operan sobre `stdin`/`stdout`, un error no capturado o llamada a `process.exit()` finaliza el proceso completo y destruye la sesión IPC del agente. Toda herramienta registrada debe envolver su ejecución en bloques `try/catch` y retornar `{ isError: true, content: [...] }`.
 
+### 3.7. Invariante de Redacción de Secretos en Canales Auxiliares de LLMs (`VULN-CRYP-001` / `VULN-RESI-005`)
+- **La Lección:** En arquitecturas de agentes autónomos, los payloads de prueba, credenciales capturadas y tokens JWT acumulados en el historial de chat son transmitidos inadvertidamente hacia endpoints LLM auxiliares (generación de títulos de conversación, compresión de ventana de contexto o modelos ligeros de enrutamiento).
+- **La Regla Operativa:**  
+  1. En mensajes conversacionales e historiales de chat, redactar siempre tokens y credenciales a sus **últimos 6 caracteres** (e.g. `...a8f9b2`).
+  2. Los secretos completos y datos crudos deben residir exclusivamente en el plano de artefactos (`/artifacts/`) o en almacenes estructurados durables (`findings.jsonl`), nunca en el hilo de conversación libre.
+
+### 3.8. Invariante de Paginación con Doble Presupuesto en Transporte MCP SSE (`VULN-RESI-001` / `VULN-ARCH-004`)
+- **La Lección:** El transporte `streamable-http` de Model Context Protocol (MCP) presenta un límite duro de 1 MiB (1,048,576 bytes) por evento individual Server-Sent Events (SSE). Intentar entregar colecciones masivas de hallazgos en un solo bloque satura el buffer de red y provoca la desconexión abrupta del cliente.
+- **La Regla Operativa:**  
+  Segmentar las respuestas mediante paginación estricta con **doble presupuesto**:
+  - Tope de tamaño: $\le 256\text{ KiB}$ (medido mediante serialización JSON acumulada).
+  - Tope de conteo: $\le 100$ elementos por página.
+  - Regla anti-inanición (*anti-starvation*): Si un elemento individual supera el presupuesto de bytes pero la página está vacía, entregarlo de forma aislada sin abortar el flujo.
+
+### 3.9. Invariante de Terminación Limpia de Grupos de Proceso (Anti-Procesos Huérfanos)
+- **La Lección:** Invocar `proc.terminate()` o `proc.kill()` sobre un subproceso que a su vez engendra procesos secundarios (e.g. runners de nmap, compiladores o herramientas de escaneo) solo mata al proceso padre, dejando a los procesos hijos ejecutándose indefinidamente en segundo plano, consumiendo CPU y reteniendo sockets.
+- **La Regla Operativa:**  
+  1. Iniciar subprocesos con `start_new_session=True` para convertirlos en líderes de su propio grupo de procesos.
+  2. Al expirar un timeout o recibir una cancelación cooperativa, recuperar el ID del grupo (`pgid = os.getpgid(proc.pid)`) y enviar `os.killpg(pgid, signal.SIGTERM)`, seguido de `SIGKILL` si no termina en 5 segundos.
+  3. En Windows, invocar obligatoriamente `taskkill /PID <PID> /T /F` para purgar árboles completos de procesos nietos.
+
+### 3.10. Invariante de Drenado Asíncrono de Pipes de 4KB en Windows (Axiomas de mcptoon)
+- **La Lección:** En Windows, los pipes anónimos de `stdout` y `stderr` poseen un buffer estricto de 4.096 bytes (4 KB). Un subproceso que escriba trazas extensas se congelará de forma permanente si el proceso padre no drena ambos streams concurrentemente de forma asíncrona.
+- **La Regla Operativa:** El despachador de procesos de Capa 2 (`process-runner.ts`) debe consumir `stdout` y `stderr` mediante listeners de eventos asíncronos en chunks crudos de 4.096 bytes, preservando los últimos 4 KB de `stderr` como tail diagnóstico ante colapsos.
+
+### 3.11. Invariante de ZWSP Defanging en Canales de IA (`GHSA-g5f9-3xfg-p9mf`)
+- **La Lección:** Repositorios o archivos externos auditados pueden contener intencionalmente tokens delimitadores estructurales de chat (`<|im_start|>`, `<|eot_id|>`, `[INST]`, `<start_of_turn>`) para engañar al LLM y secuestrar el rol del sistema (*Role Hijacking*).
+- **La Regla Operativa:** Todo contenido crudo extraído de objetivos externos antes de ser inyectado en respuestas MCP o prompts debe pasar por `sanitizer.ts`, insertando un Zero-Width Space (`\u200b`) tras el primer carácter para neutralizar su interpretación en tokenizadores locales o cloud.
+
+### 3.12. Invariante de Compresión TOON v1.1 para Colecciones Tabulares
+- **La Regla:** Para colecciones homogéneas de hallazgos, dependencias o secretos, serializar mediante sintaxis tabular TOON v1.1 (`[N] col1, col2:`), reduciendo entre 45% y 53% el costo de tokens BPE frente a JSON Schema minificado, preservando la capacidad atencional del modelo para tareas de razonamiento y remediación.
+
 
 ---
 

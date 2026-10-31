@@ -22,17 +22,19 @@ Esta Skill gobierna la dimensión de **Arquitectura, Límites de Confianza y Zer
 
 ## 📂 Organización Interna
 
-- `references/`: Guías de hardening para Electron, matrices de políticas CSP/CORS y arquitecturas Zero Trust de referencia (25 referencias técnicas).
+- `references/`: Guías de hardening para Electron, matrices de políticas CSP/CORS y arquitecturas Zero Trust de referencia (27 referencias técnicas).
+  - [`container-breakout-and-namespace-isolation.md`](references/container-breakout-and-namespace-isolation.md): Auditoría de aislamiento en Docker/K8s, mitigación de sockets expuestos, Linux capabilities de riesgo y prevención de escapes de runtime (`VULN-ARCH-017`).
   - [`ztna-and-microsegmentation-architecture.md`](references/ztna-and-microsegmentation-architecture.md): Arquitectura de acceso Zero Trust (ZTNA), lenguaje de políticas Cedar y microsegmentación de cargas de trabajo.
   - [`sealed-scan-contracts-and-projections.md`](references/sealed-scan-contracts-and-projections.md): Principio de paquetes sellados inmutables (`scan-manifest.json`), separación de SSOT vs proyecciones y mitigación de `VULN-ARCH-004`.
   - [`docker-sandbox-daemon-isolation-and-opa-probe.md`](references/docker-sandbox-daemon-isolation-and-opa-probe.md): Aislamiento estricto de daemons Docker y sondas OPA contra escapes (`VULN-ARCH-009`).
   - [`agentic-system-security-mcp.md`](references/agentic-system-security-mcp.md): Modelo de autoridad efectiva y barreras de herramientas MCP (`VULN-ARCH-011`).
+  - [`mcp-plugin-trust-and-process-isolation.md`](references/mcp-plugin-trust-and-process-isolation.md): Modelo de confianza compartida en plugins de servidores MCP, riesgos de ejecución in-process y mecanismos de aislamiento.
 
 ---
 
-## 🛠️ Herramientas de Capa 3 Asignadas (`src/scripts/`)
+## 🛠️ Herramientas de Capa 3 y Tool MCP Asignada (`devia_zero_trust_arch`)
 
-Esta Skill consume y orquesta los siguientes motores de análisis determinista en Python 3.11+:
+Esta Skill gobierna la herramienta MCP canónica **`devia_zero_trust_arch`** (Capa 2), que despacha y orquesta los siguientes motores de análisis determinista en Python 3.11+:
 
 | Script Ejecutable | Contrato Zod (Capa 2) | Rol y Capacidades | Test Unitario |
 | :--- | :--- | :--- | :--- |
